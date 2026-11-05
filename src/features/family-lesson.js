@@ -63,7 +63,8 @@ export class FamilyLessonFeature {
     const correct = symbol === this.exerciseOrder[this.exerciseIndex];
     if (!correct) {
       this.exerciseResult = 'try-again';
-      return this.exerciseResult;
+      await this.playExercisePrompt();
+      return 'wrong';
     }
 
     if (this.exerciseIndex === this.exerciseOrder.length - 1) {
@@ -142,9 +143,9 @@ export class FamilyLessonFeature {
             ` : `
               <div class='exercise-prompt'>
                 <button class='secondary-btn' type='button' data-action='family-exercise-prompt'>Play sound prompt</button>
-                <span class='helper-copy' aria-live='polite'>${this.exerciseResult === 'advanced'
+                <span class='helper-copy exercise-feedback ${this.exerciseResult === 'try-again' ? 'is-incorrect' : ''}' aria-live='polite'>${this.exerciseResult === 'advanced'
                   ? 'Correct! Listen to the next sound.'
-                  : this.exerciseResult === 'try-again' ? 'Not that one. Listen again and try another form.' : 'Choose the matching form.'}</span>
+                  : this.exerciseResult === 'try-again' ? '<span class="exercise-error-icon" aria-hidden="true">✕</span> Incorrect! Listen to the sound again and try once more.' : 'Choose the matching form.'}</span>
               </div>
               <div class='exercise-choices' role='group' aria-label='Choose the matching form'>
                 ${family.map(symbol => `
@@ -166,11 +167,14 @@ export class FamilyLessonFeature {
               <ol class='reading-combinations' aria-label='Reading Two pronunciation practice'>
                 ${reading.readingTwo.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
               </ol>
+              <h4 class='activity-title'>Reading Three</h4>
+              <p class='reading-paragraph' lang='ti' dir='ltr'>${reading.readingThree}</p>
             ` : `
               <div class='reading-lock-notice' role='status'>
                 <h4 class='activity-title'>Reading One</h4>
                 <h4 class='activity-title'>Reading Two</h4>
-                <p class='helper-copy'>Complete the listening exercise, then select “Continue to reading practice” to unlock both readings.</p>
+                <h4 class='activity-title'>Reading Three</h4>
+                <p class='helper-copy'>Complete the listening exercise, then select “Continue to reading practice” to unlock all three readings.</p>
               </div>
             `}
           </section>

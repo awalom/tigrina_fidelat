@@ -683,8 +683,10 @@ class FidelatApp {
 
       if (action === 'family-exercise-answer') {
         const result = await this.familyLesson.answerExercise(button.dataset.symbol);
-        this.setBanner(result === 'correct' || result === 'complete' ? 'success' : 'info',
-          result === 'complete'
+        this.setBanner(result === 'wrong' ? 'error' : result === 'correct' || result === 'complete' ? 'success' : 'info',
+          result === 'wrong'
+            ? 'Incorrect. The sound has been repeated; listen and try again.'
+            : result === 'complete'
             ? 'All seven forms correct! Choose whether to repeat or continue to reading practice.'
             : result === 'correct'
             ? 'Correct! The next sound is playing.'

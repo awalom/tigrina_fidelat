@@ -1196,6 +1196,8 @@ h1 {
 .family-form-btn strong, .reading-glyphs { font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif; }
 .family-form-btn strong { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.35; color: var(--accent-deep); }
 .exercise-prompt { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.exercise-feedback.is-incorrect { display: inline-flex; align-items: center; gap: 6px; color: #b42318; font-weight: 700; }
+.exercise-error-icon { display: inline-grid; place-items: center; width: 1.3em; height: 1.3em; border: 2px solid currentColor; border-radius: 50%; line-height: 1; }
 .exercise-choices { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
 .exercise-choice { min-width: 0; min-height: 68px; padding: 6px; font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .reading-glyphs {
@@ -1218,6 +1220,12 @@ h1 {
   border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.78);
   color: var(--accent-deep); font: clamp(1.65rem, 3vw, 2.25rem)/1.4 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
   box-shadow: 0 3px 0 rgba(29,41,48,.06);
+}
+.reading-paragraph {
+  margin: 10px 0 0; padding: 16px; border: 1px solid var(--line); border-radius: 16px;
+  background: rgba(255,255,255,.78); color: var(--accent-deep);
+  font: clamp(1.2rem, 2.5vw, 1.65rem)/2 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+  letter-spacing: .04em; overflow-wrap: anywhere;
 }
 .family-lesson :focus-visible, .family-sidebar :focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 3px; }
 @media (max-width: 900px) {

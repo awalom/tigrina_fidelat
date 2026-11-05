@@ -21,8 +21,11 @@ test('local reading file contains five same-family two- and three-form drills fo
     const reading = familyReadings[family[0]];
     assert.equal(reading.readingOne.length, 5);
     assert.equal(reading.readingTwo.length, 5);
+    assert.equal(typeof reading.readingThree, 'string');
+    assert.ok(reading.readingThree.length > 0);
     assert.ok(reading.readingOne.every(word => [...word].length === 2 && [...word].every(symbol => family.includes(symbol))));
     assert.ok(reading.readingTwo.every(word => [...word].length === 3 && [...word].every(symbol => family.includes(symbol))));
+    assert.ok([...reading.readingThree].filter(symbol => symbol !== ' ').every(symbol => family.includes(symbol)));
   }
 });
 
@@ -44,7 +47,14 @@ test('family selection scopes playback and exercise answers to the selected fami
   const promptOrder = [...lesson.exerciseOrder];
   assert.equal(new Set(promptOrder).size, 7);
   assert.notDeepEqual(promptOrder, lesson.family);
-  assert.equal(await lesson.answerExercise(lesson.family.find(symbol => symbol !== promptOrder[0])), 'try-again');
+  assert.equal(await lesson.answerExercise(lesson.family.find(symbol => symbol !== promptOrder[0])), 'wrong');
+  assert.equal(lesson.exerciseIndex, 0);
+  assert.equal(lesson.exerciseResult, 'try-again');
+  assert.deepEqual(played.slice(-1), [promptOrder[0]]);
+  const incorrectMarkup = lesson.render();
+  assert.match(incorrectMarkup, /exercise-feedback is-incorrect/);
+  assert.match(incorrectMarkup, /exercise-error-icon/);
+  assert.match(incorrectMarkup, /Incorrect! Listen to the sound again/);
   for (const [index, symbol] of promptOrder.entries()) {
     assert.equal(lesson.exerciseOrder[lesson.exerciseIndex], symbol);
     const result = await lesson.answerExercise(symbol);
@@ -52,7 +62,7 @@ test('family selection scopes playback and exercise answers to the selected fami
   }
   assert.equal(lesson.exerciseComplete, true);
   assert.equal(lesson.exerciseIndex, null);
-  assert.deepEqual(played, ['ቤ', promptOrder[0], ...promptOrder.slice(1)]);
+  assert.deepEqual(played, ['ቤ', promptOrder[0], promptOrder[0], ...promptOrder.slice(1)]);
   assert.equal(lesson.selectFamily(999), false);
 });
 
@@ -87,8 +97,10 @@ test('reading and rendered exercises include forms only from the chosen family',
   const readWords = list => [...list.matchAll(/<li class='reading-combination-card' lang='ti' dir='ltr'>([^<]+)<\/li>/g)].map(([, word]) => word);
   assert.deepEqual(readWords(readingLists[0][1]), familyReadings[lesson.family[0]].readingOne);
   assert.deepEqual(readWords(readingLists[1][1]), familyReadings[lesson.family[0]].readingTwo);
+  assert.match(reading, new RegExp(`<p class='reading-paragraph' lang='ti' dir='ltr'>${familyReadings[lesson.family[0]].readingThree}</p>`));
   assert.match(reading, /Reading One/);
   assert.match(reading, /Reading Two/);
+  assert.match(reading, /Reading Three/);
   assert.match(markup, /Repeat exercise/);
   assert.match(markup, /Continue to reading practice/);
 });
