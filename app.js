@@ -261,7 +261,7 @@ class FidelatApp {
   }
 
   updateDocumentTitle() {
-    const brand = 'Eritrean Language and Culture School';
+    const brand = 'Eritrean Language and Culture School Bern';
     const view = this.store.getProgress().activeView;
     const assignment = this.route === 'admin' ? null : practiceOptions(view).find(option => option.hash === practiceHash(view, this.store.getProgress()[view]));
     document.title = `${this.getCurrentViewTitle()}${assignment ? ` · ${assignment.label}` : ''} | ${brand}`;
@@ -388,6 +388,14 @@ class FidelatApp {
 
   async handleChange(event) {
     const action = event.target.dataset.action;
+    if (action === 'family-select') {
+      if (!this.familyLesson.selectFamily(Number(event.target.value))) return;
+      this.audio.stop();
+      this.banner = { tone: 'info', text: '' };
+      this.render();
+      return;
+    }
+
     if (action === 'theme-select') {
       this.store.setTheme(event.target.value);
       this.render();
@@ -640,14 +648,6 @@ class FidelatApp {
         return;
       }
 
-      if (action === 'family-select') {
-        this.familyLesson.selectFamily(Number(button.dataset.familyIndex));
-        this.audio.stop();
-        this.banner = { tone: 'info', text: '' };
-        this.render();
-        return;
-      }
-
       if (action === 'family-play') {
         await this.requireAudio(() => this.familyLesson.playSymbol(button.dataset.symbol));
         this.setBanner('success', `Played ${button.dataset.symbol}.`);
@@ -667,9 +667,11 @@ class FidelatApp {
       }
 
       if (action === 'family-reading-continue') {
+        if (!this.familyLesson.continueToReadingPractice()) return;
+        this.setBanner('success', 'Reading One and Reading Two are now available.');
         const reading = this.root.querySelector('#family-reading-practice');
         reading?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        reading?.querySelector('#reading-title')?.focus({ preventScroll: true });
+        reading?.querySelector('.activity-title')?.focus({ preventScroll: true });
         return;
       }
 
@@ -989,7 +991,7 @@ class FidelatApp {
       <header class='top-shell card'>
         <div class='brand-block'>
           <div class='eyebrow'>Tigrinya Fidel learning</div>
-          <h1>Eritrean Language and Culture School</h1>
+          <h1>Eritrean Language and Culture School Bern</h1>
           <p class='hero-copy'>${adminRoute
             ? this.store.getText('auth.adminIntro', {}, null)
             : 'Learn one alphabet family at a time with audio, exercises, and reading practice.'}</p>

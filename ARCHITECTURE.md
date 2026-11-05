@@ -10,6 +10,8 @@ React could still be introduced later if the app grows into many nested interact
 
 - src/data/fidelat-data.js
   Central source of truth for variant names and Fidelat rows.
+- src/data/readingPractice.json
+  Local, family-keyed source of truth for Reading One and Reading Two content. The family lesson imports and renders these entries directly instead of generating reading combinations in code.
 - src/services/storage-service.js
   Loads, saves, resets, and migrates persisted progress.
 - src/services/audio-service.js

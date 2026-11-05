@@ -1,4 +1,5 @@
 import { PRIMARY_ROWS, SECONDARY_ROWS } from '../data/fidelat-data.js';
+import familyReadings from '../data/readingPractice.json' with { type: 'json' };
 
 export const LETTER_FAMILIES = [...PRIMARY_ROWS, ...SECONDARY_ROWS];
 export const FORM_ORDER = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
@@ -11,6 +12,7 @@ export class FamilyLessonFeature {
     this.exerciseIndex = null;
     this.exerciseResult = '';
     this.exerciseComplete = false;
+    this.readingActive = false;
   }
 
   get family() {
@@ -24,6 +26,13 @@ export class FamilyLessonFeature {
     this.exerciseIndex = null;
     this.exerciseResult = '';
     this.exerciseComplete = false;
+    this.readingActive = false;
+    return true;
+  }
+
+  continueToReadingPractice() {
+    if (!this.exerciseComplete) return false;
+    this.readingActive = true;
     return true;
   }
 
@@ -36,6 +45,7 @@ export class FamilyLessonFeature {
     }
     this.exerciseIndex = 0;
     this.exerciseComplete = false;
+    this.readingActive = false;
     this.exerciseResult = '';
     await this.playExercisePrompt();
     return this.family[this.exerciseIndex];
@@ -76,6 +86,8 @@ export class FamilyLessonFeature {
 
   render() {
     const family = this.family;
+    const reading = familyReadings[family[0]];
+    if (!reading) throw new Error(`Reading material is missing for alphabet family ${family[0]}.`);
     const familyLabel = `Family ${String(this.familyIndex + 1).padStart(2, '0')}`;
     const exerciseTarget = this.exerciseIndex === null ? null : this.exerciseOrder[this.exerciseIndex];
 
@@ -83,16 +95,14 @@ export class FamilyLessonFeature {
       <section class='family-lesson-layout' aria-label='Alphabet family lesson'>
         <aside class='family-sidebar card'>
           <h2 class='family-sidebar-title'>Alphabet families</h2>
-          <nav class='family-list' aria-label='Choose an alphabet family'>
+          <label class='family-selector-label' for='family-selector'>Choose a family</label>
+          <select class='selector family-selector' id='family-selector' data-action='family-select'>
             ${LETTER_FAMILIES.map((letters, index) => `
-              <button class='family-nav-btn ${index === this.familyIndex ? 'is-active' : ''}'
-                type='button' data-action='family-select' data-family-index='${index}'
-                aria-current='${index === this.familyIndex ? 'true' : 'false'}'
-                aria-label='Family ${index + 1}, beginning with ${letters[0]}'>
-                <span>Family ${String(index + 1).padStart(2, '0')}</span><strong lang='ti'>${letters[0]}</strong>
-              </button>
+              <option value='${index}' ${index === this.familyIndex ? 'selected' : ''}>
+                Family ${String(index + 1).padStart(2, '0')} · ${letters[0]}
+              </option>
             `).join('')}
-          </nav>
+          </select>
         </aside>
 
         <section class='workspace family-lesson' aria-labelledby='family-lesson-title'>
@@ -145,10 +155,24 @@ export class FamilyLessonFeature {
             `}
           </section>
 
-          <section class='panel-card card reading-practice' id='family-reading-practice' aria-labelledby='reading-title'>
-            <h3 class='activity-title' id='reading-title' tabindex='-1'>Reading practice</h3>
-            <p class='panel-copy'>Read the family forms from left to right. This practice uses characters only; no unverified word examples are included.</p>
-            <p class='reading-glyphs' lang='ti' aria-label='The seven forms of this family, in order'>${family.join(' ')}</p>
+          <section class='panel-card card reading-practice ${this.readingActive ? 'is-active' : 'is-locked'}'
+            id='family-reading-practice' aria-label='Reading practice' aria-disabled='${!this.readingActive}'>
+            ${this.readingActive ? `
+              <h4 class='activity-title' tabindex='-1'>Reading One</h4>
+              <ol class='reading-combinations' aria-label='Reading One pronunciation practice'>
+                ${reading.readingOne.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
+              </ol>
+              <h4 class='activity-title'>Reading Two</h4>
+              <ol class='reading-combinations' aria-label='Reading Two pronunciation practice'>
+                ${reading.readingTwo.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
+              </ol>
+            ` : `
+              <div class='reading-lock-notice' role='status'>
+                <h4 class='activity-title'>Reading One</h4>
+                <h4 class='activity-title'>Reading Two</h4>
+                <p class='helper-copy'>Complete the listening exercise, then select “Continue to reading practice” to unlock both readings.</p>
+              </div>
+            `}
           </section>
         </section>
       </section>

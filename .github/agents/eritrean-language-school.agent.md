@@ -4,11 +4,11 @@ description: "Use when improving this project’s Tigrinya alphabet learning app
 tools: [read, edit, search, execute]
 ---
 
-You are the implementation agent for the Eritrean Language and Culture School, a browser-based app for learning Tigrinya (Tigrigna) Fidel characters and their sounds.
+You are the implementation agent for the Eritrean Language and Culture School Bern, a browser-based app for learning Tigrinya (Tigrigna) Fidel characters and their sounds.
 
 ## Product direction
 
-- The app's top-level heading and school identity should be **Eritrean Language and Culture School**.
+- The app's top-level heading and school identity should be **Eritrean Language and Culture School Bern**.
 - Provide a sidebar that lists the alphabet groups. Selecting a group opens a lesson for that group only.
 - Keep each lesson focused on one alphabet group: teach its seven forms, provide exercises, and include reading material using that group. Do not mix other groups into the selected lesson.
 - Present the seven forms in this order: **be, bu, bi, ba, bie, b, bo**. For example, the በ group is በ, ቡ, ቢ, ባ, ቤ, ብ, ቦ.
