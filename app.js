@@ -2,6 +2,7 @@ import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } fro
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
 import { ProgressStore } from './src/core/progress-store.js';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
+import { FamilyLessonFeature } from './src/features/family-lesson.js';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js';
@@ -20,6 +21,7 @@ class FidelatApp {
     this.store = new ProgressStore(this.storage);
     this.audio = new AudioService();
     this.explorer = new AlphabetExplorerFeature(this.store, this.audio);
+    this.familyLesson = new FamilyLessonFeature(this.audio);
     this.dragdrop = new DragDropFeature(this.store, this.audio);
     this.additionalLetters = new AdditionalLettersFeature(this.store, this.audio);
     this.challenge = new ListenMatchFeature(this.store, this.audio);
@@ -259,7 +261,7 @@ class FidelatApp {
   }
 
   updateDocumentTitle() {
-    const brand = this.store.getText('menu.brandEyebrow', {}, null) || 'Fidelat House';
+    const brand = 'Eritrean Language and Culture School';
     const view = this.store.getProgress().activeView;
     const assignment = this.route === 'admin' ? null : practiceOptions(view).find(option => option.hash === practiceHash(view, this.store.getProgress()[view]));
     document.title = `${this.getCurrentViewTitle()}${assignment ? ` · ${assignment.label}` : ''} | ${brand}`;
@@ -638,6 +640,56 @@ class FidelatApp {
         return;
       }
 
+      if (action === 'family-select') {
+        this.familyLesson.selectFamily(Number(button.dataset.familyIndex));
+        this.audio.stop();
+        this.banner = { tone: 'info', text: '' };
+        this.render();
+        return;
+      }
+
+      if (action === 'family-play') {
+        await this.requireAudio(() => this.familyLesson.playSymbol(button.dataset.symbol));
+        this.setBanner('success', `Played ${button.dataset.symbol}.`);
+        return;
+      }
+
+      if (action === 'family-exercise-start') {
+        await this.requireAudio(() => this.familyLesson.startExercise());
+        this.setBanner('info', 'Listen to the sound, then choose the matching form.');
+        return;
+      }
+
+      if (action === 'family-exercise-repeat') {
+        await this.requireAudio(() => this.familyLesson.startExercise());
+        this.setBanner('info', 'New random round started. Listen and choose the matching form.');
+        return;
+      }
+
+      if (action === 'family-reading-continue') {
+        const reading = this.root.querySelector('#family-reading-practice');
+        reading?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        reading?.querySelector('#reading-title')?.focus({ preventScroll: true });
+        return;
+      }
+
+      if (action === 'family-exercise-prompt') {
+        await this.requireAudio(() => this.familyLesson.playExercisePrompt());
+        this.setBanner('info', 'Prompt played. Choose the matching form.');
+        return;
+      }
+
+      if (action === 'family-exercise-answer') {
+        const result = await this.familyLesson.answerExercise(button.dataset.symbol);
+        this.setBanner(result === 'correct' || result === 'complete' ? 'success' : 'info',
+          result === 'complete'
+            ? 'All seven forms correct! Choose whether to repeat or continue to reading practice.'
+            : result === 'correct'
+            ? 'Correct! The next sound is playing.'
+            : 'Try again: replay the prompt and choose another form.');
+        return;
+      }
+
       if (action === 'additional-tab') {
         this.additionalLetters.setTab(button.dataset.tab);
         this.render();
@@ -936,13 +988,11 @@ class FidelatApp {
     return `
       <header class='top-shell card'>
         <div class='brand-block'>
-          <div class='eyebrow'>${this.store.getText('menu.brandEyebrow', {}, null)}</div>
-          <h1>${this.store.getText('menu.brandTitle', {}, null)}</h1>
-          ${!adminRoute ? this.renderEnglishSupport('menu.brandTitle', {}, activeProfile, 'english-copy hero-english-copy') : ''}
+          <div class='eyebrow'>Tigrinya Fidel learning</div>
+          <h1>Eritrean Language and Culture School</h1>
           <p class='hero-copy'>${adminRoute
             ? this.store.getText('auth.adminIntro', {}, null)
-            : this.store.getText('menu.brandCopy', { name: activeProfile?.name || 'learner' }, activeProfile)}</p>
-          ${!adminRoute ? this.renderEnglishSupport('menu.brandCopy', { name: activeProfile?.name || 'learner' }, activeProfile, 'english-copy hero-english-copy') : ''}
+            : 'Learn one alphabet family at a time with audio, exercises, and reading practice.'}</p>
         </div>
         <div class='menu-side'>
           ${navigation}
@@ -1471,7 +1521,7 @@ class FidelatApp {
   renderActiveLearnerView() {
     const activeProfile = this.store.getActiveProfile();
     const activeView = activeProfile ? this.store.getProgress().activeView : 'home';
-    if (activeView === 'explorer' && activeProfile) return this.explorer.render();
+    if (activeView === 'explorer' && activeProfile) return this.familyLesson.render();
     if (activeView === 'dragdrop' && activeProfile) return this.dragdrop.render();
     if (activeView === 'challenge' && activeProfile) return this.challenge.render(this.audioReady);
     if (activeView === 'additionalLetters' && activeProfile) return this.additionalLetters.render();
