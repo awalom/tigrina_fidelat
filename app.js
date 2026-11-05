@@ -171,15 +171,18 @@ class FidelatApp {
   handlePointerDown(event) {
     if (event.button !== undefined && event.button !== 0) return;
 
-    const button = event.target.closest('[data-action="additional-drag-bank"]');
+    const button = event.target.closest('[data-action="additional-drag-bank"], [data-action="family-order-bank"]');
     if (!button) return;
 
     const activeProfile = this.store.getActiveProfile();
     const activeView = this.store.getProgress().activeView;
+    const isFamily = button.dataset.action === 'family-order-bank';
     const additionalState = this.store.getAdditionalLettersState();
-    if (!activeProfile || activeView !== 'additionalLetters' || additionalState.tab !== 'dragdrop') return;
+    if (!activeProfile) return;
+    if (isFamily ? activeView !== 'explorer' : (activeView !== 'additionalLetters' || additionalState.tab !== 'dragdrop')) return;
 
     this.pointerDrag = {
+      slotAction: isFamily ? 'family-order-slot' : 'additional-drag-slot',
       pointerId: event.pointerId,
       symbol: button.dataset.symbol,
       startX: event.clientX,
@@ -214,13 +217,18 @@ class FidelatApp {
       return;
     }
 
-    const slot = document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-action="additional-drag-slot"]');
+    const slot = document.elementFromPoint(event.clientX, event.clientY)?.closest(`[data-action="${drag.slotAction}"]`);
     const symbol = drag.symbol;
+    const slotAction = drag.slotAction;
     this.clearPointerDrag({ suppressClick: true });
 
     if (!slot) return;
 
     try {
+      if (slotAction === 'family-order-slot') {
+        await this.handleFamilyOrderPlacement(symbol, Number(slot.dataset.slot));
+        return;
+      }
       const result = await this.additionalLetters.placeSymbol(symbol, Number(slot.dataset.slot));
       await this.handleAdditionalLettersResult(result);
     } catch (error) {
@@ -514,20 +522,37 @@ class FidelatApp {
   }
 
   handleDragStart(event) {
-    const element = event.target.closest('[data-action="dragdrop-bank"]');
+    const element = event.target.closest('[data-action="dragdrop-bank"], [data-action="family-order-bank"]');
     if (!element) return;
     event.dataTransfer.setData('text/plain', element.dataset.symbol);
     event.dataTransfer.effectAllowed = 'move';
   }
 
   handleDragOver(event) {
-    const slot = event.target.closest('[data-action="dragdrop-slot"]');
+    const slot = event.target.closest('[data-action="dragdrop-slot"], [data-action="family-order-slot"]');
     if (!slot) return;
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }
 
+  async handleFamilyOrderPlacement(symbol, slotIndex) {
+    try {
+      const result = await this.familyLesson.placeOrderSymbol(symbol, slotIndex);
+      const tone = result.ok ? 'success' : result.status === 'wrong-slot' ? 'error' : 'info';
+      this.setBanner(tone, result.message || 'Choose an empty position.');
+    } catch (error) {
+      this.setBanner('error', error.message || 'The letter was placed, but its sound could not be played.');
+    }
+  }
+
   async handleDrop(event) {
+    const familySlot = event.target.closest('[data-action="family-order-slot"]');
+    if (familySlot) {
+      event.preventDefault();
+      const familySymbol = event.dataTransfer.getData('text/plain');
+      if (familySymbol) await this.handleFamilyOrderPlacement(familySymbol, Number(familySlot.dataset.slot));
+      return;
+    }
     const dragdropSlot = event.target.closest('[data-action="dragdrop-slot"]');
     if (!dragdropSlot) return;
 
@@ -546,7 +571,8 @@ class FidelatApp {
     const action = button.dataset.action;
 
     if (
-      (action === 'additional-drag-bank' || action === 'additional-drag-slot')
+      (action === 'additional-drag-bank' || action === 'additional-drag-slot'
+        || action === 'family-order-bank' || action === 'family-order-slot')
       && Date.now() < this.suppressAdditionalClickUntil
     ) {
       return;
@@ -666,12 +692,41 @@ class FidelatApp {
         return;
       }
 
+      if (action === 'family-listening-skip') {
+        if (!this.familyLesson.skipListeningToOrdering()) return;
+        this.setBanner('info', 'Listening skipped. Put the alphabets in order to continue.');
+        const ordering = this.root.querySelector('.family-ordering');
+        ordering?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        ordering?.querySelector('.activity-title')?.focus({ preventScroll: true });
+        return;
+      }
+
       if (action === 'family-reading-continue') {
         if (!this.familyLesson.continueToReadingPractice()) return;
-        this.setBanner('success', 'Reading One and Reading Two are now available.');
+        this.setBanner('success', 'Reading One, Reading Two, and Reading Three are now available.');
         const reading = this.root.querySelector('#family-reading-practice');
         reading?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         reading?.querySelector('.activity-title')?.focus({ preventScroll: true });
+        return;
+      }
+
+      if (action === 'family-order-bank') {
+        if (this.familyLesson.selectOrderSymbol(button.dataset.symbol)) {
+          this.setBanner('info', `Selected ${button.dataset.symbol}. Now choose its position.`);
+        }
+        return;
+      }
+
+      if (action === 'family-order-slot') {
+        const selected = this.familyLesson.orderSelected;
+        if (selected) await this.handleFamilyOrderPlacement(selected, Number(button.dataset.slot));
+        else this.setBanner('info', 'Select a letter first, then choose its position.');
+        return;
+      }
+
+      if (action === 'family-order-restart') {
+        this.familyLesson.restartOrdering();
+        this.setBanner('info', 'The letters were shuffled again.');
         return;
       }
 
@@ -687,7 +742,7 @@ class FidelatApp {
           result === 'wrong'
             ? 'Incorrect. The sound has been repeated; listen and try again.'
             : result === 'complete'
-            ? 'All seven forms correct! Choose whether to repeat or continue to reading practice.'
+            ? 'All seven forms correct! Now put the letters in order.'
             : result === 'correct'
             ? 'Correct! The next sound is playing.'
             : 'Try again: replay the prompt and choose another form.');

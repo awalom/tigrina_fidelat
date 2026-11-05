@@ -12,6 +12,8 @@ export class FamilyLessonFeature {
     this.exerciseIndex = null;
     this.exerciseResult = '';
     this.exerciseComplete = false;
+    this.listeningSkipped = false;
+    this.resetOrdering();
     this.readingActive = false;
   }
 
@@ -26,12 +28,91 @@ export class FamilyLessonFeature {
     this.exerciseIndex = null;
     this.exerciseResult = '';
     this.exerciseComplete = false;
+    this.listeningSkipped = false;
+    this.resetOrdering();
     this.readingActive = false;
     return true;
   }
 
+  skipListeningToOrdering() {
+    if (this.exerciseComplete || this.listeningSkipped) return false;
+    this.listeningSkipped = true;
+    this.startOrdering();
+    return true;
+  }
+
+  resetOrdering() {
+    this.orderBank = [];
+    this.orderPlaced = [];
+    this.orderSelected = null;
+    this.orderResult = '';
+    this.orderingComplete = false;
+  }
+
+  // Shuffles the seven family letters; never returns the correct sequence.
+  shuffleFamily(random = Math.random) {
+    const letters = [...this.family];
+    for (let attempt = 0; attempt < 10; attempt += 1) {
+      for (let index = letters.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(random() * (index + 1));
+        [letters[index], letters[swapIndex]] = [letters[swapIndex], letters[index]];
+      }
+      if (letters.some((symbol, index) => symbol !== this.family[index])) return letters;
+    }
+    return [...this.family.slice(1), this.family[0]];
+  }
+
+  startOrdering(random = Math.random) {
+    if (!this.exerciseComplete && !this.listeningSkipped) return false;
+    this.orderBank = this.shuffleFamily(random);
+    this.orderPlaced = Array(this.family.length).fill(null);
+    this.orderSelected = null;
+    this.orderResult = '';
+    this.orderingComplete = false;
+    return true;
+  }
+
+  get orderingActive() {
+    return (this.exerciseComplete || this.listeningSkipped) && this.orderBank.length > 0;
+  }
+
+  selectOrderSymbol(symbol) {
+    if (!this.orderingActive || this.orderingComplete || !this.orderBank.includes(symbol)) return false;
+    if (this.orderPlaced.includes(symbol)) return false;
+    this.orderSelected = symbol;
+    this.orderResult = '';
+    return true;
+  }
+
+  async placeOrderSymbol(symbol, slotIndex) {
+    if (!this.orderingActive || this.orderingComplete) return { ok: false, status: 'inactive' };
+    if (!this.orderBank.includes(symbol) || !Number.isInteger(slotIndex) || slotIndex < 0 || slotIndex >= this.family.length) {
+      return { ok: false, status: 'invalid' };
+    }
+    if (this.orderPlaced[slotIndex] || this.orderPlaced.includes(symbol)) return { ok: false, status: 'occupied' };
+    if (symbol !== this.family[slotIndex]) {
+      this.orderSelected = symbol;
+      this.orderResult = 'wrong';
+      return { ok: false, status: 'wrong-slot', message: `${symbol} does not belong in position ${slotIndex + 1}. Try another place.` };
+    }
+    this.orderPlaced[slotIndex] = symbol;
+    this.orderSelected = null;
+    await this.audio.playSymbol(symbol);
+    if (this.orderPlaced.every(Boolean)) {
+      this.orderingComplete = true;
+      this.orderResult = 'complete';
+      return { ok: true, status: 'complete', message: 'All seven letters are in order!' };
+    }
+    this.orderResult = 'correct';
+    return { ok: true, status: 'correct', message: 'Correct! Keep placing the rest of the letters.' };
+  }
+
+  restartOrdering(random = Math.random) {
+    return this.startOrdering(random);
+  }
+
   continueToReadingPractice() {
-    if (!this.exerciseComplete) return false;
+    if ((!this.exerciseComplete && !this.listeningSkipped) || !this.orderingComplete) return false;
     this.readingActive = true;
     return true;
   }
@@ -45,6 +126,8 @@ export class FamilyLessonFeature {
     }
     this.exerciseIndex = 0;
     this.exerciseComplete = false;
+    this.listeningSkipped = false;
+    this.resetOrdering();
     this.readingActive = false;
     this.exerciseResult = '';
     await this.playExercisePrompt();
@@ -71,6 +154,7 @@ export class FamilyLessonFeature {
       this.exerciseComplete = true;
       this.exerciseIndex = null;
       this.exerciseResult = 'complete';
+      this.startOrdering();
       return 'complete';
     }
 
@@ -136,7 +220,11 @@ export class FamilyLessonFeature {
               <p class='helper-copy' role='status'>You answered all seven forms correctly!</p>
               <div class='activity-actions'>
                 <button class='primary-btn' type='button' data-action='family-exercise-repeat'>Repeat exercise</button>
-                <button class='secondary-btn' type='button' data-action='family-reading-continue'>Continue to reading practice</button>
+              </div>
+            ` : this.listeningSkipped ? `
+              <p class='helper-copy' role='status'>Listening exercise skipped. Continue with the alphabet ordering exercise below.</p>
+              <div class='activity-actions'>
+                <button class='primary-btn' type='button' data-action='family-exercise-start'>Practice listening</button>
               </div>
             ` : exerciseTarget === null ? `
               <button class='primary-btn' type='button' data-action='family-exercise-start'>Start exercise</button>
@@ -152,6 +240,45 @@ export class FamilyLessonFeature {
                   <button class='symbol-btn exercise-choice' type='button' data-action='family-exercise-answer'
                     data-symbol='${symbol}' aria-label='Choose ${symbol}'><span lang='ti'>${symbol}</span>                    </button>
                 `).join('')}
+              </div>
+            `}
+            ${!this.exerciseComplete && !this.listeningSkipped ? `
+              <div class='activity-actions'>
+                <button class='ghost-btn' type='button' data-action='family-listening-skip'>Skip listening and go to alphabet ordering</button>
+              </div>
+            ` : ''}
+          </section>
+
+          <section class='panel-card card family-ordering' aria-labelledby='ordering-title'>
+            <h3 class='activity-title' id='ordering-title'>Order the alphabets</h3>
+            ${!this.orderingActive ? `
+              <p class='helper-copy'>Complete the listening exercise to unlock this exercise.</p>
+            ` : `
+              <p class='panel-copy'>${this.listeningSkipped ? 'Listening skipped. ' : ''}Drag each letter into its place, or select a letter and then select a place. Put the seven forms in order.</p>
+              <p class='helper-copy exercise-feedback ${this.orderResult === 'wrong' ? 'is-incorrect' : ''}' role='status' aria-live='polite'>${
+                this.orderingComplete ? 'Well done! The letters are in the correct order.'
+                : this.orderResult === 'wrong' ? '<span class="exercise-error-icon" aria-hidden="true">✕</span> That letter belongs somewhere else. Try again.'
+                : this.orderResult === 'correct' ? 'Correct! Place the next letter.' : 'Place the letters in order.'}</p>
+              <div class='drop-grid' role='group' aria-label='Letter order'>
+                ${family.map((symbol, index) => `
+                  <button class='drop-slot ${this.orderPlaced[index] ? 'is-filled' : ''}' type='button'
+                    data-action='family-order-slot' data-slot='${index}'
+                    aria-label='Position ${index + 1}, ${this.orderPlaced[index] ? this.orderPlaced[index] : 'empty'}'>
+                    <span class='drop-label'>${index + 1}</span>
+                    <span class='drop-value' lang='ti'>${this.orderPlaced[index] || '...'}</span>
+                  </button>
+                `).join('')}
+              </div>
+              <div class='drag-bank' role='group' aria-label='Shuffled letters'>
+                ${this.orderBank.filter(symbol => !this.orderPlaced.includes(symbol)).map(symbol => `
+                  <button class='symbol-btn ${this.orderSelected === symbol ? 'is-correct' : ''}' type='button' draggable='true'
+                    data-action='family-order-bank' data-symbol='${symbol}' aria-pressed='${this.orderSelected === symbol}'
+                    aria-label='Letter ${symbol}'><span lang='ti'>${symbol}</span></button>
+                `).join('')}
+              </div>
+              <div class='activity-actions'>
+                <button class='ghost-btn' type='button' data-action='family-order-restart'>Shuffle again</button>
+                ${this.orderingComplete ? `<button class='secondary-btn' type='button' data-action='family-reading-continue'>Continue to reading practice</button>` : ''}
               </div>
             `}
           </section>
@@ -174,7 +301,9 @@ export class FamilyLessonFeature {
                 <h4 class='activity-title'>Reading One</h4>
                 <h4 class='activity-title'>Reading Two</h4>
                 <h4 class='activity-title'>Reading Three</h4>
-                <p class='helper-copy'>Complete the listening exercise, then select “Continue to reading practice” to unlock all three readings.</p>
+                <p class='helper-copy'>${this.listeningSkipped
+                  ? 'Complete the “Order the alphabets” exercise, then select “Continue to reading practice” to unlock all three readings.'
+                  : 'Complete the listening exercise and the “Order the alphabets” exercise, then select “Continue to reading practice” to unlock all three readings.'}</p>
               </div>
             `}
           </section>
