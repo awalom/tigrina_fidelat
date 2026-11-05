@@ -15,16 +15,20 @@ test('every configured family has seven forms in order and each form has root au
   assert.deepEqual(LETTER_FAMILIES.find(family => family[0] === 'በ'), ['በ', 'ቡ', 'ቢ', 'ባ', 'ቤ', 'ብ', 'ቦ']);
 });
 
-test('local reading file contains five same-family two- and three-form drills for every family', () => {
+test('local reading file contains seven varied same-family two- and three-form drills for every family', () => {
   assert.deepEqual(Object.keys(familyReadings), LETTER_FAMILIES.map(family => family[0]));
   for (const family of LETTER_FAMILIES) {
     const reading = familyReadings[family[0]];
-    assert.equal(reading.readingOne.length, 5);
-    assert.equal(reading.readingTwo.length, 5);
+    assert.equal(reading.readingOne.length, 7);
+    assert.equal(reading.readingTwo.length, 7);
     assert.equal(typeof reading.readingThree, 'string');
     assert.ok(reading.readingThree.length > 0);
     assert.ok(reading.readingOne.every(word => [...word].length === 2 && [...word].every(symbol => family.includes(symbol))));
     assert.ok(reading.readingTwo.every(word => [...word].length === 3 && [...word].every(symbol => family.includes(symbol))));
+    assert.equal(new Set(reading.readingOne).size, 7);
+    assert.equal(new Set(reading.readingTwo).size, 7);
+    assert.deepEqual(new Set(reading.readingOne.join('')), new Set(family));
+    assert.deepEqual(new Set(reading.readingTwo.join('')), new Set(family));
     assert.ok([...reading.readingThree].filter(symbol => symbol !== ' ').every(symbol => family.includes(symbol)));
   }
 });
