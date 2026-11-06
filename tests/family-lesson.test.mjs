@@ -108,8 +108,8 @@ test('reading and rendered exercises include forms only from the chosen family',
   assert.match(reading, /Reading One/);
   assert.match(reading, /Reading Two/);
   assert.match(reading, /Reading Three/);
-  assert.match(markup, /Repeat exercise/);
-  assert.match(markup, /Continue to reading practice/);
+  assert.match(markup, /aria-label='Repeat listening exercise'/);
+  assert.match(markup, /aria-label='Continue to reading practice'/);
 });
 
 async function listeningDone(index = 8, audio = { playSymbol: async () => {} }) {
@@ -130,12 +130,18 @@ test('ordering exercise is locked until listening is complete and sits between l
   assert.ok(markup.indexOf('Listening exercise') < markup.indexOf('Order the alphabets'));
   assert.ok(markup.indexOf('Order the alphabets') < markup.indexOf('Reading practice'));
   assert.doesNotMatch(markup, /data-action='family-order-bank'/);
+  assert.match(markup, /lesson-icon/);
+  assert.doesNotMatch(markup, /aria-label='Listening completed'/);
+  assert.doesNotMatch(markup, /aria-label='Alphabet ordering completed'/);
 });
 
 test('skipping listening unlocks alphabet ordering while keeping reading locked', async () => {
   const lesson = new FamilyLessonFeature({ playSymbol: async () => {} });
   lesson.selectFamily(8);
-  assert.match(lesson.render(), /data-action='family-listening-skip'/);
+  const initialMarkup = lesson.render();
+  assert.match(initialMarkup, /data-action='family-listening-skip'/);
+  assert.match(initialMarkup, /aria-label='Skip listening and go to alphabet ordering'/);
+  assert.match(initialMarkup, /data-action='family-listening-skip'[\s\S]*?<svg class='lesson-icon/);
   assert.equal(lesson.skipListeningToOrdering(), true);
   assert.equal(lesson.skipListeningToOrdering(), false);
   assert.equal(lesson.listeningSkipped, true);
@@ -146,7 +152,7 @@ test('skipping listening unlocks alphabet ordering while keeping reading locked'
   assert.equal(lesson.readingActive, false);
   assert.equal(lesson.continueToReadingPractice(), false);
   const markup = lesson.render();
-  assert.match(markup, /Listening exercise skipped/);
+  assert.match(markup, /Listening skipped\. Continue with alphabet ordering/);
   assert.match(markup, /Listening skipped\. Drag each letter/);
   assert.match(markup, /Complete the “Order the alphabets” exercise/);
   assert.doesNotMatch(markup, /Reading One pronunciation practice/);
@@ -175,6 +181,7 @@ test('ordering bank is a family-scoped shuffle that is never already sorted', as
   const ordering = markup.split("aria-labelledby='ordering-title'")[1].split("id='family-reading-practice'")[0];
   assert.equal((ordering.match(/data-action='family-order-bank'/g) || []).length, 7);
   assert.equal((ordering.match(/data-action='family-order-slot'/g) || []).length, 7);
+  assert.match(ordering, /aria-label='Shuffle letters again' title='Shuffle letters again'><svg class='lesson-icon/);
   assert.doesNotMatch(ordering, /ሀ|ሁ|ሂ|ሃ|ሄ|ህ|ሆ/);
 });
 
@@ -199,7 +206,11 @@ test('ordering accepts correct drops, rejects wrong drops, and completes only wh
   }
   assert.equal(lesson.orderingComplete, true);
   assert.deepEqual(lesson.orderPlaced, lesson.family);
-  assert.match(lesson.render(), /data-action='family-reading-continue'/);
+  const completedMarkup = lesson.render();
+  assert.match(completedMarkup, /data-action='family-reading-continue'/);
+  assert.match(completedMarkup, /aria-label='Listening completed'/);
+  assert.match(completedMarkup, /aria-label='Alphabet ordering completed'/);
+  assert.match(completedMarkup, /Alphabet ordering complete!/);
   assert.equal(lesson.readingActive, false);
   assert.equal(lesson.continueToReadingPractice(), true);
   assert.equal(lesson.readingActive, true);

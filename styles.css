@@ -1185,6 +1185,45 @@ h1 {
 .family-selector { width: 100%; min-height: 48px; }
 .family-form-order, .family-play-label { color: var(--muted); font-size: .75rem; }
 .family-lesson { min-width: 0; }
+.family-lesson .activity-actions { justify-content: center; }
+.family-exercise .exercise-prompt { justify-content: center; }
+.family-lesson .lesson-icon-button {
+  display: inline-grid;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 10px;
+  place-items: center;
+}
+.family-lesson .lesson-icon-button .lesson-icon { width: 100%; height: 100%; }
+.lesson-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.lesson-icon {
+  display: inline-block;
+  flex: 0 0 1.15em;
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: middle;
+}
+.activity-complete {
+  display: inline-grid;
+  width: 1.35em;
+  height: 1.35em;
+  place-items: center;
+  border-radius: 50%;
+  background: #e2f4e8;
+  color: #155438;
+}
+.activity-complete .lesson-icon { width: .95em; height: .95em; }
+.lesson-status,
+.exercise-feedback.is-complete { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.lesson-status.is-complete,
+.exercise-feedback.is-complete { color: #155438; font-weight: 700; }
 .family-forms {
   display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px;
   margin: 14px 0 0; padding: 0; list-style: none;

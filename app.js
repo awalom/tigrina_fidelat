@@ -701,6 +701,17 @@ class FidelatApp {
         return;
       }
 
+      if (action === 'family-reading-skip') {
+        if (!this.familyLesson.skipToReadingPractice()) return;
+        this.setBanner('info', 'Ordering skipped. Reading One, Reading Two, and Reading Three are now available.');
+        requestAnimationFrame(() => {
+          const reading = this.root.querySelector('#family-reading-practice');
+          reading?.scrollIntoView({ block: 'start' });
+          reading?.querySelector('.activity-title')?.focus({ preventScroll: true });
+        });
+        return;
+      }
+
       if (action === 'family-reading-continue') {
         if (!this.familyLesson.continueToReadingPractice()) return;
         this.setBanner('success', 'Reading One, Reading Two, and Reading Three are now available.');

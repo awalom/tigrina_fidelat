@@ -4,6 +4,21 @@ import familyReadings from '../data/readingPractice.json' with { type: 'json' };
 export const LETTER_FAMILIES = [...PRIMARY_ROWS, ...SECONDARY_ROWS];
 export const FORM_ORDER = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
 
+const ICON_PATHS = {
+  family: '<rect x="3" y="4" width="8" height="16" rx="1"/><rect x="13" y="4" width="8" height="16" rx="1"/>',
+  listening: '<path d="M3 14v-3a9 9 0 0 1 18 0v3"/><rect x="3" y="13" width="4" height="7" rx="2"/><rect x="17" y="13" width="4" height="7" rx="2"/>',
+  sound: '<path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15 9a5 5 0 0 1 0 6"/><path d="M18 6a9 9 0 0 1 0 12"/>',
+  skip: '<path d="m5 5 10 7-10 7z"/><path d="M19 5v14"/>',
+  order: '<path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/>',
+  repeat: '<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',
+  reading: '<path d="M12 7v14"/><path d="M3 18V5a1 1 0 0 1 1-1h4a4 4 0 0 1 4 4 4 4 0 0 1 4-4h4a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-5a3 3 0 0 0-3 2 3 3 0 0 0-3-2H4a1 1 0 0 1-1-1z"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>'
+};
+
+function lessonIcon(name, className = '') {
+  return `<svg class='lesson-icon ${className}' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' focusable='false'>${ICON_PATHS[name]}</svg>`;
+}
+
 export class FamilyLessonFeature {
   constructor(audio) {
     this.audio = audio;
@@ -13,6 +28,7 @@ export class FamilyLessonFeature {
     this.exerciseResult = '';
     this.exerciseComplete = false;
     this.listeningSkipped = false;
+    this.orderingEverCompleted = false;
     this.resetOrdering();
     this.readingActive = false;
   }
@@ -29,6 +45,7 @@ export class FamilyLessonFeature {
     this.exerciseResult = '';
     this.exerciseComplete = false;
     this.listeningSkipped = false;
+    this.orderingEverCompleted = false;
     this.resetOrdering();
     this.readingActive = false;
     return true;
@@ -100,6 +117,7 @@ export class FamilyLessonFeature {
     await this.audio.playSymbol(symbol);
     if (this.orderPlaced.every(Boolean)) {
       this.orderingComplete = true;
+      this.orderingEverCompleted = true;
       this.orderResult = 'complete';
       return { ok: true, status: 'complete', message: 'All seven letters are in order!' };
     }
@@ -113,6 +131,12 @@ export class FamilyLessonFeature {
 
   continueToReadingPractice() {
     if ((!this.exerciseComplete && !this.listeningSkipped) || !this.orderingComplete) return false;
+    this.readingActive = true;
+    return true;
+  }
+
+  skipToReadingPractice() {
+    if (!this.orderingActive) return false;
     this.readingActive = true;
     return true;
   }
@@ -200,7 +224,7 @@ export class FamilyLessonFeature {
           </header>
 
           <section class='panel-card card' aria-labelledby='forms-title'>
-            <h3 class='activity-title' id='forms-title'>Seven forms</h3>
+            <h3 class='activity-title lesson-section-title' id='forms-title'>${lessonIcon('family')}Seven forms</h3>
             <ol class='family-forms'>
               ${family.map((symbol, index) => `
                 <li>
@@ -214,23 +238,32 @@ export class FamilyLessonFeature {
           </section>
 
           <section class='panel-card card family-exercise' aria-labelledby='exercise-title'>
-            <h3 class='activity-title' id='exercise-title'>Listening exercise</h3>
+            <h3 class='activity-title lesson-section-title' id='exercise-title'>
+              ${lessonIcon('listening')}Listening exercise
+              ${this.exerciseComplete ? `<span class='activity-complete' role='img' aria-label='Listening completed'>${lessonIcon('check')}</span>` : ''}
+            </h3>
             <p class='panel-copy'>Listen to a form from this family, then choose the matching character.</p>
             ${this.exerciseComplete ? `
-              <p class='helper-copy' role='status'>You answered all seven forms correctly!</p>
+              <p class='helper-copy lesson-status is-complete' role='status'>${lessonIcon('check')}You answered all seven forms correctly!</p>
               <div class='activity-actions'>
-                <button class='primary-btn' type='button' data-action='family-exercise-repeat'>Repeat exercise</button>
+                <button class='primary-btn lesson-icon-button' type='button' data-action='family-exercise-repeat'
+                  aria-label='Repeat listening exercise' title='Repeat listening exercise'>${lessonIcon('repeat')}</button>
               </div>
             ` : this.listeningSkipped ? `
-              <p class='helper-copy' role='status'>Listening exercise skipped. Continue with the alphabet ordering exercise below.</p>
+              <p class='helper-copy lesson-status' role='status'>${lessonIcon('skip')}Listening skipped. Continue with alphabet ordering.</p>
               <div class='activity-actions'>
-                <button class='primary-btn' type='button' data-action='family-exercise-start'>Practice listening</button>
+                <button class='primary-btn lesson-icon-button' type='button' data-action='family-exercise-start'
+                  aria-label='Practice listening' title='Practice listening'>${lessonIcon('listening')}</button>
               </div>
             ` : exerciseTarget === null ? `
-              <button class='primary-btn' type='button' data-action='family-exercise-start'>Start exercise</button>
+              <div class='activity-actions'>
+                <button class='primary-btn lesson-icon-button' type='button' data-action='family-exercise-start'
+                  aria-label='Start listening' title='Start listening'>${lessonIcon('listening')}</button>
+              </div>
             ` : `
               <div class='exercise-prompt'>
-                <button class='secondary-btn' type='button' data-action='family-exercise-prompt'>Play sound prompt</button>
+                <button class='secondary-btn lesson-icon-button' type='button' data-action='family-exercise-prompt'
+                  aria-label='Play sound prompt' title='Play sound prompt'>${lessonIcon('sound')}</button>
                 <span class='helper-copy exercise-feedback ${this.exerciseResult === 'try-again' ? 'is-incorrect' : ''}' aria-live='polite'>${this.exerciseResult === 'advanced'
                   ? 'Correct! Listen to the next sound.'
                   : this.exerciseResult === 'try-again' ? '<span class="exercise-error-icon" aria-hidden="true">✕</span> Incorrect! Listen to the sound again and try once more.' : 'Choose the matching form.'}</span>
@@ -244,19 +277,23 @@ export class FamilyLessonFeature {
             `}
             ${!this.exerciseComplete && !this.listeningSkipped ? `
               <div class='activity-actions'>
-                <button class='ghost-btn' type='button' data-action='family-listening-skip'>Skip listening and go to alphabet ordering</button>
+                <button class='ghost-btn lesson-icon-button' type='button' data-action='family-listening-skip'
+                  aria-label='Skip listening and go to alphabet ordering' title='Skip listening and go to alphabet ordering'>${lessonIcon('skip')}</button>
               </div>
             ` : ''}
           </section>
 
           <section class='panel-card card family-ordering' aria-labelledby='ordering-title'>
-            <h3 class='activity-title' id='ordering-title'>Order the alphabets</h3>
+            <h3 class='activity-title lesson-section-title' id='ordering-title'>
+              ${lessonIcon('order')}Order the alphabets
+              ${this.orderingEverCompleted ? `<span class='activity-complete' role='img' aria-label='Alphabet ordering completed'>${lessonIcon('check')}</span>` : ''}
+            </h3>
             ${!this.orderingActive ? `
               <p class='helper-copy'>Complete the listening exercise to unlock this exercise.</p>
             ` : `
               <p class='panel-copy'>${this.listeningSkipped ? 'Listening skipped. ' : ''}Drag each letter into its place, or select a letter and then select a place. Put the seven forms in order.</p>
-              <p class='helper-copy exercise-feedback ${this.orderResult === 'wrong' ? 'is-incorrect' : ''}' role='status' aria-live='polite'>${
-                this.orderingComplete ? 'Well done! The letters are in the correct order.'
+              <p class='helper-copy exercise-feedback ${this.orderingComplete ? 'is-complete' : this.orderResult === 'wrong' ? 'is-incorrect' : ''}' role='status' aria-live='polite'>${
+                this.orderingComplete ? `${lessonIcon('check')}Alphabet ordering complete!`
                 : this.orderResult === 'wrong' ? '<span class="exercise-error-icon" aria-hidden="true">✕</span> That letter belongs somewhere else. Try again.'
                 : this.orderResult === 'correct' ? 'Correct! Place the next letter.' : 'Place the letters in order.'}</p>
               <div class='drop-grid' role='group' aria-label='Letter order'>
@@ -277,8 +314,11 @@ export class FamilyLessonFeature {
                 `).join('')}
               </div>
               <div class='activity-actions'>
-                <button class='ghost-btn' type='button' data-action='family-order-restart'>Shuffle again</button>
-                ${this.orderingComplete ? `<button class='secondary-btn' type='button' data-action='family-reading-continue'>Continue to reading practice</button>` : ''}
+                <button class='ghost-btn lesson-icon-button' type='button' data-action='family-order-restart'
+                  aria-label='Shuffle letters again' title='Shuffle letters again'>${lessonIcon('repeat')}</button>
+                <button class='ghost-btn lesson-icon-button' type='button' data-action='family-reading-skip'
+                  aria-label='Skip ordering and go to reading practice' title='Skip ordering and go to reading practice'>${lessonIcon('skip')}</button>
+                ${this.orderingComplete ? `<button class='secondary-btn lesson-icon-button' type='button' data-action='family-reading-continue' aria-label='Continue to reading practice' title='Continue to reading practice'>${lessonIcon('reading')}</button>` : ''}
               </div>
             `}
           </section>
@@ -286,21 +326,21 @@ export class FamilyLessonFeature {
           <section class='panel-card card reading-practice ${this.readingActive ? 'is-active' : 'is-locked'}'
             id='family-reading-practice' aria-label='Reading practice' aria-disabled='${!this.readingActive}'>
             ${this.readingActive ? `
-              <h4 class='activity-title' tabindex='-1'>Reading One</h4>
+              <h4 class='activity-title lesson-section-title' tabindex='-1'>${lessonIcon('reading')}Reading One</h4>
               <ol class='reading-combinations' aria-label='Reading One pronunciation practice'>
                 ${reading.readingOne.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
               </ol>
-              <h4 class='activity-title'>Reading Two</h4>
+              <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Two</h4>
               <ol class='reading-combinations' aria-label='Reading Two pronunciation practice'>
                 ${reading.readingTwo.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
               </ol>
-              <h4 class='activity-title'>Reading Three</h4>
+              <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Three</h4>
               <p class='reading-paragraph' lang='ti' dir='ltr'>${reading.readingThree}</p>
             ` : `
               <div class='reading-lock-notice' role='status'>
-                <h4 class='activity-title'>Reading One</h4>
-                <h4 class='activity-title'>Reading Two</h4>
-                <h4 class='activity-title'>Reading Three</h4>
+                <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading One</h4>
+                <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Two</h4>
+                <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Three</h4>
                 <p class='helper-copy'>${this.listeningSkipped
                   ? 'Complete the “Order the alphabets” exercise, then select “Continue to reading practice” to unlock all three readings.'
                   : 'Complete the listening exercise and the “Order the alphabets” exercise, then select “Continue to reading practice” to unlock all three readings.'}</p>
