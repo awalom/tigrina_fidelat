@@ -76,7 +76,7 @@ test('reading and rendered exercises include forms only from the chosen family',
   const initialMarkup = lesson.render();
   assert.match(initialMarkup, /<select class='selector family-selector' id='family-selector' data-action='family-select'>/);
   assert.equal((initialMarkup.match(/<option value='/g) || []).length, LETTER_FAMILIES.length);
-  assert.match(initialMarkup, /<option value='8' selected>\s*Family 09 · በ/);
+  assert.match(initialMarkup, /<option value='8' selected>\s*9th family · በ/);
   assert.equal(lesson.continueToReadingPractice(), false);
   const lockedMarkup = lesson.render();
   assert.match(lockedMarkup, /reading-practice is-locked/);

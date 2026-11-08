@@ -1,5 +1,13 @@
 {
   "symbols": {
+    "በ": "audio/በ.mp3",
+    "ቡ": "audio/ቡ.mp3",
+    "ቢ": "audio/ቢ.mp3",
+    "ባ": "audio/ባ.mp3",
+    "ቤ": "audio/ቤ.mp3",
+    "ብ": "audio/ብ.mp3",
+    "ቦ": "audio/ቦ.mp3",
+
     "ሀ": "audio/ሀ.mp3",
     "ሁ": "audio/ሁ.mp3",
     "ሂ": "audio/ሂ.mp3",
@@ -71,14 +79,6 @@
     "ቄ": "audio/ቄ.mp3",
     "ቅ": "audio/ቅ.mp3",
     "ቆ": "audio/ቆ.mp3",
-
-    "በ": "audio/በ.mp3",
-    "ቡ": "audio/ቡ.mp3",
-    "ቢ": "audio/ቢ.mp3",
-    "ባ": "audio/ባ.mp3",
-    "ቤ": "audio/ቤ.mp3",
-    "ብ": "audio/ብ.mp3",
-    "ቦ": "audio/ቦ.mp3",
 
     "ተ": "audio/ተ.mp3",
     "ቱ": "audio/ቱ.mp3",

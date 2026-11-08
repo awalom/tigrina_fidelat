@@ -15,6 +15,11 @@ const ICON_PATHS = {
   check: '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>'
 };
 
+function ordinal(n) {
+  const suffix = n % 100 >= 11 && n % 100 <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[n % 10] || 'th');
+  return `${n}${suffix}`;
+}
+
 function lessonIcon(name, className = '') {
   return `<svg class='lesson-icon ${className}' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' focusable='false'>${ICON_PATHS[name]}</svg>`;
 }
@@ -197,7 +202,7 @@ export class FamilyLessonFeature {
     const family = this.family;
     const reading = familyReadings[family[0]];
     if (!reading) throw new Error(`Reading material is missing for alphabet family ${family[0]}.`);
-    const familyLabel = `Family ${String(this.familyIndex + 1).padStart(2, '0')}`;
+    const familyLabel = `${ordinal(this.familyIndex + 1)} family`;
     const exerciseTarget = this.exerciseIndex === null ? null : this.exerciseOrder[this.exerciseIndex];
 
     return `
@@ -208,7 +213,7 @@ export class FamilyLessonFeature {
           <select class='selector family-selector' id='family-selector' data-action='family-select'>
             ${LETTER_FAMILIES.map((letters, index) => `
               <option value='${index}' ${index === this.familyIndex ? 'selected' : ''}>
-                Family ${String(index + 1).padStart(2, '0')} · ${letters[0]}
+                ${ordinal(index + 1)} family · ${letters[0]}
               </option>
             `).join('')}
           </select>

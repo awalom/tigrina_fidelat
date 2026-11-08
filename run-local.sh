@@ -79,4 +79,14 @@ fi
 
 cd "$project_dir"
 printf 'Serving Fidelat at http://127.0.0.1:%s\n' "$port"
-exec python3 -m http.server "$port" --bind 127.0.0.1
+exec python3 - "$port" <<'PY'
+import sys
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+
+class NoCacheHandler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
+ThreadingHTTPServer(("127.0.0.1", int(sys.argv[1])), NoCacheHandler).serve_forever()
+PY
