@@ -1266,6 +1266,24 @@ h1 {
   font: clamp(1.2rem, 2.5vw, 1.65rem)/2 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
   letter-spacing: .04em; overflow-wrap: anywhere;
 }
+.advanced-reading-words {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px;
+  margin: 10px 0 0; padding: 0; list-style: none;
+}
+.advanced-reading-word {
+  display: grid; gap: 4px; justify-items: center; padding: 12px;
+  border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.78);
+}
+.advanced-reading-text {
+  color: var(--accent-deep); font: 1.5rem/1.5 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+  overflow-wrap: anywhere; max-width: 100%;
+}
+.advanced-reading-frequency { color: var(--text); font-size: .85rem; }
+.lesson-navigation {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-top: 16px;
+}
+.lesson-navigation .helper-copy { margin: 0; text-align: center; }
 .family-lesson :focus-visible, .family-sidebar :focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 3px; }
 @media (max-width: 900px) {
   .family-lesson-layout { grid-template-columns: 1fr; }

@@ -2,7 +2,7 @@ import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } fro
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
 import { ProgressStore } from './src/core/progress-store.js';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
-import { FamilyLessonFeature } from './src/features/family-lesson.js';
+import { FamilyLessonFeature } from './src/features/family-lesson.js?v=lesson-stages-1';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js';
@@ -692,32 +692,16 @@ class FidelatApp {
         return;
       }
 
-      if (action === 'family-listening-skip') {
-        if (!this.familyLesson.skipListeningToOrdering()) return;
-        this.setBanner('info', 'Listening skipped. Put the alphabets in order to continue.');
-        const ordering = this.root.querySelector('.family-ordering');
-        ordering?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        ordering?.querySelector('.activity-title')?.focus({ preventScroll: true });
-        return;
-      }
-
-      if (action === 'family-reading-skip') {
-        if (!this.familyLesson.skipToReadingPractice()) return;
-        this.setBanner('info', 'Ordering skipped. Reading One, Reading Two, and Reading Three are now available.');
-        requestAnimationFrame(() => {
-          const reading = this.root.querySelector('#family-reading-practice');
-          reading?.scrollIntoView({ block: 'start' });
-          reading?.querySelector('.activity-title')?.focus({ preventScroll: true });
-        });
-        return;
-      }
-
-      if (action === 'family-reading-continue') {
-        if (!this.familyLesson.continueToReadingPractice()) return;
-        this.setBanner('success', 'Reading One, Reading Two, and Reading Three are now available.');
-        const reading = this.root.querySelector('#family-reading-practice');
-        reading?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        reading?.querySelector('.activity-title')?.focus({ preventScroll: true });
+      if (action === 'family-stage-previous' || action === 'family-stage-next') {
+        if (!this.familyLesson.moveStage(action === 'family-stage-next' ? 1 : -1)) return;
+        this.audio.stop();
+        this.banner = { tone: 'info', text: '' };
+        this.render();
+        const heading = this.root.querySelector('.family-lesson > .panel-card .activity-title');
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          heading.focus();
+        }
         return;
       }
 
@@ -753,7 +737,7 @@ class FidelatApp {
           result === 'wrong'
             ? 'Incorrect. The sound has been repeated; listen and try again.'
             : result === 'complete'
-            ? 'All seven forms correct! Now put the letters in order.'
+            ? 'All seven forms correct! Select Next when you are ready.'
             : result === 'correct'
             ? 'Correct! The next sound is playing.'
             : 'Try again: replay the prompt and choose another form.');

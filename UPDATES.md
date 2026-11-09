@@ -1,5 +1,19 @@
 # Practice links and readability update
 
+## Advanced reading for all alphabet families
+
+Use Previous and Next to move freely between Seven forms, Listening exercise,
+Order the alphabets, Reading One, Reading Two, Reading Three, and Advanced
+Reading. No activity must be completed to navigate. Exercise progress is
+preserved while moving between stages and reset when choosing another family.
+Advanced Reading shows
+the 30 most frequent words beginning with any of that family's seven forms, ordered by
+frequency. The displayed numbers are counts from `assets/ti_word_count_grouped.txt`,
+not difficulty ratings. The list is based on corpus frequency and has not been
+independently reviewed for age suitability or pronunciation. Because the ranking
+is across the whole family, some individual forms may not appear in the top 30.
+The lists are stored with each family's other readings in `src/data/readingPractice.json`.
+
 Copy the address from the browser after opening a section. These bookmarks work with the existing hosted URL and require no server routing changes:
 
 | Section | URL ending |

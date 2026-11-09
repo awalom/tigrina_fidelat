@@ -18,7 +18,129 @@
       "ሄሁሃ",
       "ሄሀሆ"
     ],
-    "readingThree": "ሀሁሂ ሃሄህ ሆሀሁ ሂሃሄ ህሆሀ ሁሂሃ ሄህሆ ሀሁሂ ሃሄህ ሆሀሁ ሂሃሄ ህሆሀ ሁሂሃ ሄህሆ"
+    "readingThree": "ሀሁሂ ሃሄህ ሆሀሁ ሂሃሄ ህሆሀ ሁሂሃ ሄህሆ ሀሁሂ ሃሄህ ሆሀሁ ሂሃሄ ህሆሀ ሁሂሃ ሄህሆ",
+    "advancedReading": [
+      {
+        "word": "ሃገር",
+        "frequency": 82061
+      },
+      {
+        "word": "ህዝቢ",
+        "frequency": 75560
+      },
+      {
+        "word": "ሃገራት",
+        "frequency": 59362
+      },
+      {
+        "word": "ህይወት",
+        "frequency": 42648
+      },
+      {
+        "word": "ሃገራዊ",
+        "frequency": 37646
+      },
+      {
+        "word": "ህዝባዊ",
+        "frequency": 18303
+      },
+      {
+        "word": "ሃይለ",
+        "frequency": 16807
+      },
+      {
+        "word": "ሃገርና",
+        "frequency": 13982
+      },
+      {
+        "word": "ህጻናት",
+        "frequency": 12849
+      },
+      {
+        "word": "ሆስፒታል",
+        "frequency": 11896
+      },
+      {
+        "word": "ሂወት",
+        "frequency": 11733
+      },
+      {
+        "word": "ሃገራዊት",
+        "frequency": 10887
+      },
+      {
+        "word": "ሃብቲ",
+        "frequency": 8967
+      },
+      {
+        "word": "ህዝብን",
+        "frequency": 8632
+      },
+      {
+        "word": "ህንጻ",
+        "frequency": 8302
+      },
+      {
+        "word": "ህጻን",
+        "frequency": 8137
+      },
+      {
+        "word": "ህንዲ",
+        "frequency": 6962
+      },
+      {
+        "word": "ሃገርን",
+        "frequency": 6861
+      },
+      {
+        "word": "ሃይማኖት",
+        "frequency": 6799
+      },
+      {
+        "word": "ሃገሩ",
+        "frequency": 6717
+      },
+      {
+        "word": "ህወሓት",
+        "frequency": 6482
+      },
+      {
+        "word": "ሃንደበት",
+        "frequency": 6429
+      },
+      {
+        "word": "ህግደፍ",
+        "frequency": 6353
+      },
+      {
+        "word": "ሂቡ",
+        "frequency": 5963
+      },
+      {
+        "word": "ህያብ",
+        "frequency": 5714
+      },
+      {
+        "word": "ሃብተ",
+        "frequency": 5690
+      },
+      {
+        "word": "ህይወቱ",
+        "frequency": 5185
+      },
+      {
+        "word": "ህይወትና",
+        "frequency": 5170
+      },
+      {
+        "word": "ህይወቶም",
+        "frequency": 5067
+      },
+      {
+        "word": "ሃገረ",
+        "frequency": 4923
+      }
+    ]
   },
   "ለ": {
     "readingOne": [
@@ -39,7 +161,129 @@
       "ላሊሉ",
       "ላሎሊ"
     ],
-    "readingThree": "ለሉሊ ላሌል ሎለሉ ሊላሌ ልሎለ ሉሊላ ሌልሎ ለሉሊ ላሌል ሎለሉ ሊላሌ ልሎለ ሉሊላ ሌልሎ"
+    "readingThree": "ለሉሊ ላሌል ሎለሉ ሊላሌ ልሎለ ሉሊላ ሌልሎ ለሉሊ ላሌል ሎለሉ ሊላሌ ልሎለ ሉሊላ ሌልሎ",
+    "advancedReading": [
+      {
+        "word": "ልዕሊ",
+        "frequency": 88780
+      },
+      {
+        "word": "ሎሚ",
+        "frequency": 59393
+      },
+      {
+        "word": "ልዑል",
+        "frequency": 29833
+      },
+      {
+        "word": "ሊግ",
+        "frequency": 23108
+      },
+      {
+        "word": "ልክዕ",
+        "frequency": 17695
+      },
+      {
+        "word": "ልቢ",
+        "frequency": 17644
+      },
+      {
+        "word": "ለውጢ",
+        "frequency": 15752
+      },
+      {
+        "word": "ለይቲ",
+        "frequency": 11053
+      },
+      {
+        "word": "ልምዓት",
+        "frequency": 10317
+      },
+      {
+        "word": "ላዕለዋይ",
+        "frequency": 10194
+      },
+      {
+        "word": "ለካቲት",
+        "frequency": 9637
+      },
+      {
+        "word": "ላዕለዎት",
+        "frequency": 9087
+      },
+      {
+        "word": "ሊቨርፑል",
+        "frequency": 7918
+      },
+      {
+        "word": "ልዳት",
+        "frequency": 6823
+      },
+      {
+        "word": "ላዕሊ",
+        "frequency": 6679
+      },
+      {
+        "word": "ልበይ",
+        "frequency": 6496
+      },
+      {
+        "word": "ልሙድ",
+        "frequency": 5892
+      },
+      {
+        "word": "ልምዲ",
+        "frequency": 5472
+      },
+      {
+        "word": "ልዝብ",
+        "frequency": 5437
+      },
+      {
+        "word": "ልቡ",
+        "frequency": 4889
+      },
+      {
+        "word": "ልምምድ",
+        "frequency": 4584
+      },
+      {
+        "word": "ሉሉምባ",
+        "frequency": 4074
+      },
+      {
+        "word": "ለበዋ",
+        "frequency": 4047
+      },
+      {
+        "word": "ልምዓታዊ",
+        "frequency": 3833
+      },
+      {
+        "word": "ሊብያ",
+        "frequency": 3610
+      },
+      {
+        "word": "ልዕሊኡ",
+        "frequency": 3543
+      },
+      {
+        "word": "ለበዳ",
+        "frequency": 3423
+      },
+      {
+        "word": "ልኡኽ",
+        "frequency": 3364
+      },
+      {
+        "word": "ለይ-ኣውት",
+        "frequency": 3343
+      },
+      {
+        "word": "ሊጋ",
+        "frequency": 3280
+      }
+    ]
   },
   "ሐ": {
     "readingOne": [
@@ -60,7 +304,129 @@
       "ሐሓሑ",
       "ሐሖሔ"
     ],
-    "readingThree": "ሐሑሒ ሓሔሕ ሖሐሑ ሒሓሔ ሕሖሐ ሑሒሓ ሔሕሖ ሐሑሒ ሓሔሕ ሖሐሑ ሒሓሔ ሕሖሐ ሑሒሓ ሔሕሖ"
+    "readingThree": "ሐሑሒ ሓሔሕ ሖሐሑ ሒሓሔ ሕሖሐ ሑሒሓ ሔሕሖ ሐሑሒ ሓሔሕ ሖሐሑ ሒሓሔ ሕሖሐ ሑሒሓ ሔሕሖ",
+    "advancedReading": [
+      {
+        "word": "ሓደ",
+        "frequency": 207638
+      },
+      {
+        "word": "ሕጂ",
+        "frequency": 69041
+      },
+      {
+        "word": "ሓንቲ",
+        "frequency": 56637
+      },
+      {
+        "word": "ሓዳስ",
+        "frequency": 54550
+      },
+      {
+        "word": "ሓበሬታ",
+        "frequency": 47770
+      },
+      {
+        "word": "ሓድሽ",
+        "frequency": 40014
+      },
+      {
+        "word": "ሕማም",
+        "frequency": 33585
+      },
+      {
+        "word": "ሕጊ",
+        "frequency": 32717
+      },
+      {
+        "word": "ሓይሊ",
+        "frequency": 31224
+      },
+      {
+        "word": "ሓቂ",
+        "frequency": 29786
+      },
+      {
+        "word": "ሕቶ",
+        "frequency": 29490
+      },
+      {
+        "word": "ሓሳብ",
+        "frequency": 23676
+      },
+      {
+        "word": "ሓቢሩ",
+        "frequency": 22702
+      },
+      {
+        "word": "ሓደጋ",
+        "frequency": 19552
+      },
+      {
+        "word": "ሓያል",
+        "frequency": 18366
+      },
+      {
+        "word": "ሓላፊ",
+        "frequency": 17662
+      },
+      {
+        "word": "ሕብረት",
+        "frequency": 17174
+      },
+      {
+        "word": "ሓሙሽተ",
+        "frequency": 16700
+      },
+      {
+        "word": "ሕርሻ",
+        "frequency": 16442
+      },
+      {
+        "word": "ሒዙ",
+        "frequency": 15996
+      },
+      {
+        "word": "ሕማቕ",
+        "frequency": 15811
+      },
+      {
+        "word": "ሓያሎ",
+        "frequency": 14057
+      },
+      {
+        "word": "ሕቡራት",
+        "frequency": 13691
+      },
+      {
+        "word": "ሓዳር",
+        "frequency": 13668
+      },
+      {
+        "word": "ሕክምና",
+        "frequency": 13564
+      },
+      {
+        "word": "ሓገዝ",
+        "frequency": 13123
+      },
+      {
+        "word": "ሕብረተሰብ",
+        "frequency": 12726
+      },
+      {
+        "word": "ሓሳባት",
+        "frequency": 12697
+      },
+      {
+        "word": "ሓላፍነት",
+        "frequency": 12573
+      },
+      {
+        "word": "ሕጋዊ",
+        "frequency": 12350
+      }
+    ]
   },
   "መ": {
     "readingOne": [
@@ -81,7 +447,129 @@
       "ሜመሚ",
       "ሙምመ"
     ],
-    "readingThree": "መሙሚ ማሜም ሞመሙ ሚማሜ ምሞመ ሙሚማ ሜምሞ መሙሚ ማሜም ሞመሙ ሚማሜ ምሞመ ሙሚማ ሜምሞ"
+    "readingThree": "መሙሚ ማሜም ሞመሙ ሚማሜ ምሞመ ሙሚማ ሜምሞ መሙሚ ማሜም ሞመሙ ሚማሜ ምሞመ ሙሚማ ሜምሞ",
+    "advancedReading": [
+      {
+        "word": "ምስ",
+        "frequency": 449626
+      },
+      {
+        "word": "ምዃኑ",
+        "frequency": 111788
+      },
+      {
+        "word": "ማለት",
+        "frequency": 60763
+      },
+      {
+        "word": "መንግስቲ",
+        "frequency": 56911
+      },
+      {
+        "word": "መዓልቲ",
+        "frequency": 55238
+      },
+      {
+        "word": "ማይ",
+        "frequency": 54760
+      },
+      {
+        "word": "መጽሓፍ",
+        "frequency": 52730
+      },
+      {
+        "word": "መበል",
+        "frequency": 52348
+      },
+      {
+        "word": "ማእከል",
+        "frequency": 49030
+      },
+      {
+        "word": "ምሉእ",
+        "frequency": 42463
+      },
+      {
+        "word": "መወዳእታ",
+        "frequency": 36566
+      },
+      {
+        "word": "መደብ",
+        "frequency": 35438
+      },
+      {
+        "word": "መንጎ",
+        "frequency": 33461
+      },
+      {
+        "word": "መሬት",
+        "frequency": 31622
+      },
+      {
+        "word": "ምኽንያት",
+        "frequency": 31477
+      },
+      {
+        "word": "መንእሰያት",
+        "frequency": 31323
+      },
+      {
+        "word": "ምእንቲ",
+        "frequency": 30777
+      },
+      {
+        "word": "ምድሪ",
+        "frequency": 29739
+      },
+      {
+        "word": "ምባል",
+        "frequency": 29055
+      },
+      {
+        "word": "ምዃኖም",
+        "frequency": 29025
+      },
+      {
+        "word": "መጠን",
+        "frequency": 28156
+      },
+      {
+        "word": "ሚኒስትሪ",
+        "frequency": 27662
+      },
+      {
+        "word": "መገዲ",
+        "frequency": 27394
+      },
+      {
+        "word": "መስርሕ",
+        "frequency": 26682
+      },
+      {
+        "word": "ሚልዮን",
+        "frequency": 26140
+      },
+      {
+        "word": "ምምሕዳር",
+        "frequency": 25154
+      },
+      {
+        "word": "መንእሰይ",
+        "frequency": 24621
+      },
+      {
+        "word": "መግቢ",
+        "frequency": 24521
+      },
+      {
+        "word": "ምኽንያቱ",
+        "frequency": 24516
+      },
+      {
+        "word": "መልሲ",
+        "frequency": 24359
+      }
+    ]
   },
   "ሰ": {
     "readingOne": [
@@ -102,7 +590,129 @@
       "ስሳሶ",
       "ሰሶሴ"
     ],
-    "readingThree": "ሰሱሲ ሳሴስ ሶሰሱ ሲሳሴ ስሶሰ ሱሲሳ ሴስሶ ሰሱሲ ሳሴስ ሶሰሱ ሲሳሴ ስሶሰ ሱሲሳ ሴስሶ"
+    "readingThree": "ሰሱሲ ሳሴስ ሶሰሱ ሲሳሴ ስሶሰ ሱሲሳ ሴስሶ ሰሱሲ ሳሴስ ሶሰሱ ሲሳሴ ስሶሰ ሱሲሳ ሴስሶ",
+    "advancedReading": [
+      {
+        "word": "ሰብ",
+        "frequency": 171307
+      },
+      {
+        "word": "ስለ",
+        "frequency": 146709
+      },
+      {
+        "word": "ሰባት",
+        "frequency": 118542
+      },
+      {
+        "word": "ስራሕ",
+        "frequency": 70712
+      },
+      {
+        "word": "ስለዚ",
+        "frequency": 46886
+      },
+      {
+        "word": "ሰለስተ",
+        "frequency": 34514
+      },
+      {
+        "word": "ሰዓት",
+        "frequency": 33199
+      },
+      {
+        "word": "ስለምንታይ",
+        "frequency": 30803
+      },
+      {
+        "word": "ስእሊ",
+        "frequency": 28929
+      },
+      {
+        "word": "ስነ",
+        "frequency": 28621
+      },
+      {
+        "word": "ስም",
+        "frequency": 26564
+      },
+      {
+        "word": "ሰራዊት",
+        "frequency": 24963
+      },
+      {
+        "word": "ስለዝበላ",
+        "frequency": 22883
+      },
+      {
+        "word": "ስፖርት",
+        "frequency": 22174
+      },
+      {
+        "word": "ሰዓታት",
+        "frequency": 21588
+      },
+      {
+        "word": "ስድራ",
+        "frequency": 21564
+      },
+      {
+        "word": "ስርዓት",
+        "frequency": 20870
+      },
+      {
+        "word": "ሰላም",
+        "frequency": 20481
+      },
+      {
+        "word": "ሱዳን",
+        "frequency": 18618
+      },
+      {
+        "word": "ስልጣን",
+        "frequency": 18363
+      },
+      {
+        "word": "ሰብኣይ",
+        "frequency": 17181
+      },
+      {
+        "word": "ሰሙን",
+        "frequency": 16250
+      },
+      {
+        "word": "ስምዒት",
+        "frequency": 15881
+      },
+      {
+        "word": "ስለዝሞተ",
+        "frequency": 13399
+      },
+      {
+        "word": "ሰነ",
+        "frequency": 13269
+      },
+      {
+        "word": "ሲቲ",
+        "frequency": 12801
+      },
+      {
+        "word": "ሳልሳይ",
+        "frequency": 12686
+      },
+      {
+        "word": "ስልጠና",
+        "frequency": 12632
+      },
+      {
+        "word": "ስለዝኾነ",
+        "frequency": 12539
+      },
+      {
+        "word": "ሰበይቲ",
+        "frequency": 12063
+      }
+    ]
   },
   "ረ": {
     "readingOne": [
@@ -123,7 +733,129 @@
       "ራሪረ",
       "ሬሪር"
     ],
-    "readingThree": "ረሩሪ ራሬር ሮረሩ ሪራሬ ርሮረ ሩሪራ ሬርሮ ረሩሪ ራሬር ሮረሩ ሪራሬ ርሮረ ሩሪራ ሬርሮ"
+    "readingThree": "ረሩሪ ራሬር ሮረሩ ሪራሬ ርሮረ ሩሪራ ሬርሮ ረሩሪ ራሬር ሮረሩ ሪራሬ ርሮረ ሩሪራ ሬርሮ",
+    "advancedReading": [
+      {
+        "word": "ርክብ",
+        "frequency": 18921
+      },
+      {
+        "word": "ርእሲ",
+        "frequency": 18462
+      },
+      {
+        "word": "ሩስያ",
+        "frequency": 12290
+      },
+      {
+        "word": "ርእሱ",
+        "frequency": 11685
+      },
+      {
+        "word": "ርእሰ",
+        "frequency": 10947
+      },
+      {
+        "word": "ርእይቶ",
+        "frequency": 9155
+      },
+      {
+        "word": "ርእሶም",
+        "frequency": 8226
+      },
+      {
+        "word": "ሪያል",
+        "frequency": 7621
+      },
+      {
+        "word": "ረብሓ",
+        "frequency": 7433
+      },
+      {
+        "word": "ርሑቕ",
+        "frequency": 6079
+      },
+      {
+        "word": "ሩባ",
+        "frequency": 5459
+      },
+      {
+        "word": "ርእስኻ",
+        "frequency": 5408
+      },
+      {
+        "word": "ረኺቡ",
+        "frequency": 4892
+      },
+      {
+        "word": "ራብዓይ",
+        "frequency": 4804
+      },
+      {
+        "word": "ሮናልዶ",
+        "frequency": 4744
+      },
+      {
+        "word": "ርሕቀት",
+        "frequency": 4679
+      },
+      {
+        "word": "ሮማ",
+        "frequency": 4677
+      },
+      {
+        "word": "ረቛሒታት",
+        "frequency": 4335
+      },
+      {
+        "word": "ርክባት",
+        "frequency": 4289
+      },
+      {
+        "word": "ሮሜ",
+        "frequency": 4265
+      },
+      {
+        "word": "ርእሳ",
+        "frequency": 4242
+      },
+      {
+        "word": "ሪፓብሊክ",
+        "frequency": 4133
+      },
+      {
+        "word": "ሬሳ",
+        "frequency": 4064
+      },
+      {
+        "word": "ርአ",
+        "frequency": 3973
+      },
+      {
+        "word": "ራእይ",
+        "frequency": 3921
+      },
+      {
+        "word": "ርብዒ",
+        "frequency": 3810
+      },
+      {
+        "word": "ርእስና",
+        "frequency": 3799
+      },
+      {
+        "word": "ርዱእ",
+        "frequency": 3473
+      },
+      {
+        "word": "ረቡዕ",
+        "frequency": 3277
+      },
+      {
+        "word": "ረድኤት",
+        "frequency": 3234
+      }
+    ]
   },
   "ሸ": {
     "readingOne": [
@@ -144,7 +876,129 @@
       "ሾሹሼ",
       "ሾሼሹ"
     ],
-    "readingThree": "ሸሹሺ ሻሼሽ ሾሸሹ ሺሻሼ ሽሾሸ ሹሺሻ ሼሽሾ ሸሹሺ ሻሼሽ ሾሸሹ ሺሻሼ ሽሾሸ ሹሺሻ ሼሽሾ"
+    "readingThree": "ሸሹሺ ሻሼሽ ሾሸሹ ሺሻሼ ሽሾሸ ሹሺሻ ሼሽሾ ሸሹሺ ሻሼሽ ሾሸሹ ሺሻሼ ሽሾሸ ሹሺሻ ሼሽሾ",
+    "advancedReading": [
+      {
+        "word": "ሽሕ",
+        "frequency": 30766
+      },
+      {
+        "word": "ሽዑ",
+        "frequency": 30388
+      },
+      {
+        "word": "ሸቶ",
+        "frequency": 17809
+      },
+      {
+        "word": "ሸቶታት",
+        "frequency": 11852
+      },
+      {
+        "word": "ሽዱሽተ",
+        "frequency": 9170
+      },
+      {
+        "word": "ሽልማት",
+        "frequency": 9065
+      },
+      {
+        "word": "ሻምፕዮን",
+        "frequency": 8895
+      },
+      {
+        "word": "ሸውዓተ",
+        "frequency": 7787
+      },
+      {
+        "word": "ሽማግለ",
+        "frequency": 6854
+      },
+      {
+        "word": "ሽግር",
+        "frequency": 6391
+      },
+      {
+        "word": "ሸሞንተ",
+        "frequency": 5951
+      },
+      {
+        "word": "ሻምፕዮንስ",
+        "frequency": 5927
+      },
+      {
+        "word": "ሸነኽ",
+        "frequency": 5525
+      },
+      {
+        "word": "ሻሂ",
+        "frequency": 4765
+      },
+      {
+        "word": "ሽጋራ",
+        "frequency": 4418
+      },
+      {
+        "word": "ሽኮር",
+        "frequency": 3831
+      },
+      {
+        "word": "ሽማግለታት",
+        "frequency": 3808
+      },
+      {
+        "word": "ሽሕን",
+        "frequency": 2683
+      },
+      {
+        "word": "ሸለል",
+        "frequency": 2218
+      },
+      {
+        "word": "ሽወደን",
+        "frequency": 2206
+      },
+      {
+        "word": "ሽታ",
+        "frequency": 2171
+      },
+      {
+        "word": "ሺሃብ",
+        "frequency": 2085
+      },
+      {
+        "word": "ሻምብቆ",
+        "frequency": 2059
+      },
+      {
+        "word": "ሻቕሎት",
+        "frequency": 2055
+      },
+      {
+        "word": "ሽግራት",
+        "frequency": 1941
+      },
+      {
+        "word": "ሻድሻይ",
+        "frequency": 1869
+      },
+      {
+        "word": "ሽንቲ",
+        "frequency": 1804
+      },
+      {
+        "word": "ሽቕለት",
+        "frequency": 1485
+      },
+      {
+        "word": "ሻዱሻይ",
+        "frequency": 1421
+      },
+      {
+        "word": "ሽጉርቲ",
+        "frequency": 1415
+      }
+    ]
   },
   "ቀ": {
     "readingOne": [
@@ -165,7 +1019,129 @@
       "ቀቄቃ",
       "ቆቄቃ"
     ],
-    "readingThree": "ቀቁቂ ቃቄቅ ቆቀቁ ቂቃቄ ቅቆቀ ቁቂቃ ቄቅቆ ቀቁቂ ቃቄቅ ቆቀቁ ቂቃቄ ቅቆቀ ቁቂቃ ቄቅቆ"
+    "readingThree": "ቀቁቂ ቃቄቅ ቆቀቁ ቂቃቄ ቅቆቀ ቁቂቃ ቄቅቆ ቀቁቂ ቃቄቅ ቆቀቁ ቂቃቄ ቅቆቀ ቁቂቃ ቄቅቆ",
+    "advancedReading": [
+      {
+        "word": "ቅድሚ",
+        "frequency": 73809
+      },
+      {
+        "word": "ቅዱስ",
+        "frequency": 44308
+      },
+      {
+        "word": "ቀዳማይ",
+        "frequency": 33142
+      },
+      {
+        "word": "ቃል",
+        "frequency": 30196
+      },
+      {
+        "word": "ቀንዲ",
+        "frequency": 26927
+      },
+      {
+        "word": "ቁጽሪ",
+        "frequency": 21038
+      },
+      {
+        "word": "ቀይሕ",
+        "frequency": 20018
+      },
+      {
+        "word": "ቃላት",
+        "frequency": 15356
+      },
+      {
+        "word": "ቃልሲ",
+        "frequency": 12846
+      },
+      {
+        "word": "ቀረባ",
+        "frequency": 12156
+      },
+      {
+        "word": "ቀጻሊ",
+        "frequency": 10662
+      },
+      {
+        "word": "ቀሪቦም",
+        "frequency": 9844
+      },
+      {
+        "word": "ቀሪቡ",
+        "frequency": 9144
+      },
+      {
+        "word": "ቀሊል",
+        "frequency": 9061
+      },
+      {
+        "word": "ቅድም",
+        "frequency": 8676
+      },
+      {
+        "word": "ቀዳሞት",
+        "frequency": 8583
+      },
+      {
+        "word": "ቅኑዕ",
+        "frequency": 8451
+      },
+      {
+        "word": "ቅርጺ",
+        "frequency": 7789
+      },
+      {
+        "word": "ቀጺሉ",
+        "frequency": 7529
+      },
+      {
+        "word": "ቁጠባዊ",
+        "frequency": 7323
+      },
+      {
+        "word": "ቀደም",
+        "frequency": 7176
+      },
+      {
+        "word": "ቀዳመይቲ",
+        "frequency": 6997
+      },
+      {
+        "word": "ቃንዛ",
+        "frequency": 6349
+      },
+      {
+        "word": "ቅድድም",
+        "frequency": 6300
+      },
+      {
+        "word": "ቀትሪ",
+        "frequency": 5947
+      },
+      {
+        "word": "ቅድሚኡ",
+        "frequency": 4972
+      },
+      {
+        "word": "ቀሺ",
+        "frequency": 4958
+      },
+      {
+        "word": "ቀዳም",
+        "frequency": 4882
+      },
+      {
+        "word": "ቁሩብ",
+        "frequency": 4615
+      },
+      {
+        "word": "ቀጽሉ",
+        "frequency": 4613
+      }
+    ]
   },
   "በ": {
     "readingOne": [
@@ -186,7 +1162,129 @@
       "በባቤ",
       "ቡቦበ"
     ],
-    "readingThree": "በቡቢ ባቤብ ቦበቡ ቢባቤ ብቦበ ቡቢባ ቤብቦ በቡቢ ባቤብ ቦበቡ ቢባቤ ብቦበ ቡቢባ ቤብቦ"
+    "readingThree": "በቡቢ ባቤብ ቦበቡ ቢባቤ ብቦበ ቡቢባ ቤብቦ በቡቢ ባቤብ ቦበቡ ቢባቤ ብቦበ ቡቢባ ቤብቦ",
+    "advancedReading": [
+      {
+        "word": "ቤት",
+        "frequency": 142424
+      },
+      {
+        "word": "ብዛዕባ",
+        "frequency": 90101
+      },
+      {
+        "word": "ብዙሕ",
+        "frequency": 66437
+      },
+      {
+        "word": "ቦታ",
+        "frequency": 57333
+      },
+      {
+        "word": "በቲ",
+        "frequency": 54006
+      },
+      {
+        "word": "በዚ",
+        "frequency": 53742
+      },
+      {
+        "word": "በዓል",
+        "frequency": 47133
+      },
+      {
+        "word": "ባሕሪ",
+        "frequency": 45698
+      },
+      {
+        "word": "ብዙሓት",
+        "frequency": 40877
+      },
+      {
+        "word": "ብፍላይ",
+        "frequency": 36919
+      },
+      {
+        "word": "ብምባል",
+        "frequency": 35825
+      },
+      {
+        "word": "ብኸመይ",
+        "frequency": 33659
+      },
+      {
+        "word": "ብዘይ",
+        "frequency": 30418
+      },
+      {
+        "word": "በለ",
+        "frequency": 29287
+      },
+      {
+        "word": "ብዘይካ",
+        "frequency": 26970
+      },
+      {
+        "word": "ብሰንኪ",
+        "frequency": 23719
+      },
+      {
+        "word": "ቤተይ",
+        "frequency": 20795
+      },
+      {
+        "word": "ብመሰረት",
+        "frequency": 20492
+      },
+      {
+        "word": "ብተወሳኺ",
+        "frequency": 18008
+      },
+      {
+        "word": "በዓልቲ",
+        "frequency": 17580
+      },
+      {
+        "word": "ብግቡእ",
+        "frequency": 16422
+      },
+      {
+        "word": "ብርሃነ",
+        "frequency": 15781
+      },
+      {
+        "word": "ብምዃኑ",
+        "frequency": 15776
+      },
+      {
+        "word": "ብብዝሒ",
+        "frequency": 14724
+      },
+      {
+        "word": "ብሓፈሻ",
+        "frequency": 14661
+      },
+      {
+        "word": "ብምሉእ",
+        "frequency": 14472
+      },
+      {
+        "word": "ብቕዓት",
+        "frequency": 14463
+      },
+      {
+        "word": "ብሓቂ",
+        "frequency": 14264
+      },
+      {
+        "word": "ቤተ",
+        "frequency": 13944
+      },
+      {
+        "word": "ባህሊ",
+        "frequency": 13491
+      }
+    ]
   },
   "ተ": {
     "readingOne": [
@@ -207,7 +1305,129 @@
       "ቴትታ",
       "ቲትቱ"
     ],
-    "readingThree": "ተቱቲ ታቴት ቶተቱ ቲታቴ ትቶተ ቱቲታ ቴትቶ ተቱቲ ታቴት ቶተቱ ቲታቴ ትቶተ ቱቲታ ቴትቶ"
+    "readingThree": "ተቱቲ ታቴት ቶተቱ ቲታቴ ትቶተ ቱቲታ ቴትቶ ተቱቲ ታቴት ቶተቱ ቲታቴ ትቶተ ቱቲታ ቴትቶ",
+    "advancedReading": [
+      {
+        "word": "ትምህርቲ",
+        "frequency": 81461
+      },
+      {
+        "word": "ተባሂሉ",
+        "frequency": 41148
+      },
+      {
+        "word": "ትሕቲ",
+        "frequency": 31761
+      },
+      {
+        "word": "ትማሊ",
+        "frequency": 25471
+      },
+      {
+        "word": "ታሪኽ",
+        "frequency": 24171
+      },
+      {
+        "word": "ተጻዋታይ",
+        "frequency": 22890
+      },
+      {
+        "word": "ተስፋ",
+        "frequency": 22364
+      },
+      {
+        "word": "ትግራይ",
+        "frequency": 22087
+      },
+      {
+        "word": "ትካል",
+        "frequency": 21943
+      },
+      {
+        "word": "ትካላት",
+        "frequency": 21019
+      },
+      {
+        "word": "ተራ",
+        "frequency": 20669
+      },
+      {
+        "word": "ተጻወትቲ",
+        "frequency": 20259
+      },
+      {
+        "word": "ትሕዝቶ",
+        "frequency": 19032
+      },
+      {
+        "word": "ትግርኛ",
+        "frequency": 16597
+      },
+      {
+        "word": "ትኽእል",
+        "frequency": 16338
+      },
+      {
+        "word": "ተሪፉ",
+        "frequency": 15742
+      },
+      {
+        "word": "ተመሃሮ",
+        "frequency": 15697
+      },
+      {
+        "word": "ተስፋይ",
+        "frequency": 15231
+      },
+      {
+        "word": "ተገሊጹ",
+        "frequency": 14357
+      },
+      {
+        "word": "ታሕሳስ",
+        "frequency": 13967
+      },
+      {
+        "word": "ተወሳኺ",
+        "frequency": 13851
+      },
+      {
+        "word": "ትብል",
+        "frequency": 13127
+      },
+      {
+        "word": "ተፈሊጡ",
+        "frequency": 12928
+      },
+      {
+        "word": "ተመራመርቲ",
+        "frequency": 12432
+      },
+      {
+        "word": "ተመሳሳሊ",
+        "frequency": 12408
+      },
+      {
+        "word": "ተኸሳሲ",
+        "frequency": 12383
+      },
+      {
+        "word": "ተማሃሮ",
+        "frequency": 12067
+      },
+      {
+        "word": "ተኽለ",
+        "frequency": 11851
+      },
+      {
+        "word": "ተግባር",
+        "frequency": 11052
+      },
+      {
+        "word": "ትጽቢት",
+        "frequency": 10877
+      }
+    ]
   },
   "ነ": {
     "readingOne": [
@@ -228,7 +1448,129 @@
       "ኑኒነ",
       "ንኑኖ"
     ],
-    "readingThree": "ነኑኒ ናኔን ኖነኑ ኒናኔ ንኖነ ኑኒና ኔንኖ ነኑኒ ናኔን ኖነኑ ኒናኔ ንኖነ ኑኒና ኔንኖ"
+    "readingThree": "ነኑኒ ናኔን ኖነኑ ኒናኔ ንኖነ ኑኒና ኔንኖ ነኑኒ ናኔን ኖነኑ ኒናኔ ንኖነ ኑኒና ኔንኖ",
+    "advancedReading": [
+      {
+        "word": "ናይ",
+        "frequency": 675275
+      },
+      {
+        "word": "ናብ",
+        "frequency": 329635
+      },
+      {
+        "word": "ነቲ",
+        "frequency": 216027
+      },
+      {
+        "word": "ነይሩ",
+        "frequency": 84175
+      },
+      {
+        "word": "ነዚ",
+        "frequency": 81891
+      },
+      {
+        "word": "ነገር",
+        "frequency": 68381
+      },
+      {
+        "word": "ንሱ",
+        "frequency": 51778
+      },
+      {
+        "word": "ናይቲ",
+        "frequency": 45404
+      },
+      {
+        "word": "ነቶም",
+        "frequency": 45091
+      },
+      {
+        "word": "ነበረ",
+        "frequency": 44338
+      },
+      {
+        "word": "ነታ",
+        "frequency": 40060
+      },
+      {
+        "word": "ንኡስ",
+        "frequency": 39566
+      },
+      {
+        "word": "ነገራት",
+        "frequency": 33939
+      },
+      {
+        "word": "ናጽነት",
+        "frequency": 28005
+      },
+      {
+        "word": "ንዓይ",
+        "frequency": 26112
+      },
+      {
+        "word": "ናቕፋ",
+        "frequency": 25929
+      },
+      {
+        "word": "ንጥፈታት",
+        "frequency": 24862
+      },
+      {
+        "word": "ንኣብነት",
+        "frequency": 21992
+      },
+      {
+        "word": "ናብቲ",
+        "frequency": 21574
+      },
+      {
+        "word": "ነዊሕ",
+        "frequency": 21453
+      },
+      {
+        "word": "ነጥቢ",
+        "frequency": 21063
+      },
+      {
+        "word": "ንሕና",
+        "frequency": 20106
+      },
+      {
+        "word": "ንብረት",
+        "frequency": 19750
+      },
+      {
+        "word": "ነይሮም",
+        "frequency": 19536
+      },
+      {
+        "word": "ንስኻ",
+        "frequency": 17727
+      },
+      {
+        "word": "ንጉስ",
+        "frequency": 17626
+      },
+      {
+        "word": "ንላዕሊ",
+        "frequency": 17461
+      },
+      {
+        "word": "ንሓደ",
+        "frequency": 16662
+      },
+      {
+        "word": "ነበርቲ",
+        "frequency": 16140
+      },
+      {
+        "word": "ንኽእል",
+        "frequency": 16003
+      }
+    ]
   },
   "አ": {
     "readingOne": [
@@ -249,7 +1591,129 @@
       "እኢኦ",
       "እኡኣ"
     ],
-    "readingThree": "አኡኢ ኣኤእ ኦአኡ ኢኣኤ እኦአ ኡኢኣ ኤእኦ አኡኢ ኣኤእ ኦአኡ ኢኣኤ እኦአ ኡኢኣ ኤእኦ"
+    "readingThree": "አኡኢ ኣኤእ ኦአኡ ኢኣኤ እኦአ ኡኢኣ ኤእኦ አኡኢ ኣኤእ ኦአኡ ኢኣኤ እኦአ ኡኢኣ ኤእኦ",
+    "advancedReading": [
+      {
+        "word": "ኣብ",
+        "frequency": 2047826
+      },
+      {
+        "word": "እዩ",
+        "frequency": 583384
+      },
+      {
+        "word": "እቲ",
+        "frequency": 493726
+      },
+      {
+        "word": "እዚ",
+        "frequency": 297664
+      },
+      {
+        "word": "እውን",
+        "frequency": 167957
+      },
+      {
+        "word": "ኤርትራ",
+        "frequency": 150873
+      },
+      {
+        "word": "እዮም",
+        "frequency": 123087
+      },
+      {
+        "word": "እንተ",
+        "frequency": 118203
+      },
+      {
+        "word": "እንታይ",
+        "frequency": 114284
+      },
+      {
+        "word": "እዋን",
+        "frequency": 114246
+      },
+      {
+        "word": "ኣሎ",
+        "frequency": 113977
+      },
+      {
+        "word": "እቶም",
+        "frequency": 111794
+      },
+      {
+        "word": "እታ",
+        "frequency": 101481
+      },
+      {
+        "word": "ኣብቲ",
+        "frequency": 100746
+      },
+      {
+        "word": "ኣቶ",
+        "frequency": 96239
+      },
+      {
+        "word": "ኢና",
+        "frequency": 78827
+      },
+      {
+        "word": "ኣብዚ",
+        "frequency": 76627
+      },
+      {
+        "word": "እያ",
+        "frequency": 76197
+      },
+      {
+        "word": "ኣነ",
+        "frequency": 73076
+      },
+      {
+        "word": "እየ",
+        "frequency": 72488
+      },
+      {
+        "word": "ኣምላኽ",
+        "frequency": 72255
+      },
+      {
+        "word": "ኢሉ",
+        "frequency": 69907
+      },
+      {
+        "word": "እንተሎ",
+        "frequency": 67075
+      },
+      {
+        "word": "ኢዩ",
+        "frequency": 64853
+      },
+      {
+        "word": "እሞ",
+        "frequency": 58641
+      },
+      {
+        "word": "እምበር",
+        "frequency": 51779
+      },
+      {
+        "word": "እኳ",
+        "frequency": 49241
+      },
+      {
+        "word": "ኣስመራ",
+        "frequency": 46036
+      },
+      {
+        "word": "ኣለዎ",
+        "frequency": 45174
+      },
+      {
+        "word": "ኢኻ",
+        "frequency": 44453
+      }
+    ]
   },
   "ከ": {
     "readingOne": [
@@ -270,7 +1734,129 @@
       "ከኮካ",
       "ኮኬክ"
     ],
-    "readingThree": "ከኩኪ ካኬክ ኮከኩ ኪካኬ ክኮከ ኩኪካ ኬክኮ ከኩኪ ካኬክ ኮከኩ ኪካኬ ክኮከ ኩኪካ ኬክኮ"
+    "readingThree": "ከኩኪ ካኬክ ኮከኩ ኪካኬ ክኮከ ኩኪካ ኬክኮ ከኩኪ ካኬክ ኮከኩ ኪካኬ ክኮከ ኩኪካ ኬክኮ",
+    "advancedReading": [
+      {
+        "word": "ካብ",
+        "frequency": 562897
+      },
+      {
+        "word": "ከም",
+        "frequency": 494067
+      },
+      {
+        "word": "ከኣ",
+        "frequency": 190270
+      },
+      {
+        "word": "ክሳብ",
+        "frequency": 107012
+      },
+      {
+        "word": "ከምኡ",
+        "frequency": 84678
+      },
+      {
+        "word": "ካልእ",
+        "frequency": 77398
+      },
+      {
+        "word": "ኮይኑ",
+        "frequency": 71805
+      },
+      {
+        "word": "ክልተ",
+        "frequency": 69688
+      },
+      {
+        "word": "ኩሉ",
+        "frequency": 65760
+      },
+      {
+        "word": "ከተማ",
+        "frequency": 65392
+      },
+      {
+        "word": "ከባቢ",
+        "frequency": 63078
+      },
+      {
+        "word": "ክኸውን",
+        "frequency": 53877
+      },
+      {
+        "word": "ካልኦት",
+        "frequency": 51577
+      },
+      {
+        "word": "ከምዚ",
+        "frequency": 50321
+      },
+      {
+        "word": "ካብቲ",
+        "frequency": 41990
+      },
+      {
+        "word": "ከሎ",
+        "frequency": 35775
+      },
+      {
+        "word": "ከምቲ",
+        "frequency": 33769
+      },
+      {
+        "word": "ከመይ",
+        "frequency": 33742
+      },
+      {
+        "word": "ኮማዊ",
+        "frequency": 33684
+      },
+      {
+        "word": "ክብል",
+        "frequency": 32439
+      },
+      {
+        "word": "ክለብ",
+        "frequency": 31861
+      },
+      {
+        "word": "ኩነታት",
+        "frequency": 30642
+      },
+      {
+        "word": "ካልኣይ",
+        "frequency": 30128
+      },
+      {
+        "word": "ክፍሊ",
+        "frequency": 29541
+      },
+      {
+        "word": "ከምዘሎ",
+        "frequency": 27609
+      },
+      {
+        "word": "ክፋል",
+        "frequency": 23730
+      },
+      {
+        "word": "ከቢድ",
+        "frequency": 22905
+      },
+      {
+        "word": "ካብቶም",
+        "frequency": 22122
+      },
+      {
+        "word": "ክንደይ",
+        "frequency": 20781
+      },
+      {
+        "word": "ክሳዕ",
+        "frequency": 19570
+      }
+    ]
   },
   "ጸ": {
     "readingOne": [
@@ -291,7 +1877,129 @@
       "ጻጺጸ",
       "ጺጾጹ"
     ],
-    "readingThree": "ጸጹጺ ጻጼጽ ጾጸጹ ጺጻጼ ጽጾጸ ጹጺጻ ጼጽጾ ጸጹጺ ጻጼጽ ጾጸጹ ጺጻጼ ጽጾጸ ጹጺጻ ጼጽጾ"
+    "readingThree": "ጸጹጺ ጻጼጽ ጾጸጹ ጺጻጼ ጽጾጸ ጹጺጻ ጼጽጾ ጸጹጺ ጻጼጽ ጾጸጹ ጺጻጼ ጽጾጸ ጹጺጻ ጼጽጾ",
+    "advancedReading": [
+      {
+        "word": "ጽቡቕ",
+        "frequency": 46777
+      },
+      {
+        "word": "ጸወታ",
+        "frequency": 33205
+      },
+      {
+        "word": "ጸገም",
+        "frequency": 28194
+      },
+      {
+        "word": "ጽሕፈት",
+        "frequency": 20270
+      },
+      {
+        "word": "ጻዕሪ",
+        "frequency": 18194
+      },
+      {
+        "word": "ጽሑፍ",
+        "frequency": 16146
+      },
+      {
+        "word": "ጸላኢ",
+        "frequency": 14411
+      },
+      {
+        "word": "ጽባሕ",
+        "frequency": 13670
+      },
+      {
+        "word": "ጸብጻብ",
+        "frequency": 13637
+      },
+      {
+        "word": "ጸገማት",
+        "frequency": 13404
+      },
+      {
+        "word": "ጸኒሑ",
+        "frequency": 13303
+      },
+      {
+        "word": "ጸወታታት",
+        "frequency": 12692
+      },
+      {
+        "word": "ጸብጻባት",
+        "frequency": 10944
+      },
+      {
+        "word": "ጸሓይ",
+        "frequency": 10794
+      },
+      {
+        "word": "ጽሑፋት",
+        "frequency": 10410
+      },
+      {
+        "word": "ጸጋይ",
+        "frequency": 9713
+      },
+      {
+        "word": "ጽልዋ",
+        "frequency": 9632
+      },
+      {
+        "word": "ጸቕጢ",
+        "frequency": 9400
+      },
+      {
+        "word": "ጽርግያ",
+        "frequency": 9328
+      },
+      {
+        "word": "ጸዓት",
+        "frequency": 9179
+      },
+      {
+        "word": "ጸጋ",
+        "frequency": 7398
+      },
+      {
+        "word": "ጻዕዳ",
+        "frequency": 7169
+      },
+      {
+        "word": "ጸባ",
+        "frequency": 6823
+      },
+      {
+        "word": "ጸጥታ",
+        "frequency": 6518
+      },
+      {
+        "word": "ጽሬት",
+        "frequency": 6490
+      },
+      {
+        "word": "ጸጋታት",
+        "frequency": 5794
+      },
+      {
+        "word": "ጾታዊ",
+        "frequency": 5492
+      },
+      {
+        "word": "ጸሓፊ",
+        "frequency": 5455
+      },
+      {
+        "word": "ጽምብል",
+        "frequency": 5308
+      },
+      {
+        "word": "ጸረ",
+        "frequency": 5215
+      }
+    ]
   },
   "ሠ": {
     "readingOne": [
@@ -312,7 +2020,129 @@
       "ሣሠሦ",
       "ሦሤሥ"
     ],
-    "readingThree": "ሠሡሢ ሣሤሥ ሦሠሡ ሢሣሤ ሥሦሠ ሡሢሣ ሤሥሦ ሠሡሢ ሣሤሥ ሦሠሡ ሢሣሤ ሥሦሠ ሡሢሣ ሤሥሦ"
+    "readingThree": "ሠሡሢ ሣሤሥ ሦሠሡ ሢሣሤ ሥሦሠ ሡሢሣ ሤሥሦ ሠሡሢ ሣሤሥ ሦሠሡ ሢሣሤ ሥሦሠ ሡሢሣ ሤሥሦ",
+    "advancedReading": [
+      {
+        "word": "ሥጋ",
+        "frequency": 480
+      },
+      {
+        "word": "ሥርዓት",
+        "frequency": 299
+      },
+      {
+        "word": "ሥልጣን",
+        "frequency": 268
+      },
+      {
+        "word": "ሠለስተ",
+        "frequency": 256
+      },
+      {
+        "word": "ሥላሴ",
+        "frequency": 251
+      },
+      {
+        "word": "ሥጋን",
+        "frequency": 152
+      },
+      {
+        "word": "ሥርዓተ",
+        "frequency": 140
+      },
+      {
+        "word": "ሠናይ",
+        "frequency": 134
+      },
+      {
+        "word": "ሥራሕ",
+        "frequency": 125
+      },
+      {
+        "word": "ሥነ",
+        "frequency": 108
+      },
+      {
+        "word": "ሥርዓትን",
+        "frequency": 106
+      },
+      {
+        "word": "ሥጋዊ",
+        "frequency": 99
+      },
+      {
+        "word": "ሣልሳይ",
+        "frequency": 70
+      },
+      {
+        "word": "ሠለስቱ",
+        "frequency": 52
+      },
+      {
+        "word": "ሠራዊት",
+        "frequency": 52
+      },
+      {
+        "word": "ሥጋኡን",
+        "frequency": 48
+      },
+      {
+        "word": "ሥጋይ",
+        "frequency": 42
+      },
+      {
+        "word": "ሥዕሊ",
+        "frequency": 41
+      },
+      {
+        "word": "ሥርዐት",
+        "frequency": 39
+      },
+      {
+        "word": "ሥጋኡ",
+        "frequency": 39
+      },
+      {
+        "word": "ሥልጣንን",
+        "frequency": 35
+      },
+      {
+        "word": "ሥጋኣ",
+        "frequency": 35
+      },
+      {
+        "word": "ሠለስትነት",
+        "frequency": 31
+      },
+      {
+        "word": "ሥጋዌ",
+        "frequency": 31
+      },
+      {
+        "word": "ሠመረኣብ",
+        "frequency": 27
+      },
+      {
+        "word": "ሥእሊ",
+        "frequency": 27
+      },
+      {
+        "word": "ሥጋና",
+        "frequency": 26
+      },
+      {
+        "word": "ሥግኡ",
+        "frequency": 23
+      },
+      {
+        "word": "ሥልጣነ",
+        "frequency": 22
+      },
+      {
+        "word": "ሥልጣኑ",
+        "frequency": 22
+      }
+    ]
   },
   "ኀ": {
     "readingOne": [
@@ -333,7 +2163,129 @@
       "ኀኅኄ",
       "ኆኅኃ"
     ],
-    "readingThree": "ኀኁኂ ኃኄኅ ኆኀኁ ኂኃኄ ኅኆኀ ኁኂኃ ኄኅኆ ኀኁኂ ኃኄኅ ኆኀኁ ኂኃኄ ኅኆኀ ኁኂኃ ኄኅኆ"
+    "readingThree": "ኀኁኂ ኃኄኅ ኆኀኁ ኂኃኄ ኅኆኀ ኁኂኃ ኄኅኆ ኀኁኂ ኃኄኅ ኆኀኁ ኂኃኄ ኅኆኀ ኁኂኃ ኄኅኆ",
+    "advancedReading": [
+      {
+        "word": "ኃጢኣት",
+        "frequency": 279
+      },
+      {
+        "word": "ኃይሊ",
+        "frequency": 137
+      },
+      {
+        "word": "ኃጢኣትን",
+        "frequency": 42
+      },
+      {
+        "word": "ኅዳር",
+        "frequency": 41
+      },
+      {
+        "word": "ኃይልን",
+        "frequency": 39
+      },
+      {
+        "word": "ኃጢአት",
+        "frequency": 38
+      },
+      {
+        "word": "ኃይለ",
+        "frequency": 36
+      },
+      {
+        "word": "ኀበ",
+        "frequency": 30
+      },
+      {
+        "word": "ኅብረት",
+        "frequency": 30
+      },
+      {
+        "word": "ኃሙሽተ",
+        "frequency": 29
+      },
+      {
+        "word": "ኃጥኣን",
+        "frequency": 24
+      },
+      {
+        "word": "ኃያል",
+        "frequency": 23
+      },
+      {
+        "word": "ኅሩይ",
+        "frequency": 22
+      },
+      {
+        "word": "ኃይሉ",
+        "frequency": 21
+      },
+      {
+        "word": "ኃምሳ",
+        "frequency": 20
+      },
+      {
+        "word": "ኃጢኣትና",
+        "frequency": 20
+      },
+      {
+        "word": "ኅሊና",
+        "frequency": 20
+      },
+      {
+        "word": "ኃይማኖት",
+        "frequency": 18
+      },
+      {
+        "word": "ኃጢኣቶም",
+        "frequency": 16
+      },
+      {
+        "word": "ኃጢኣቱ",
+        "frequency": 15
+      },
+      {
+        "word": "ኃይለ-ሥላሴ",
+        "frequency": 14
+      },
+      {
+        "word": "ኃይለማርያም",
+        "frequency": 12
+      },
+      {
+        "word": "ኃላፊ",
+        "frequency": 11
+      },
+      {
+        "word": "ኃይልታት",
+        "frequency": 11
+      },
+      {
+        "word": "ኃይሉን",
+        "frequency": 10
+      },
+      {
+        "word": "ኄር",
+        "frequency": 10
+      },
+      {
+        "word": "ኅብረ",
+        "frequency": 10
+      },
+      {
+        "word": "ኅብረተሰብ",
+        "frequency": 10
+      },
+      {
+        "word": "ኅብስተ",
+        "frequency": 10
+      },
+      {
+        "word": "ኃላፍነት",
+        "frequency": 9
+      }
+    ]
   },
   "ፀ": {
     "readingOne": [
@@ -354,7 +2306,129 @@
       "ፅፂፆ",
       "ፁፆፄ"
     ],
-    "readingThree": "ፀፁፂ ፃፄፅ ፆፀፁ ፂፃፄ ፅፆፀ ፁፂፃ ፄፅፆ ፀፁፂ ፃፄፅ ፆፀፁ ፂፃፄ ፅፆፀ ፁፂፃ ፄፅፆ"
+    "readingThree": "ፀፁፂ ፃፄፅ ፆፀፁ ፂፃፄ ፅፆፀ ፁፂፃ ፄፅፆ ፀፁፂ ፃፄፅ ፆፀፁ ፂፃፄ ፅፆፀ ፁፂፃ ፄፅፆ",
+    "advancedReading": [
+      {
+        "word": "ፀገም",
+        "frequency": 542
+      },
+      {
+        "word": "ፅቡቕ",
+        "frequency": 242
+      },
+      {
+        "word": "ፆታዊ",
+        "frequency": 204
+      },
+      {
+        "word": "ፀጥታ",
+        "frequency": 158
+      },
+      {
+        "word": "ፀገማት",
+        "frequency": 149
+      },
+      {
+        "word": "ፅሑፍ",
+        "frequency": 139
+      },
+      {
+        "word": "ፀብፃብ",
+        "frequency": 131
+      },
+      {
+        "word": "ፀሓይ",
+        "frequency": 128
+      },
+      {
+        "word": "ፀረ",
+        "frequency": 123
+      },
+      {
+        "word": "ፀኒሑ",
+        "frequency": 118
+      },
+      {
+        "word": "ፅሕፈት",
+        "frequency": 110
+      },
+      {
+        "word": "ፃዕሪ",
+        "frequency": 101
+      },
+      {
+        "word": "ፅልዋ",
+        "frequency": 93
+      },
+      {
+        "word": "ፅባሕ",
+        "frequency": 82
+      },
+      {
+        "word": "ፃውዒት",
+        "frequency": 71
+      },
+      {
+        "word": "ፅዕንቶ",
+        "frequency": 70
+      },
+      {
+        "word": "ፀጉሪ",
+        "frequency": 66
+      },
+      {
+        "word": "ፀጋ",
+        "frequency": 63
+      },
+      {
+        "word": "ፀኒሖም",
+        "frequency": 59
+      },
+      {
+        "word": "ፀዊዑ",
+        "frequency": 59
+      },
+      {
+        "word": "ፅግያት",
+        "frequency": 55
+      },
+      {
+        "word": "ፀባ",
+        "frequency": 53
+      },
+      {
+        "word": "ፃዕዳ",
+        "frequency": 53
+      },
+      {
+        "word": "ፀጋም",
+        "frequency": 49
+      },
+      {
+        "word": "ፀላኢ",
+        "frequency": 47
+      },
+      {
+        "word": "ፀዋታ",
+        "frequency": 46
+      },
+      {
+        "word": "ፀልማት",
+        "frequency": 45
+      },
+      {
+        "word": "ፀጋይ",
+        "frequency": 45
+      },
+      {
+        "word": "ፀሐይ",
+        "frequency": 42
+      },
+      {
+        "word": "ፀጥታን",
+        "frequency": 40
+      }
+    ]
   },
   "ዘ": {
     "readingOne": [
@@ -375,7 +2449,129 @@
       "ዛዚዜ",
       "ዙዝዞ"
     ],
-    "readingThree": "ዘዙዚ ዛዜዝ ዞዘዙ ዚዛዜ ዝዞዘ ዙዚዛ ዜዝዞ ዘዙዚ ዛዜዝ ዞዘዙ ዚዛዜ ዝዞዘ ዙዚዛ ዜዝዞ"
+    "readingThree": "ዘዙዚ ዛዜዝ ዞዘዙ ዚዛዜ ዝዞዘ ዙዚዛ ዜዝዞ ዘዙዚ ዛዜዝ ዞዘዙ ዚዛዜ ዝዞዘ ዙዚዛ ዜዝዞ",
+    "advancedReading": [
+      {
+        "word": "ዘሎ",
+        "frequency": 189168
+      },
+      {
+        "word": "ዞባ",
+        "frequency": 113353
+      },
+      {
+        "word": "ዝነበረ",
+        "frequency": 97775
+      },
+      {
+        "word": "ዘለዎ",
+        "frequency": 71773
+      },
+      {
+        "word": "ዝብል",
+        "frequency": 69273
+      },
+      {
+        "word": "ዝቃወም",
+        "frequency": 64797
+      },
+      {
+        "word": "ዝኾነ",
+        "frequency": 53981
+      },
+      {
+        "word": "ዝዀነ",
+        "frequency": 52913
+      },
+      {
+        "word": "ዝሓለፈ",
+        "frequency": 46881
+      },
+      {
+        "word": "ዜና",
+        "frequency": 45598
+      },
+      {
+        "word": "ዘለዉ",
+        "frequency": 39130
+      },
+      {
+        "word": "ዝኽእል",
+        "frequency": 38190
+      },
+      {
+        "word": "ዝርከብ",
+        "frequency": 37350
+      },
+      {
+        "word": "ዝነበሩ",
+        "frequency": 36264
+      },
+      {
+        "word": "ዘለዎም",
+        "frequency": 34288
+      },
+      {
+        "word": "ዝበለ",
+        "frequency": 33160
+      },
+      {
+        "word": "ዝያዳ",
+        "frequency": 30481
+      },
+      {
+        "word": "ዘላ",
+        "frequency": 29241
+      },
+      {
+        "word": "ዘለዋ",
+        "frequency": 24946
+      },
+      {
+        "word": "ዝኸውን",
+        "frequency": 24215
+      },
+      {
+        "word": "ዝተፈላለዩ",
+        "frequency": 23390
+      },
+      {
+        "word": "ዝተኻየደ",
+        "frequency": 22679
+      },
+      {
+        "word": "ዝነበረት",
+        "frequency": 22554
+      },
+      {
+        "word": "ዘይብሉ",
+        "frequency": 22101
+      },
+      {
+        "word": "ዝተፈላለየ",
+        "frequency": 21652
+      },
+      {
+        "word": "ዝመጽእ",
+        "frequency": 20155
+      },
+      {
+        "word": "ዝጸንሐ",
+        "frequency": 19523
+      },
+      {
+        "word": "ዝካየድ",
+        "frequency": 18898
+      },
+      {
+        "word": "ዝበሃል",
+        "frequency": 18436
+      },
+      {
+        "word": "ዝነበሮ",
+        "frequency": 18418
+      }
+    ]
   },
   "ዠ": {
     "readingOne": [
@@ -396,7 +2592,129 @@
       "ዡዥዦ",
       "ዦዡዤ"
     ],
-    "readingThree": "ዠዡዢ ዣዤዥ ዦዠዡ ዢዣዤ ዥዦዠ ዡዢዣ ዤዥዦ ዠዡዢ ዣዤዥ ዦዠዡ ዢዣዤ ዥዦዠ ዡዢዣ ዤዥዦ"
+    "readingThree": "ዠዡዢ ዣዤዥ ዦዠዡ ዢዣዤ ዥዦዠ ዡዢዣ ዤዥዦ ዠዡዢ ዣዤዥ ዦዠዡ ዢዣዤ ዥዦዠ ዡዢዣ ዤዥዦ",
+    "advancedReading": [
+      {
+        "word": "ዣቪ",
+        "frequency": 501
+      },
+      {
+        "word": "ዣቬር",
+        "frequency": 91
+      },
+      {
+        "word": "ዣን",
+        "frequency": 42
+      },
+      {
+        "word": "ዥን",
+        "frequency": 31
+      },
+      {
+        "word": "ዣቪን",
+        "frequency": 28
+      },
+      {
+        "word": "ዠን",
+        "frequency": 25
+      },
+      {
+        "word": "ዢያንግ",
+        "frequency": 24
+      },
+      {
+        "word": "ዣካ",
+        "frequency": 24
+      },
+      {
+        "word": "ዠንግ",
+        "frequency": 20
+      },
+      {
+        "word": "ዣንግ",
+        "frequency": 20
+      },
+      {
+        "word": "ዢን",
+        "frequency": 19
+      },
+      {
+        "word": "ዣካን",
+        "frequency": 18
+      },
+      {
+        "word": "ዢንፒን",
+        "frequency": 17
+      },
+      {
+        "word": "ዦን",
+        "frequency": 17
+      },
+      {
+        "word": "ዣክ",
+        "frequency": 16
+      },
+      {
+        "word": "ዥያን",
+        "frequency": 16
+      },
+      {
+        "word": "ዣቢ",
+        "frequency": 14
+      },
+      {
+        "word": "ዥያኦ",
+        "frequency": 11
+      },
+      {
+        "word": "ዥጎ",
+        "frequency": 11
+      },
+      {
+        "word": "ዢንግ",
+        "frequency": 10
+      },
+      {
+        "word": "ዥያኦህዋ",
+        "frequency": 10
+      },
+      {
+        "word": "ዥጋንግ",
+        "frequency": 10
+      },
+      {
+        "word": "ዢፒንግ",
+        "frequency": 9
+      },
+      {
+        "word": "ዦርዥ",
+        "frequency": 9
+      },
+      {
+        "word": "ዠኒቫ",
+        "frequency": 8
+      },
+      {
+        "word": "ዠጂያንግ",
+        "frequency": 8
+      },
+      {
+        "word": "ዢንጂያንግ",
+        "frequency": 8
+      },
+      {
+        "word": "ዣንጥላ",
+        "frequency": 8
+      },
+      {
+        "word": "ዥያንግ",
+        "frequency": 8
+      },
+      {
+        "word": "ዦዋ",
+        "frequency": 8
+      }
+    ]
   },
   "የ": {
     "readingOne": [
@@ -417,7 +2735,129 @@
       "ዩዮዬ",
       "ዬዮይ"
     ],
-    "readingThree": "የዩዪ ያዬይ ዮየዩ ዪያዬ ይዮየ ዩዪያ ዬይዮ የዩዪ ያዬይ ዮየዩ ዪያዬ ይዮየ ዩዪያ ዬይዮ"
+    "readingThree": "የዩዪ ያዬይ ዮየዩ ዪያዬ ይዮየ ዩዪያ ዬይዮ የዩዪ ያዬይ ዮየዩ ዪያዬ ይዮየ ዩዪያ ዬይዮ",
+    "advancedReading": [
+      {
+        "word": "ይቕረብ",
+        "frequency": 64038
+      },
+      {
+        "word": "የሆዋ",
+        "frequency": 63954
+      },
+      {
+        "word": "ይኹን",
+        "frequency": 55464
+      },
+      {
+        "word": "ይኽእል",
+        "frequency": 52446
+      },
+      {
+        "word": "የሱስ",
+        "frequency": 33129
+      },
+      {
+        "word": "ይኸውን",
+        "frequency": 28416
+      },
+      {
+        "word": "ይብል",
+        "frequency": 21864
+      },
+      {
+        "word": "የለን",
+        "frequency": 20569
+      },
+      {
+        "word": "ይግባእ",
+        "frequency": 18154
+      },
+      {
+        "word": "የብሉን",
+        "frequency": 16148
+      },
+      {
+        "word": "ይረጋገጸልና",
+        "frequency": 15779
+      },
+      {
+        "word": "ይፍለጥ",
+        "frequency": 15071
+      },
+      {
+        "word": "ይርከብ",
+        "frequency": 14002
+      },
+      {
+        "word": "ይኽእሉ",
+        "frequency": 13638
+      },
+      {
+        "word": "ይተኣረመለይ",
+        "frequency": 13569
+      },
+      {
+        "word": "ይከኣል",
+        "frequency": 13243
+      },
+      {
+        "word": "ይተሓለወለይ",
+        "frequency": 13030
+      },
+      {
+        "word": "ዩናይትድ",
+        "frequency": 12720
+      },
+      {
+        "word": "ይረጋገጸሎም",
+        "frequency": 11877
+      },
+      {
+        "word": "የማነ",
+        "frequency": 10874
+      },
+      {
+        "word": "ይቕጽል",
+        "frequency": 10394
+      },
+      {
+        "word": "ይግለጽ",
+        "frequency": 9981
+      },
+      {
+        "word": "ዮሴፍ",
+        "frequency": 7748
+      },
+      {
+        "word": "ዮሃንስ",
+        "frequency": 7351
+      },
+      {
+        "word": "ይገብር",
+        "frequency": 7344
+      },
+      {
+        "word": "ይገልጽ",
+        "frequency": 7279
+      },
+      {
+        "word": "ይሕብሩ",
+        "frequency": 6872
+      },
+      {
+        "word": "ይሕብር",
+        "frequency": 6547
+      },
+      {
+        "word": "የድሊ",
+        "frequency": 6327
+      },
+      {
+        "word": "ይረጋገጸለይ",
+        "frequency": 6294
+      }
+    ]
   },
   "ደ": {
     "readingOne": [
@@ -438,7 +2878,129 @@
       "ዲዶዳ",
       "ዶዱዳ"
     ],
-    "readingThree": "ደዱዲ ዳዴድ ዶደዱ ዲዳዴ ድዶደ ዱዲዳ ዴድዶ ደዱዲ ዳዴድ ዶደዱ ዲዳዴ ድዶደ ዱዲዳ ዴድዶ"
+    "readingThree": "ደዱዲ ዳዴድ ዶደዱ ዲዳዴ ድዶደ ዱዲዳ ዴድዶ ደዱዲ ዳዴድ ዶደዱ ዲዳዴ ድዶደ ዱዲዳ ዴድዶ",
+    "advancedReading": [
+      {
+        "word": "ድማ",
+        "frequency": 450747
+      },
+      {
+        "word": "ድሕሪ",
+        "frequency": 111650
+      },
+      {
+        "word": "ደረጃ",
+        "frequency": 50814
+      },
+      {
+        "word": "ደቂ",
+        "frequency": 49401
+      },
+      {
+        "word": "ደኣ",
+        "frequency": 45674
+      },
+      {
+        "word": "ድዩ",
+        "frequency": 25518
+      },
+      {
+        "word": "ደቡብ",
+        "frequency": 25276
+      },
+      {
+        "word": "ደም",
+        "frequency": 20207
+      },
+      {
+        "word": "ድምጺ",
+        "frequency": 18246
+      },
+      {
+        "word": "ደው",
+        "frequency": 16432
+      },
+      {
+        "word": "ዶላር",
+        "frequency": 14335
+      },
+      {
+        "word": "ዶብ",
+        "frequency": 14140
+      },
+      {
+        "word": "ዳዊት",
+        "frequency": 14137
+      },
+      {
+        "word": "ዳርጋ",
+        "frequency": 13877
+      },
+      {
+        "word": "ደቀንስትዮ",
+        "frequency": 11975
+      },
+      {
+        "word": "ደቅና",
+        "frequency": 11634
+      },
+      {
+        "word": "ድሮ",
+        "frequency": 11567
+      },
+      {
+        "word": "ዶክተር",
+        "frequency": 10220
+      },
+      {
+        "word": "ደቒቕ",
+        "frequency": 9731
+      },
+      {
+        "word": "ደሓን",
+        "frequency": 9478
+      },
+      {
+        "word": "ድኣ",
+        "frequency": 9334
+      },
+      {
+        "word": "ደገ",
+        "frequency": 9215
+      },
+      {
+        "word": "ደሃይ",
+        "frequency": 7879
+      },
+      {
+        "word": "ዳግማይ",
+        "frequency": 7733
+      },
+      {
+        "word": "ድቃስ",
+        "frequency": 7700
+      },
+      {
+        "word": "ዲኻ",
+        "frequency": 7689
+      },
+      {
+        "word": "ድሕሪኡ",
+        "frequency": 6924
+      },
+      {
+        "word": "ደቁ",
+        "frequency": 6866
+      },
+      {
+        "word": "ደቀምሓረ",
+        "frequency": 6806
+      },
+      {
+        "word": "ደገፍ",
+        "frequency": 6734
+      }
+    ]
   },
   "ገ": {
     "readingOne": [
@@ -459,7 +3021,129 @@
       "ጊግጌ",
       "ጎጊግ"
     ],
-    "readingThree": "ገጉጊ ጋጌግ ጎገጉ ጊጋጌ ግጎገ ጉጊጋ ጌግጎ ገጉጊ ጋጌግ ጎገጉ ጊጋጌ ግጎገ ጉጊጋ ጌግጎ"
+    "readingThree": "ገጉጊ ጋጌግ ጎገጉ ጊጋጌ ግጎገ ጉጊጋ ጌግጎ ገጉጊ ጋጌግ ጎገጉ ጊጋጌ ግጎገ ጉጊጋ ጌግጎ",
+    "advancedReading": [
+      {
+        "word": "ግን",
+        "frequency": 180271
+      },
+      {
+        "word": "ግዜ",
+        "frequency": 153060
+      },
+      {
+        "word": "ገጽ",
+        "frequency": 91859
+      },
+      {
+        "word": "ግና",
+        "frequency": 82324
+      },
+      {
+        "word": "ገለ",
+        "frequency": 65240
+      },
+      {
+        "word": "ገዛ",
+        "frequency": 41085
+      },
+      {
+        "word": "ጋንታ",
+        "frequency": 39689
+      },
+      {
+        "word": "ጉዳይ",
+        "frequency": 36784
+      },
+      {
+        "word": "ገሊጹ",
+        "frequency": 34467
+      },
+      {
+        "word": "ግጥም",
+        "frequency": 30301
+      },
+      {
+        "word": "ገንዘብ",
+        "frequency": 28102
+      },
+      {
+        "word": "ጋዜጣ",
+        "frequency": 20590
+      },
+      {
+        "word": "ገይሩ",
+        "frequency": 19280
+      },
+      {
+        "word": "ጉጅለ",
+        "frequency": 17603
+      },
+      {
+        "word": "ገና",
+        "frequency": 16936
+      },
+      {
+        "word": "ጎደና",
+        "frequency": 14669
+      },
+      {
+        "word": "ግምት",
+        "frequency": 14654
+      },
+      {
+        "word": "ግንባር",
+        "frequency": 14244
+      },
+      {
+        "word": "ጉዳያት",
+        "frequency": 13611
+      },
+      {
+        "word": "ግብሪ",
+        "frequency": 13116
+      },
+      {
+        "word": "ጋንታታት",
+        "frequency": 12447
+      },
+      {
+        "word": "ግቡእ",
+        "frequency": 12273
+      },
+      {
+        "word": "ግንቦት",
+        "frequency": 12178
+      },
+      {
+        "word": "ገዛእ",
+        "frequency": 11608
+      },
+      {
+        "word": "ገበናት",
+        "frequency": 10871
+      },
+      {
+        "word": "ግጥማት",
+        "frequency": 10783
+      },
+      {
+        "word": "ግድን",
+        "frequency": 10342
+      },
+      {
+        "word": "ጉዕዞ",
+        "frequency": 10024
+      },
+      {
+        "word": "ጉባኤ",
+        "frequency": 9958
+      },
+      {
+        "word": "ገሊጾም",
+        "frequency": 9261
+      }
+    ]
   },
   "ጠ": {
     "readingOne": [
@@ -480,7 +3164,129 @@
       "ጣጢጦ",
       "ጤጦጠ"
     ],
-    "readingThree": "ጠጡጢ ጣጤጥ ጦጠጡ ጢጣጤ ጥጦጠ ጡጢጣ ጤጥጦ ጠጡጢ ጣጤጥ ጦጠጡ ጢጣጤ ጥጦጠ ጡጢጣ ጤጥጦ"
+    "readingThree": "ጠጡጢ ጣጤጥ ጦጠጡ ጢጣጤ ጥጦጠ ጡጢጣ ጤጥጦ ጠጡጢ ጣጤጥ ጦጠጡ ጢጣጤ ጥጦጠ ጡጢጣ ጤጥጦ",
+    "advancedReading": [
+      {
+        "word": "ጥራይ",
+        "frequency": 101180
+      },
+      {
+        "word": "ጥሪ",
+        "frequency": 48701
+      },
+      {
+        "word": "ጥዕና",
+        "frequency": 38655
+      },
+      {
+        "word": "ጥቅምቲ",
+        "frequency": 11462
+      },
+      {
+        "word": "ጥበብ",
+        "frequency": 10745
+      },
+      {
+        "word": "ጠንቂ",
+        "frequency": 9971
+      },
+      {
+        "word": "ጥራሕ",
+        "frequency": 7652
+      },
+      {
+        "word": "ጥቕሚ",
+        "frequency": 7070
+      },
+      {
+        "word": "ጥቓ",
+        "frequency": 7021
+      },
+      {
+        "word": "ጠቒሱ",
+        "frequency": 5591
+      },
+      {
+        "word": "ጥዕናን",
+        "frequency": 4989
+      },
+      {
+        "word": "ጥዑም",
+        "frequency": 4870
+      },
+      {
+        "word": "ጥዕናዊ",
+        "frequency": 4369
+      },
+      {
+        "word": "ጥንሲ",
+        "frequency": 4008
+      },
+      {
+        "word": "ጠለብ",
+        "frequency": 3772
+      },
+      {
+        "word": "ጥቕሲ",
+        "frequency": 3530
+      },
+      {
+        "word": "ጠባይ",
+        "frequency": 3481
+      },
+      {
+        "word": "ጥንቲ",
+        "frequency": 3404
+      },
+      {
+        "word": "ጥዑይ",
+        "frequency": 3293
+      },
+      {
+        "word": "ጥሪት",
+        "frequency": 3210
+      },
+      {
+        "word": "ጥንታዊ",
+        "frequency": 3182
+      },
+      {
+        "word": "ጥልያን",
+        "frequency": 3127
+      },
+      {
+        "word": "ጥንቃቐ",
+        "frequency": 2974
+      },
+      {
+        "word": "ጥበባዊ",
+        "frequency": 2973
+      },
+      {
+        "word": "ጠፈር",
+        "frequency": 2735
+      },
+      {
+        "word": "ጠቕላላ",
+        "frequency": 2676
+      },
+      {
+        "word": "ጥዑምዝጊ",
+        "frequency": 2608
+      },
+      {
+        "word": "ጥረ",
+        "frequency": 2546
+      },
+      {
+        "word": "ጣሊባን",
+        "frequency": 2463
+      },
+      {
+        "word": "ጥበብን",
+        "frequency": 2407
+      }
+    ]
   },
   "ጨ": {
     "readingOne": [
@@ -501,7 +3307,129 @@
       "ጨጫጪ",
       "ጨጫጬ"
     ],
-    "readingThree": "ጨጩጪ ጫጬጭ ጮጨጩ ጪጫጬ ጭጮጨ ጩጪጫ ጬጭጮ ጨጩጪ ጫጬጭ ጮጨጩ ጪጫጬ ጭጮጨ ጩጪጫ ጬጭጮ"
+    "readingThree": "ጨጩጪ ጫጬጭ ጮጨጩ ጪጫጬ ጭጮጨ ጩጪጫ ጬጭጮ ጨጩጪ ጫጬጭ ጮጨጩ ጪጫጬ ጭጮጨ ጩጪጫ ጬጭጮ",
+    "advancedReading": [
+      {
+        "word": "ጨረታ",
+        "frequency": 13544
+      },
+      {
+        "word": "ጨንፈር",
+        "frequency": 13417
+      },
+      {
+        "word": "ጫፍ",
+        "frequency": 3829
+      },
+      {
+        "word": "ጨው",
+        "frequency": 3474
+      },
+      {
+        "word": "ጭንቀት",
+        "frequency": 3143
+      },
+      {
+        "word": "ጨናፍር",
+        "frequency": 2108
+      },
+      {
+        "word": "ጫማ",
+        "frequency": 2045
+      },
+      {
+        "word": "ጫካ",
+        "frequency": 1920
+      },
+      {
+        "word": "ጨና",
+        "frequency": 1636
+      },
+      {
+        "word": "ጩራ",
+        "frequency": 1598
+      },
+      {
+        "word": "ጭቡጥ",
+        "frequency": 1405
+      },
+      {
+        "word": "ጭዋዳታት",
+        "frequency": 1338
+      },
+      {
+        "word": "ጭብጢ",
+        "frequency": 1328
+      },
+      {
+        "word": "ጨርቂ",
+        "frequency": 1215
+      },
+      {
+        "word": "ጭንቀትን",
+        "frequency": 1157
+      },
+      {
+        "word": "ጭርሖ",
+        "frequency": 1041
+      },
+      {
+        "word": "ጭዋዳ",
+        "frequency": 1032
+      },
+      {
+        "word": "ጭፍራ",
+        "frequency": 984
+      },
+      {
+        "word": "ጭቃ",
+        "frequency": 930
+      },
+      {
+        "word": "ጨካን",
+        "frequency": 920
+      },
+      {
+        "word": "ጭራ",
+        "frequency": 865
+      },
+      {
+        "word": "ጫካታት",
+        "frequency": 851
+      },
+      {
+        "word": "ጨቓዊት",
+        "frequency": 645
+      },
+      {
+        "word": "ጨቢጡ",
+        "frequency": 633
+      },
+      {
+        "word": "ጫፋት",
+        "frequency": 610
+      },
+      {
+        "word": "ጭብጥታት",
+        "frequency": 608
+      },
+      {
+        "word": "ጨዋም",
+        "frequency": 585
+      },
+      {
+        "word": "ጭንቂ",
+        "frequency": 557
+      },
+      {
+        "word": "ጫድ",
+        "frequency": 542
+      },
+      {
+        "word": "ጭካነ",
+        "frequency": 537
+      }
+    ]
   },
   "ወ": {
     "readingOne": [
@@ -522,7 +3450,129 @@
       "ዋወዌ",
       "ውዎዊ"
     ],
-    "readingThree": "ወዉዊ ዋዌው ዎወዉ ዊዋዌ ውዎወ ዉዊዋ ዌውዎ ወዉዊ ዋዌው ዎወዉ ዊዋዌ ውዎወ ዉዊዋ ዌውዎ"
+    "readingThree": "ወዉዊ ዋዌው ዎወዉ ዊዋዌ ውዎወ ዉዊዋ ዌውዎ ወዉዊ ዋዌው ዎወዉ ዊዋዌ ውዎወ ዉዊዋ ዌውዎ",
+    "advancedReading": [
+      {
+        "word": "ወይ",
+        "frequency": 169757
+      },
+      {
+        "word": "ወዲ",
+        "frequency": 57301
+      },
+      {
+        "word": "ውድድር",
+        "frequency": 52576
+      },
+      {
+        "word": "ውሽጢ",
+        "frequency": 37066
+      },
+      {
+        "word": "ወርሒ",
+        "frequency": 33793
+      },
+      {
+        "word": "ዋላ",
+        "frequency": 32500
+      },
+      {
+        "word": "ወረስቲ",
+        "frequency": 31359
+      },
+      {
+        "word": "ወጻኢ",
+        "frequency": 25758
+      },
+      {
+        "word": "ውጽኢት",
+        "frequency": 24869
+      },
+      {
+        "word": "ዋጋ",
+        "frequency": 21400
+      },
+      {
+        "word": "ወዘተ",
+        "frequency": 19625
+      },
+      {
+        "word": "ወይዘሮ",
+        "frequency": 17551
+      },
+      {
+        "word": "ዋንጫ",
+        "frequency": 16265
+      },
+      {
+        "word": "ውግእ",
+        "frequency": 15643
+      },
+      {
+        "word": "ወትሩ",
+        "frequency": 15495
+      },
+      {
+        "word": "ውድብ",
+        "frequency": 15294
+      },
+      {
+        "word": "ውዕል",
+        "frequency": 15108
+      },
+      {
+        "word": "ወከፍ",
+        "frequency": 15016
+      },
+      {
+        "word": "ውሳነ",
+        "frequency": 14109
+      },
+      {
+        "word": "ውድድራት",
+        "frequency": 12897
+      },
+      {
+        "word": "ዋና",
+        "frequency": 11889
+      },
+      {
+        "word": "ወረቐት",
+        "frequency": 11606
+      },
+      {
+        "word": "ወኪል",
+        "frequency": 11333
+      },
+      {
+        "word": "ወተሃደራዊ",
+        "frequency": 11139
+      },
+      {
+        "word": "ወለዲ",
+        "frequency": 11092
+      },
+      {
+        "word": "ወገን",
+        "frequency": 10857
+      },
+      {
+        "word": "ወፍሪ",
+        "frequency": 10283
+      },
+      {
+        "word": "ወገናት",
+        "frequency": 8897
+      },
+      {
+        "word": "ውሽጣዊ",
+        "frequency": 8864
+      },
+      {
+        "word": "ወረ",
+        "frequency": 7780
+      }
+    ]
   },
   "ዐ": {
     "readingOne": [
@@ -543,7 +3593,129 @@
       "ዐዖዑ",
       "ዒዖዕ"
     ],
-    "readingThree": "ዐዑዒ ዓዔዕ ዖዐዑ ዒዓዔ ዕዖዐ ዑዒዓ ዔዕዖ ዐዑዒ ዓዔዕ ዖዐዑ ዒዓዔ ዕዖዐ ዑዒዓ ዔዕዖ"
+    "readingThree": "ዐዑዒ ዓዔዕ ዖዐዑ ዒዓዔ ዕዖዐ ዑዒዓ ዔዕዖ ዐዑዒ ዓዔዕ ዖዐዑ ዒዓዔ ዕዖዐ ዑዒዓ ዔዕዖ",
+    "advancedReading": [
+      {
+        "word": "ዓመት",
+        "frequency": 140035
+      },
+      {
+        "word": "ዓለም",
+        "frequency": 72009
+      },
+      {
+        "word": "ዓይነት",
+        "frequency": 52469
+      },
+      {
+        "word": "ዓመታት",
+        "frequency": 45241
+      },
+      {
+        "word": "ዓዲ",
+        "frequency": 39294
+      },
+      {
+        "word": "ዓቢ",
+        "frequency": 34805
+      },
+      {
+        "word": "ዕለት",
+        "frequency": 26477
+      },
+      {
+        "word": "ዓበይቲ",
+        "frequency": 23465
+      },
+      {
+        "word": "ዓወት",
+        "frequency": 22256
+      },
+      {
+        "word": "ዕድመ",
+        "frequency": 21822
+      },
+      {
+        "word": "ዕድል",
+        "frequency": 21761
+      },
+      {
+        "word": "ዓቕሚ",
+        "frequency": 17979
+      },
+      {
+        "word": "ዕላማ",
+        "frequency": 16007
+      },
+      {
+        "word": "ዕዮ",
+        "frequency": 15648
+      },
+      {
+        "word": "ዓረብ",
+        "frequency": 14673
+      },
+      {
+        "word": "ዓይኒ",
+        "frequency": 14144
+      },
+      {
+        "word": "ዓሳ",
+        "frequency": 12981
+      },
+      {
+        "word": "ዕዳጋ",
+        "frequency": 12953
+      },
+      {
+        "word": "ዓሰርተ",
+        "frequency": 10637
+      },
+      {
+        "word": "ዓመተ",
+        "frequency": 10572
+      },
+      {
+        "word": "ዓውዲ",
+        "frequency": 9927
+      },
+      {
+        "word": "ዕረፍቲ",
+        "frequency": 9747
+      },
+      {
+        "word": "ዓባይ",
+        "frequency": 9323
+      },
+      {
+        "word": "ዓቐን",
+        "frequency": 9258
+      },
+      {
+        "word": "ዓለምና",
+        "frequency": 8805
+      },
+      {
+        "word": "ዓንሰባ",
+        "frequency": 8786
+      },
+      {
+        "word": "ዓመታዊ",
+        "frequency": 8562
+      },
+      {
+        "word": "ዕጡቓት",
+        "frequency": 8230
+      },
+      {
+        "word": "ዓሊ",
+        "frequency": 7933
+      },
+      {
+        "word": "ዕላል",
+        "frequency": 7755
+      }
+    ]
   },
   "ፈ": {
     "readingOne": [
@@ -564,6 +3736,128 @@
       "ፊፍፌ",
       "ፈፊፋ"
     ],
-    "readingThree": "ፈፉፊ ፋፌፍ ፎፈፉ ፊፋፌ ፍፎፈ ፉፊፋ ፌፍፎ ፈፉፊ ፋፌፍ ፎፈፉ ፊፋፌ ፍፎፈ ፉፊፋ ፌፍፎ"
+    "readingThree": "ፈፉፊ ፋፌፍ ፎፈፉ ፊፋፌ ፍፎፈ ፉፊፋ ፌፍፎ ፈፉፊ ፋፌፍ ፎፈፉ ፊፋፌ ፍፎፈ ፉፊፋ ፌፍፎ",
+    "advancedReading": [
+      {
+        "word": "ፍርዲ",
+        "frequency": 75226
+      },
+      {
+        "word": "ፍቕሪ",
+        "frequency": 37235
+      },
+      {
+        "word": "ፍሉይ",
+        "frequency": 18668
+      },
+      {
+        "word": "ፈለማ",
+        "frequency": 17721
+      },
+      {
+        "word": "ፍጻመ",
+        "frequency": 14102
+      },
+      {
+        "word": "ፍልጠት",
+        "frequency": 13977
+      },
+      {
+        "word": "ፍጹም",
+        "frequency": 13757
+      },
+      {
+        "word": "ፍርቂ",
+        "frequency": 12797
+      },
+      {
+        "word": "ፍረ",
+        "frequency": 11073
+      },
+      {
+        "word": "ፊልም",
+        "frequency": 10905
+      },
+      {
+        "word": "ፍቱዋት",
+        "frequency": 9951
+      },
+      {
+        "word": "ፍቓድ",
+        "frequency": 9709
+      },
+      {
+        "word": "ፈረንሳ",
+        "frequency": 8960
+      },
+      {
+        "word": "ፈተነ",
+        "frequency": 8636
+      },
+      {
+        "word": "ፈደረሽን",
+        "frequency": 7480
+      },
+      {
+        "word": "ፈጺሙ",
+        "frequency": 7099
+      },
+      {
+        "word": "ፍልልይ",
+        "frequency": 6968
+      },
+      {
+        "word": "ፍታሕ",
+        "frequency": 6794
+      },
+      {
+        "word": "ፍርያት",
+        "frequency": 6650
+      },
+      {
+        "word": "ፈነወ",
+        "frequency": 6394
+      },
+      {
+        "word": "ፈስቲቫል",
+        "frequency": 6381
+      },
+      {
+        "word": "ፈተና",
+        "frequency": 6183
+      },
+      {
+        "word": "ፋርማሲ",
+        "frequency": 5745
+      },
+      {
+        "word": "ፍስሃየ",
+        "frequency": 5694
+      },
+      {
+        "word": "ፍሉጥ",
+        "frequency": 5301
+      },
+      {
+        "word": "ፍትሒ",
+        "frequency": 5088
+      },
+      {
+        "word": "ፋክስ",
+        "frequency": 4637
+      },
+      {
+        "word": "ፍቕርን",
+        "frequency": 4583
+      },
+      {
+        "word": "ፍስሃጽዮን",
+        "frequency": 4252
+      },
+      {
+        "word": "ፍልጠትን",
+        "frequency": 4158
+      }
+    ]
   }
 }

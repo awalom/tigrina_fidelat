@@ -1,8 +1,9 @@
 import { PRIMARY_ROWS, SECONDARY_ROWS } from '../data/fidelat-data.js';
-import familyReadings from '../data/readingPractice.json' with { type: 'json' };
+import familyReadings from '../data/readingPractice.json?v=lesson-stages-1' with { type: 'json' };
 
 export const LETTER_FAMILIES = [...PRIMARY_ROWS, ...SECONDARY_ROWS];
 export const FORM_ORDER = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
+export const LESSON_STAGES = ['Seven forms', 'Listening exercise', 'Order the alphabets', 'Reading One', 'Reading Two', 'Reading Three', 'Advanced Reading'];
 
 const ICON_PATHS = {
   family: '<rect x="3" y="4" width="8" height="16" rx="1"/><rect x="13" y="4" width="8" height="16" rx="1"/>',
@@ -32,10 +33,9 @@ export class FamilyLessonFeature {
     this.exerciseIndex = null;
     this.exerciseResult = '';
     this.exerciseComplete = false;
-    this.listeningSkipped = false;
+    this.stageIndex = 0;
     this.orderingEverCompleted = false;
     this.resetOrdering();
-    this.readingActive = false;
   }
 
   get family() {
@@ -49,17 +49,18 @@ export class FamilyLessonFeature {
     this.exerciseIndex = null;
     this.exerciseResult = '';
     this.exerciseComplete = false;
-    this.listeningSkipped = false;
+    this.stageIndex = 0;
     this.orderingEverCompleted = false;
     this.resetOrdering();
-    this.readingActive = false;
     return true;
   }
 
-  skipListeningToOrdering() {
-    if (this.exerciseComplete || this.listeningSkipped) return false;
-    this.listeningSkipped = true;
-    this.startOrdering();
+  moveStage(direction) {
+    if (direction !== -1 && direction !== 1) return false;
+    const next = this.stageIndex + direction;
+    if (next < 0 || next >= LESSON_STAGES.length) return false;
+    this.stageIndex = next;
+    if (next === 2 && !this.orderingActive) this.startOrdering();
     return true;
   }
 
@@ -85,7 +86,6 @@ export class FamilyLessonFeature {
   }
 
   startOrdering(random = Math.random) {
-    if (!this.exerciseComplete && !this.listeningSkipped) return false;
     this.orderBank = this.shuffleFamily(random);
     this.orderPlaced = Array(this.family.length).fill(null);
     this.orderSelected = null;
@@ -95,7 +95,7 @@ export class FamilyLessonFeature {
   }
 
   get orderingActive() {
-    return (this.exerciseComplete || this.listeningSkipped) && this.orderBank.length > 0;
+    return this.orderBank.length > 0;
   }
 
   selectOrderSymbol(symbol) {
@@ -134,18 +134,6 @@ export class FamilyLessonFeature {
     return this.startOrdering(random);
   }
 
-  continueToReadingPractice() {
-    if ((!this.exerciseComplete && !this.listeningSkipped) || !this.orderingComplete) return false;
-    this.readingActive = true;
-    return true;
-  }
-
-  skipToReadingPractice() {
-    if (!this.orderingActive) return false;
-    this.readingActive = true;
-    return true;
-  }
-
   async startExercise() {
     this.exerciseOrder = [...this.family];
     for (let index = this.exerciseOrder.length - 1; index > 0; index -= 1) {
@@ -155,9 +143,6 @@ export class FamilyLessonFeature {
     }
     this.exerciseIndex = 0;
     this.exerciseComplete = false;
-    this.listeningSkipped = false;
-    this.resetOrdering();
-    this.readingActive = false;
     this.exerciseResult = '';
     await this.playExercisePrompt();
     return this.family[this.exerciseIndex];
@@ -183,7 +168,6 @@ export class FamilyLessonFeature {
       this.exerciseComplete = true;
       this.exerciseIndex = null;
       this.exerciseResult = 'complete';
-      this.startOrdering();
       return 'complete';
     }
 
@@ -224,11 +208,11 @@ export class FamilyLessonFeature {
             <div>
               <div class='activity-badge'>${familyLabel}</div>
               <h2 class='view-title' id='family-lesson-title'>${familyLabel} · <span lang='ti'>${family[0]}</span></h2>
-              <p class='panel-copy'>Explore this family’s seven forms in order. Select a form to play its configured audio.</p>
+              <p class='panel-copy'>Use Previous and Next to explore each activity at your own pace.</p>
             </div>
           </header>
 
-          <section class='panel-card card' aria-labelledby='forms-title'>
+          ${this.stageIndex === 0 ? `<section class='panel-card card' aria-labelledby='forms-title'>
             <h3 class='activity-title lesson-section-title' id='forms-title'>${lessonIcon('family')}Seven forms</h3>
             <ol class='family-forms'>
               ${family.map((symbol, index) => `
@@ -240,9 +224,9 @@ export class FamilyLessonFeature {
                 </li>
               `).join('')}
             </ol>
-          </section>
+          </section>` : ''}
 
-          <section class='panel-card card family-exercise' aria-labelledby='exercise-title'>
+          ${this.stageIndex === 1 ? `<section class='panel-card card family-exercise' aria-labelledby='exercise-title'>
             <h3 class='activity-title lesson-section-title' id='exercise-title'>
               ${lessonIcon('listening')}Listening exercise
               ${this.exerciseComplete ? `<span class='activity-complete' role='img' aria-label='Listening completed'>${lessonIcon('check')}</span>` : ''}
@@ -253,12 +237,6 @@ export class FamilyLessonFeature {
               <div class='activity-actions'>
                 <button class='primary-btn lesson-icon-button' type='button' data-action='family-exercise-repeat'
                   aria-label='Repeat listening exercise' title='Repeat listening exercise'>${lessonIcon('repeat')}</button>
-              </div>
-            ` : this.listeningSkipped ? `
-              <p class='helper-copy lesson-status' role='status'>${lessonIcon('skip')}Listening skipped. Continue with alphabet ordering.</p>
-              <div class='activity-actions'>
-                <button class='primary-btn lesson-icon-button' type='button' data-action='family-exercise-start'
-                  aria-label='Practice listening' title='Practice listening'>${lessonIcon('listening')}</button>
               </div>
             ` : exerciseTarget === null ? `
               <div class='activity-actions'>
@@ -280,23 +258,14 @@ export class FamilyLessonFeature {
                 `).join('')}
               </div>
             `}
-            ${!this.exerciseComplete && !this.listeningSkipped ? `
-              <div class='activity-actions'>
-                <button class='ghost-btn lesson-icon-button' type='button' data-action='family-listening-skip'
-                  aria-label='Skip listening and go to alphabet ordering' title='Skip listening and go to alphabet ordering'>${lessonIcon('skip')}</button>
-              </div>
-            ` : ''}
-          </section>
+          </section>` : ''}
 
-          <section class='panel-card card family-ordering' aria-labelledby='ordering-title'>
+          ${this.stageIndex === 2 ? `<section class='panel-card card family-ordering' aria-labelledby='ordering-title'>
             <h3 class='activity-title lesson-section-title' id='ordering-title'>
               ${lessonIcon('order')}Order the alphabets
               ${this.orderingEverCompleted ? `<span class='activity-complete' role='img' aria-label='Alphabet ordering completed'>${lessonIcon('check')}</span>` : ''}
             </h3>
-            ${!this.orderingActive ? `
-              <p class='helper-copy'>Complete the listening exercise to unlock this exercise.</p>
-            ` : `
-              <p class='panel-copy'>${this.listeningSkipped ? 'Listening skipped. ' : ''}Drag each letter into its place, or select a letter and then select a place. Put the seven forms in order.</p>
+              <p class='panel-copy'>Drag each letter into its place, or select a letter and then select a place. Put the seven forms in order.</p>
               <p class='helper-copy exercise-feedback ${this.orderingComplete ? 'is-complete' : this.orderResult === 'wrong' ? 'is-incorrect' : ''}' role='status' aria-live='polite'>${
                 this.orderingComplete ? `${lessonIcon('check')}Alphabet ordering complete!`
                 : this.orderResult === 'wrong' ? '<span class="exercise-error-icon" aria-hidden="true">✕</span> That letter belongs somewhere else. Try again.'
@@ -321,37 +290,42 @@ export class FamilyLessonFeature {
               <div class='activity-actions'>
                 <button class='ghost-btn lesson-icon-button' type='button' data-action='family-order-restart'
                   aria-label='Shuffle letters again' title='Shuffle letters again'>${lessonIcon('repeat')}</button>
-                <button class='ghost-btn lesson-icon-button' type='button' data-action='family-reading-skip'
-                  aria-label='Skip ordering and go to reading practice' title='Skip ordering and go to reading practice'>${lessonIcon('skip')}</button>
-                ${this.orderingComplete ? `<button class='secondary-btn lesson-icon-button' type='button' data-action='family-reading-continue' aria-label='Continue to reading practice' title='Continue to reading practice'>${lessonIcon('reading')}</button>` : ''}
               </div>
-            `}
-          </section>
+          </section>` : ''}
 
-          <section class='panel-card card reading-practice ${this.readingActive ? 'is-active' : 'is-locked'}'
-            id='family-reading-practice' aria-label='Reading practice' aria-disabled='${!this.readingActive}'>
-            ${this.readingActive ? `
-              <h4 class='activity-title lesson-section-title' tabindex='-1'>${lessonIcon('reading')}Reading One</h4>
+          ${this.stageIndex >= 3 ? `<section class='panel-card card reading-practice'
+            id='family-reading-practice' aria-label='Reading practice'>
+            ${this.stageIndex === 3 ? `
+              <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading One</h3>
               <ol class='reading-combinations' aria-label='Reading One pronunciation practice'>
                 ${reading.readingOne.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
               </ol>
-              <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Two</h4>
+            ` : this.stageIndex === 4 ? `
+              <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Two</h3>
               <ol class='reading-combinations' aria-label='Reading Two pronunciation practice'>
                 ${reading.readingTwo.map(word => `<li class='reading-combination-card' lang='ti' dir='ltr'>${word}</li>`).join('')}
               </ol>
-              <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Three</h4>
+            ` : this.stageIndex === 5 ? `
+              <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Three</h3>
               <p class='reading-paragraph' lang='ti' dir='ltr'>${reading.readingThree}</p>
             ` : `
-              <div class='reading-lock-notice' role='status'>
-                <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading One</h4>
-                <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Two</h4>
-                <h4 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Three</h4>
-                <p class='helper-copy'>${this.listeningSkipped
-                  ? 'Complete the “Order the alphabets” exercise, then select “Continue to reading practice” to unlock all three readings.'
-                  : 'Complete the listening exercise and the “Order the alphabets” exercise, then select “Continue to reading practice” to unlock all three readings.'}</p>
-              </div>
+                <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Advanced Reading</h3>
+                <p class='helper-copy'>Read these frequent words. The number is the word's count in the source text.</p>
+                <ol class='advanced-reading-words' aria-label='Advanced Reading words in frequency order'>
+                  ${reading.advancedReading.map(({ word, frequency }) => `
+                    <li class='advanced-reading-word'>
+                      <span class='advanced-reading-text' lang='ti' dir='ltr'>${word}</span>
+                      <span class='advanced-reading-frequency'>Frequency: ${frequency.toLocaleString('en-US')}</span>
+                    </li>
+                  `).join('')}
+                </ol>
             `}
-          </section>
+          </section>` : ''}
+          <nav class='lesson-navigation' aria-label='Lesson navigation'>
+            <button class='secondary-btn' type='button' data-action='family-stage-previous' ${this.stageIndex === 0 ? 'disabled' : ''}>Previous</button>
+            <span class='helper-copy' role='status' aria-live='polite'>${this.stageIndex + 1} / ${LESSON_STAGES.length} · ${LESSON_STAGES[this.stageIndex]}</span>
+            <button class='primary-btn' type='button' data-action='family-stage-next' ${this.stageIndex === LESSON_STAGES.length - 1 ? 'disabled' : ''}>Next</button>
+          </nav>
         </section>
       </section>
     `;
