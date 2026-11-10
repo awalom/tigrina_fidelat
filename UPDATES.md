@@ -8,8 +8,8 @@ Reading. No activity must be completed to navigate. Exercise progress is
 preserved while moving between stages and reset when choosing another family.
 Advanced Reading shows
 the 30 most frequent words beginning with any of that family's seven forms, ordered by
-frequency. The displayed numbers are counts from `assets/ti_word_count_grouped.txt`,
-not difficulty ratings. The list is based on corpus frequency and has not been
+frequency. Counts from `assets/ti_word_count_grouped.txt` are retained in the data
+but not shown to students. The list is based on corpus frequency and has not been
 independently reviewed for age suitability or pronunciation. Because the ranking
 is across the whole family, some individual forms may not appear in the top 30.
 The lists are stored with each family's other readings in `src/data/readingPractice.json`.
@@ -70,3 +70,10 @@ Test 1 entry now starts Part 1 at ሀ. Explicit Part 2 links start at ሠ. Previ
 ## Reset for a new learner
 
 A shared **Reset Progress** button is visible on Home, Learn, Test 1, Test 2, and More. Confirmation explicitly says that all four activities are reset for the active learner. Cancelling leaves progress unchanged. Confirming stops playback, clears progress, scores, completion, and review state across all activities, and leaves the user in the current section at its beginning. The address changes to that starting assignment so a refresh cannot reopen the previous advanced assignment. Theme and profile details are retained. Saved progress remains cleared after reload.
+
+## Site login (GitHub Pages)
+
+- The deploy workflow runs `tools/generate-auth-config.mjs`, which writes `auth-config.json` containing only a salted PBKDF2-SHA256 hash of the username and password (never the plaintext).
+- Add the repository secrets `SITE_USERNAME` and `SITE_PASSWORD` under Settings → Secrets and variables → Actions, then push to `main` or re-run the workflow.
+- `src/services/site-gate.js` shows a login form before the app loads, remembers the login in this browser, and adds a "Log out" button. Without `auth-config.json` (local dev) there is no login.
+- This is a client-side gate: GitHub Pages is static, so the hash and site files are publicly downloadable. It keeps casual visitors out but is not strong security.

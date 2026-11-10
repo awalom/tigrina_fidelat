@@ -309,13 +309,11 @@ export class FamilyLessonFeature {
               <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Reading Three</h3>
               <p class='reading-paragraph' lang='ti' dir='ltr'>${reading.readingThree}</p>
             ` : `
-                <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Advanced Reading</h3>
-                <p class='helper-copy'>Read these frequent words. The number is the word's count in the source text.</p>
+                <h3 class='activity-title lesson-section-title'>${lessonIcon('reading')}Read the following words</h3>
                 <ol class='advanced-reading-words' aria-label='Advanced Reading words in frequency order'>
-                  ${reading.advancedReading.map(({ word, frequency }) => `
+                  ${reading.advancedReading.map(({ word }) => `
                     <li class='advanced-reading-word'>
                       <span class='advanced-reading-text' lang='ti' dir='ltr'>${word}</span>
-                      <span class='advanced-reading-frequency'>Frequency: ${frequency.toLocaleString('en-US')}</span>
                     </li>
                   `).join('')}
                 </ol>

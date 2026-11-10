@@ -22,10 +22,11 @@ test('advanced reading presents 30 frequency-ranked words for every family', () 
     assert.doesNotMatch(lesson.render(), /Advanced Reading/);
     for (let i = 0; i < 6; i += 1) assert.equal(lesson.moveStage(1), true);
     const markup = lesson.render();
-    assert.match(markup, /Advanced Reading/);
-    const rendered = [...markup.matchAll(/<span class='advanced-reading-text' lang='ti' dir='ltr'>([^<]+)<\/span>\s*<span class='advanced-reading-frequency'>Frequency: ([\d,]+)<\/span>/g)]
-      .map(([, word, frequency]) => ({ word, frequency: Number(frequency.replaceAll(',', '')) }));
-    assert.deepEqual(rendered, words, family[0]);
+    assert.match(markup, /Read the following words<\/h3>/);
+    assert.doesNotMatch(markup, /Frequency:|advanced-reading-frequency|Read these frequent words/);
+    const rendered = [...markup.matchAll(/<span class='advanced-reading-text' lang='ti' dir='ltr'>([^<]+)<\/span>/g)]
+      .map(([, word]) => word);
+    assert.deepEqual(rendered, words.map(({ word }) => word), family[0]);
   }
 });
 

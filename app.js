@@ -2,11 +2,12 @@ import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } fro
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
 import { ProgressStore } from './src/core/progress-store.js';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
-import { FamilyLessonFeature } from './src/features/family-lesson.js?v=lesson-stages-1';
+import { FamilyLessonFeature } from './src/features/family-lesson.js?v=reading-words-2';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js';
 import { AudioService } from './src/services/audio-service.js';
+import { requireSiteLogin, logoutSite } from './src/services/site-gate.js';
 import { StorageService } from './src/services/storage-service.js';
 import { THEME_OPTIONS, getThemeFrameVars } from './src/services/theme-service.js';
 
@@ -1636,5 +1637,14 @@ class FidelatApp {
   }
 }
 
+const authConfigUrl = new URL('auth-config.json', document.baseURI.replace(/admin\/?(index\.html)?(\?.*|#.*)?$/, ''));
+if (await requireSiteLogin(authConfigUrl)) {
+  const logout = document.createElement('button');
+  logout.type = 'button';
+  logout.className = 'site-logout';
+  logout.textContent = 'Log out';
+  logout.addEventListener('click', logoutSite);
+  document.body.append(logout);
+}
 const app = new FidelatApp(document.getElementById('app'));
 app.init();
