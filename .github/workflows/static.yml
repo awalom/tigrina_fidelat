@@ -37,7 +37,15 @@ jobs:
         env:
           SITE_USERNAME: ${{ secrets.SITE_USERNAME }}
           SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
-        run: node tools/generate-auth-config.mjs
+        run: |
+          if [ -n "$SITE_USERNAME" ] && [ -n "$SITE_PASSWORD" ]; then
+            node tools/generate-auth-config.mjs
+          elif [ -z "$SITE_USERNAME" ] && [ -z "$SITE_PASSWORD" ] && [ -f auth-config.json ]; then
+            echo "::warning::SITE_USERNAME and SITE_PASSWORD are not configured; keeping the existing auth-config.json."
+          else
+            echo "::error::Configure both SITE_USERNAME and SITE_PASSWORD, or provide an existing auth-config.json."
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
