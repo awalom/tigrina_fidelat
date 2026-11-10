@@ -42,10 +42,6 @@ export function getSymbolsForVariant(variantIndex, part) {
   return rows.map((row) => row[variantIndex]).filter(Boolean);
 }
 
-export function getAllSymbolsForVariant(variantIndex) {
-  return [...getSymbolsForVariant(variantIndex, 1), ...getSymbolsForVariant(variantIndex, 2)];
-}
-
 export function countPlayableSymbols(symbols, audioMap) {
   return symbols.filter((symbol) => typeof audioMap[symbol] === 'string' && audioMap[symbol].trim()).length;
 }
@@ -58,15 +54,6 @@ export function isVariantComplete(mastery, variantIndex) {
     variant.part1.length >= getSymbolsForVariant(variantIndex, 1).length &&
     variant.part2.length >= getSymbolsForVariant(variantIndex, 2).length
   );
-}
-
-export function getHighestUnlockedVariant(mastery) {
-  let highest = 0;
-  for (let index = 0; index < VARIANT_NAMES.length - 1; index += 1) {
-    if (isVariantComplete(mastery, index)) highest = index + 1;
-    else break;
-  }
-  return highest;
 }
 
 export const ADDITIONAL_LETTER_GROUPS = [

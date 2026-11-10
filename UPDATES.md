@@ -8,7 +8,7 @@ Reading. No activity must be completed to navigate. Exercise progress is
 preserved while moving between stages and reset when choosing another family.
 Advanced Reading shows
 the 30 most frequent words beginning with any of that family's seven forms, ordered by
-frequency. Counts from `assets/ti_word_count_grouped.txt` are retained in the data
+frequency. Counts from `data/ti_word_count_grouped.txt` (generated locally, not committed) are retained in the data
 but not shown to students. The list is based on corpus frequency and has not been
 independently reviewed for age suitability or pronunciation. Because the ranking
 is across the whole family, some individual forms may not appear in the top 30.

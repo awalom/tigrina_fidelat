@@ -1,3 +1,9 @@
 .env
-assets/ti_word_count_grouped.txt
-assets/ti_word_count_grouped.txtauth-config.json
+.DS_Store
+*:Zone.Identifier
+
+# Generated at deploy time from repository secrets (see tools/generate-auth-config.mjs)
+auth-config.json
+
+# Derived from data/ti_word_count.txt
+data/ti_word_count_grouped.txt

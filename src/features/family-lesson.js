@@ -1,5 +1,5 @@
 import { PRIMARY_ROWS, SECONDARY_ROWS } from '../data/fidelat-data.js';
-import familyReadings from '../data/readingPractice.json?v=lesson-stages-1' with { type: 'json' };
+import familyReadings from '../data/readingPractice.json' with { type: 'json' };
 
 export const LETTER_FAMILIES = [...PRIMARY_ROWS, ...SECONDARY_ROWS];
 export const FORM_ORDER = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
@@ -203,14 +203,7 @@ export class FamilyLessonFeature {
           </select>
         </aside>
 
-        <section class='workspace family-lesson' aria-labelledby='family-lesson-title'>
-          <header class='workspace-top'>
-            <div>
-              <div class='activity-badge'>${familyLabel}</div>
-              <h2 class='view-title' id='family-lesson-title'>${familyLabel} · <span lang='ti'>${family[0]}</span></h2>
-              <p class='panel-copy'>Use Previous and Next to explore each activity at your own pace.</p>
-            </div>
-          </header>
+        <section class='workspace family-lesson' aria-label='${familyLabel} lesson'>
 
           ${this.stageIndex === 0 ? `<section class='panel-card card' aria-labelledby='forms-title'>
             <h3 class='activity-title lesson-section-title' id='forms-title'>${lessonIcon('family')}Seven forms</h3>

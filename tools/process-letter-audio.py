@@ -34,9 +34,9 @@ def main():
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(source.read())
 
-        # Include celebration speech and the remaining project recording.
+        # Include the celebration speech recordings.
         # Read their originals from Git so reruns never stack voice effects.
-        for path in [Path('audio/variant-unlock.mp3'), Path('audio/final-celebration.mp3'), Path('wesede.mp3')]:
+        for path in [Path('audio/variant-unlock.mp3'), Path('audio/final-celebration.mp3')]:
             original = subprocess.run(['git', 'show', f'{ORIGINAL_AUDIO_REF}:{path.as_posix()}'],
                                       cwd=ROOT, check=True, capture_output=True).stdout
             target = scratch / 'original' / path

@@ -2,7 +2,7 @@ import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } fro
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
 import { ProgressStore } from './src/core/progress-store.js';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
-import { FamilyLessonFeature } from './src/features/family-lesson.js?v=reading-words-2';
+import { FamilyLessonFeature } from './src/features/family-lesson.js';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js';
@@ -981,7 +981,7 @@ class FidelatApp {
     return `
       <section class='theme-panel' aria-label='Frame themes'>
         <label class='theme-inline'>
-          <span class='theme-inline-label'>Your fav color</span>
+          <span class='theme-inline-label'><span aria-hidden='true'>🎨</span> Your fav color</span>
           <select class='selector theme-select' data-action='theme-select' aria-label='Your fav color' style='--theme-label-color: ${activeTheme.textColor}'>
             ${THEME_OPTIONS.map((theme) => `
               <option value='${theme.id}' style='color: ${theme.textColor}' ${theme.id === activeThemeId ? 'selected' : ''}>${theme.label}</option>
@@ -1058,12 +1058,19 @@ class FidelatApp {
             </div>
             ${actionButton}
           </div>` : ''}
-          <div class="learner-tools">
-            <details class="appearance"><summary>Your fav color</summary>${this.renderThemePicker()}</details>
-            ${!adminRoute && activeProfile ? `<button class="ghost-btn reset-progress-btn" type="button" data-action="reset-progress" title="Reset learning progress in all sections">Reset Progress</button>` : ''}
-          </div>
         </div>
       </header>
+    `;
+  }
+
+  renderFooterTools() {
+    const adminRoute = this.route === 'admin';
+    const activeProfile = this.store.getActiveProfile();
+    return `
+      <footer class='learner-tools page-tools'>
+        <div class='appearance'>${this.renderThemePicker()}</div>
+        ${!adminRoute && activeProfile ? `<button class='ghost-btn reset-progress-btn' type='button' data-action='reset-progress' title='Reset learning progress in all sections'>↺ Reset Progress</button>` : ''}
+      </footer>
     `;
   }
 
@@ -1606,6 +1613,7 @@ class FidelatApp {
           ${this.renderMenu()}
           ${this.renderBanner()}
           ${this.renderMainContent()}
+          ${this.renderFooterTools()}
         </div>
       </div>
       ${this.renderAuthModal()}

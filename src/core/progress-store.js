@@ -55,10 +55,6 @@ export class ProgressStore {
     return Boolean(profile && (profile.kind === 'guest' || profile.localOnly === true));
   }
 
-  isGuestActive() {
-    return this.isGuestProfile(this.getActiveProfile());
-  }
-
   hasAdminAccount() {
     return Boolean(this.state.admin.pin);
   }
@@ -115,10 +111,6 @@ export class ProgressStore {
 
   continueAsGuest(name, sex) {
     this.state = this.storage.continueAsGuest({ name, sex }, this.state);
-  }
-
-  startGuestSession(name, sex) {
-    this.continueAsGuest(name, sex);
   }
 
   logoutProfile() {
@@ -198,16 +190,6 @@ export class ProgressStore {
     this.save();
   }
 
-  clearChallengeCelebration() {
-    this.state.progress.challenge = {
-      ...this.state.progress.challenge,
-      unlockReadyVariantIndex: null,
-      courseCompleted: false,
-      celebrationText: ''
-    };
-    this.save();
-  }
-
   resetCurrentProfile() {
     const activeProfile = this.getActiveProfile();
     if (!activeProfile) {
@@ -262,10 +244,6 @@ export class ProgressStore {
 
   getVariantSymbols(variantIndex, part) {
     return getSymbolsForVariant(variantIndex, part);
-  }
-
-  getAdditionalLetterGroups() {
-    return ADDITIONAL_LETTER_GROUPS;
   }
 
   getAdditionalLettersState() {
