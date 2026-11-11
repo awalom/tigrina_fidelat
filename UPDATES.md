@@ -24,7 +24,9 @@ Copy the address from the browser after opening a section. These bookmarks work 
 | More | `#more` |
 | Home | `#home` |
 
-Direct links, refresh, and browser Back/Forward preserve the selected section. Each learner retains their own progress; links do not reset progress or select a specific letter or variant. Test 2 opened directly waits for Play Prompt.
+Direct links, refresh, and browser Back/Forward preserve the selected section. Each learner retains their own progress; links do not reset progress or select a specific letter or variant. Test 2 plays its prompt on entry; if the browser blocks autoplay, use the repeat button.
+
+Test 2 shows the number of correct answers in a row. A wrong answer resets the streak; the count is saved with the learner's progress.
 
 Letters and filled answer slots are larger and more colourful. Empty placeholders, headings, and supporting controls are smaller. The theme picker says **Your fav color** in neutral text; the theme names use their matching colours. The SIL Open Font License Noto Sans Ethiopic font and its license are bundled locally for devices without an Ethiopic font. Keyboard focus and reduced-motion preferences are supported.
 

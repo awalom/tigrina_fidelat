@@ -6,8 +6,8 @@ import {
   isVariantComplete,
   VARIANT_NAMES
 } from '../data/fidelat-data.js';
-import { COPY_SECTIONS, mergeCopyWithDefaults, resolveCopy } from '../services/content-service.js';
-import { createDefaultProgressState } from '../services/storage-service.js';
+import { COPY_SECTIONS, mergeCopyWithDefaults, resolveCopy } from '../services/content-service.js?v=test2-1';
+import { createDefaultProgressState } from '../services/storage-service.js?v=test2-3';
 
 export class ProgressStore {
   constructor(storage) {

@@ -1,4 +1,4 @@
-import { applyCopyPatch, createDefaultCopyState, mergeCopyWithDefaults, resolveCopy } from './content-service.js';
+import { applyCopyPatch, createDefaultCopyState, mergeCopyWithDefaults, resolveCopy } from './content-service.js?v=test2-1';
 import { DEFAULT_THEME_ID, normalizeThemeId } from './theme-service.js';
 import { ADDITIONAL_LETTER_GROUPS, createDefaultAdditionalLettersState, createEmptyMastery, VARIANT_NAMES } from '../data/fidelat-data.js';
 
@@ -102,6 +102,7 @@ export function createDefaultProgressState() {
       part: 1,
       score: 0,
       rounds: 0,
+      correctStreak: 0,
       targetSymbol: null,
       currentChoices: [],
       mastery: createEmptyProgressMastery(),

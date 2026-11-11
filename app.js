@@ -1,14 +1,14 @@
 import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } from './src/services/practice-route.js';
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
-import { ProgressStore } from './src/core/progress-store.js';
+import { ProgressStore } from './src/core/progress-store.js?v=test2-3';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
 import { FamilyLessonFeature } from './src/features/family-lesson.js';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
-import { ListenMatchFeature } from './src/features/listen-match.js';
+import { ListenMatchFeature } from './src/features/listen-match.js?v=test2-3';
 import { AudioService } from './src/services/audio-service.js';
 import { requireSiteLogin, logoutSite } from './src/services/site-gate.js';
-import { StorageService } from './src/services/storage-service.js';
+import { StorageService } from './src/services/storage-service.js?v=test2-3';
 import { THEME_OPTIONS, getThemeFrameVars } from './src/services/theme-service.js';
 
 const LEARNER_LOGIN_ENABLED = false;
@@ -90,6 +90,14 @@ class FidelatApp {
     }
 
     this.render();
+    if (this.audioReady && this.route !== 'admin' && this.store.getProgress().activeView === 'challenge') {
+      try {
+        await this.playChallengePrompt();
+        this.render();
+      } catch (error) {
+        this.setBanner('error', error.message);
+      }
+    }
   }
 
   getViewFromHash() {
@@ -327,10 +335,7 @@ class FidelatApp {
     this.store.setActiveView(redirectView);
 
     if (redirectView === 'challenge') {
-      const { challenge } = this.store.getProgress();
-      if (!challenge.targetSymbol && typeof challenge.unlockReadyVariantIndex !== 'number' && !challenge.courseCompleted) {
-        await this.requireAudio(() => this.challenge.startRound(true));
-      }
+      await this.playChallengePrompt();
     }
 
     this.setBanner('success', message);
@@ -383,16 +388,24 @@ class FidelatApp {
     if (this.audioReady) this.banner = { tone: 'info', text: '' };
     this.syncSectionUrl(view, options.history);
 
-    if (view === 'challenge' && options.autoStart) {
-      const { challenge } = this.store.getProgress();
-      if (!challenge.targetSymbol && typeof challenge.unlockReadyVariantIndex !== 'number' && !challenge.courseCompleted) {
-        await this.requireAudio(() => this.challenge.startRound(true));
-        this.setBanner('info', 'The first challenge started. Listen and choose the matching symbol.');
-        return;
-      }
-    }
-
     this.render();
+    if (view === 'challenge' && this.audioReady) {
+      await this.playChallengePrompt();
+      this.render();
+    }
+  }
+
+  async playChallengePrompt() {
+    const { challenge } = this.store.getProgress();
+    if (typeof challenge.unlockReadyVariantIndex === 'number' || challenge.courseCompleted) return;
+    try {
+      await this.requireAudio(() => this.challenge.replayPrompt());
+    } catch (error) {
+      if (error.name === 'NotAllowedError') {
+        throw new Error('Your browser blocked automatic audio. Tap the repeat button to hear the sound.');
+      }
+      throw error;
+    }
   }
 
   async handleChange(event) {
@@ -603,9 +616,7 @@ class FidelatApp {
       if (action === 'navigate') {
         if (button.tagName === 'A' && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0)) return;
         event.preventDefault();
-        await this.openView(button.dataset.view, {
-          autoStart: button.dataset.view === 'challenge' && this.audioReady
-        });
+        await this.openView(button.dataset.view);
         return;
       }
 

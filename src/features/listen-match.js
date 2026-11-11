@@ -112,7 +112,11 @@ export class ListenMatchFeature {
 
     const rounds = challenge.rounds + 1;
     const correct = symbol === challenge.targetSymbol;
-    const patch = { rounds, lastOutcome: correct ? 'correct' : 'wrong' };
+    const patch = {
+      rounds,
+      lastOutcome: correct ? 'correct' : 'wrong',
+      correctStreak: correct ? challenge.correctStreak + 1 : 0
+    };
 
     if (!correct) {
       this.store.updateChallenge(patch);
@@ -248,7 +252,9 @@ export class ListenMatchFeature {
             ${introEnglish ? `<p class='english-copy'>${introEnglish}</p>` : ''}
           </div>
           <div class='mode-nav'>
-            <button class='secondary-btn' type='button' data-action='challenge-play'>Play Prompt</button>
+            <button class='secondary-btn challenge-repeat-btn' type='button' data-action='challenge-play' aria-label='Repeat sound' title='Repeat sound' ${audioReady && !celebrationActive ? '' : 'disabled'}>
+              <svg class='lesson-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true' focusable='false'><path d='m17 2 4 4-4 4'/><path d='M3 11V9a3 3 0 0 1 3-3h15'/><path d='m7 22-4-4 4-4'/><path d='M21 13v2a3 3 0 0 1-3 3H3'/></svg>
+            </button>
           </div>
         </div>
 
@@ -260,6 +266,11 @@ export class ListenMatchFeature {
             <div class='stat-pill'><strong>${challenge.rounds}</strong>Rounds</div>
             <div class='stat-pill'><strong>${this.store.getAccuracy()}%</strong>Accuracy</div>
             <div class='stat-pill'><strong>${partProgress}/${partTotal}</strong>Part Progress</div>
+          </div>
+
+          <div class='challenge-streak' role='status' aria-label='${challenge.correctStreak} correct answers in a row'>
+            <span class='challenge-streak-star' aria-hidden='true'>★</span>
+            <span><strong>${challenge.correctStreak}</strong> in a row!</span>
           </div>
 
           <div class='panel-head'>
@@ -276,12 +287,6 @@ export class ListenMatchFeature {
                 ${variantOptions}
               </select>
             </label>
-          </div>
-
-          <div class='message-box ${challenge.lastOutcome === 'correct' ? 'is-success' : challenge.lastOutcome === 'wrong' ? 'is-error' : ''}'>
-            <div class='message'>
-              ${targetPrepared ? this.store.getText('challenge.promptReady', {}, activeProfile) : (challenge.celebrationText || this.store.getText('challenge.waitingMessage', {}, activeProfile))}
-            </div>
           </div>
 
           ${choices.length

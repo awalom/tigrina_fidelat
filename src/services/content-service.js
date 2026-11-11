@@ -143,13 +143,13 @@ const COPY_CATALOG = [
         key: 'help.gettingStarted',
         label: 'Getting started',
         help: 'Simple guidance at the top of Help. Line breaks are preserved.',
-        defaultText: 'Start in Learn: choose a variant and tap a letter to hear it. Listen and repeat as often as you like.\nTry Test 1: choose Part 1 or Part 2 and put each letter in its place. Tap a letter and then a spot, or drag it. A correct answer plays the sound.\nTry Test 2: choose any variant, listen, and tap the matching letter. Use Play Prompt to hear it again.\nOpen More to practice extra letters. You can return to Learn at any time.'
+        defaultText: 'Start in Learn: choose a variant and tap a letter to hear it. Listen and repeat as often as you like.\nTry Test 1: choose Part 1 or Part 2 and put each letter in its place. Tap a letter and then a spot, or drag it. A correct answer plays the sound.\nTry Test 2: choose any variant, listen, and tap the matching letter. Use the repeat button to hear it again.\nOpen More to practice extra letters. You can return to Learn at any time.'
       }),
       learnerField({
         key: 'help.adults',
         label: 'Guidance for parents and teachers',
         help: 'Expandable guidance on Help, including bookmarks, sound, and shared devices.',
-        defaultText: 'Keep practice short and let the learner repeat familiar letters. In Learn, Part 2 opens after every letter in Part 1 has been heard. Review Part 1 starts another practice pass.\nTo share daily practice, select a part, variant, or set and copy the address from your browser. The link opens that practice directly.\nProgress is saved in this browser. Before another learner starts on the same device, use Reset Progress; it clears progress in all sections.\nIf you cannot hear a sound, check the device volume and tap a letter or Play Prompt. Use Your fav color to choose a comfortable page color.'
+        defaultText: 'Keep practice short and let the learner repeat familiar letters. In Learn, Part 2 opens after every letter in Part 1 has been heard. Review Part 1 starts another practice pass.\nTo share daily practice, select a part, variant, or set and copy the address from your browser. The link opens that practice directly.\nProgress is saved in this browser. Before another learner starts on the same device, use Reset Progress; it clears progress in all sections.\nIf you cannot hear a sound, check the device volume and tap a letter or the repeat button. Use Your fav color to choose a comfortable page color.'
       }),
       learnerField({
         key: 'home.pageBadge',
@@ -395,7 +395,7 @@ const COPY_CATALOG = [
         key: 'challenge.loadingMessage',
         label: 'Challenge loading message',
         help: 'Shown while audio files are still loading.',
-        defaultText: 'Audio files are still loading. Once they are ready, you can play a prompt and begin matching.'
+        defaultText: 'Audio files are still loading. The sound will play when they are ready.'
       }),
       learnerField({
         key: 'challenge.readyMessage',
@@ -407,7 +407,7 @@ const COPY_CATALOG = [
         key: 'challenge.waitingMessage',
         label: 'Challenge waiting instruction',
         help: 'Shown when no prompt is currently active.',
-        defaultText: 'Choose a variant from the dropdown or press Play Prompt to hear the next sound.'
+        defaultText: 'Listen to the sound, or use the repeat button to hear it again.'
       }),
       learnerField({
         key: 'challenge.promptReady',

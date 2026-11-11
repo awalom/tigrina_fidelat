@@ -1580,6 +1580,72 @@ body:not([data-view='home']):not([data-view='admin']) .brand-block { display: gr
   background: #fff; border: 3px solid var(--accent-outline); border-radius: 999px; box-shadow: 0 4px 0 var(--accent-outline);
 }
 .page-tools .theme-inline-label { color: var(--accent-deep); font-weight: 800; font-size: 1.05rem; white-space: nowrap; }
+
+body[data-view='dragdrop'] .drop-grid,
+body[data-view='dragdrop'] .drag-bank {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: 96px;
+  gap: 12px;
+}
+body[data-view='dragdrop'] .drop-slot,
+body[data-view='dragdrop'] .drag-bank .symbol-btn {
+  height: 96px;
+  min-height: 0;
+  min-width: 0;
+  padding: 6px;
+  border-radius: 18px;
+}
+body[data-view='dragdrop'] .drag-bank .symbol-btn,
+body[data-view='dragdrop'] .drop-value {
+  font-size: 2.4rem;
+  line-height: 1.15;
+}
+body[data-view='dragdrop'] .drop-slot { gap: 2px; }
+body[data-view='dragdrop'] .drop-label { font-size: .8rem; }
+body[data-view='dragdrop'] .drop-slot:not(.is-filled) .drop-value { font-size: 1.5rem; }
+.challenge-repeat-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+}
+.challenge-repeat-btn .lesson-icon { width: 100%; height: 100%; }
+.challenge-streak {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 12px 0;
+  padding: 8px 16px;
+  border: 3px solid #e8ac36;
+  border-radius: 999px;
+  background: #fff3bd;
+  color: #693e00;
+  font-weight: 800;
+}
+.challenge-streak strong { font-size: 1.5rem; }
+.challenge-streak-star { color: #ad6500; font-size: 1.7rem; line-height: 1; }
+@media (max-width: 800px) {
+  body[data-view='dragdrop'] .drop-grid,
+  body[data-view='dragdrop'] .drag-bank {
+    grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+    gap: 9px;
+  }
+}
+@media (max-width: 720px) {
+  body[data-view='dragdrop'] .drop-grid,
+  body[data-view='dragdrop'] .drag-bank {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+}
+@media (max-width: 400px) {
+  body[data-view='dragdrop'] .drop-grid,
+  body[data-view='dragdrop'] .drag-bank {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 .page-tools .theme-select {
   min-height: 36px; margin: 0; padding: 0 12px; border: 0; border-radius: 999px; font-weight: 800; font-size: 1rem;
   background: var(--accent-soft); cursor: pointer; width: auto;
