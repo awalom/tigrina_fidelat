@@ -44,6 +44,9 @@ SITE_USERNAME=demo SITE_PASSWORD=demo123 node tools/generate-auth-config.mjs
 
 `auth-config.json` is git-ignored; delete it to turn the login off again.
 
+On learner pages, use the fixed **Settings** menu at the bottom of the screen to change
+the color, reset progress, or log out when site login is enabled.
+
 ## Test
 
 ```bash

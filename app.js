@@ -15,8 +15,9 @@ const LEARNER_LOGIN_ENABLED = false;
 
 
 class FidelatApp {
-  constructor(root) {
+  constructor(root, siteLoginEnabled = false) {
     this.root = root;
+    this.siteLoginEnabled = siteLoginEnabled;
     this.route = this.isAdminRoute() ? 'admin' : 'learner';
     this.storage = new StorageService();
     this.store = new ProgressStore(this.storage);
@@ -152,6 +153,17 @@ class FidelatApp {
     this.root.addEventListener('dragover', (event) => this.handleDragOver(event));
     this.root.addEventListener('drop', (event) => this.handleDrop(event));
     this.root.addEventListener('pointerdown', (event) => this.handlePointerDown(event));
+    this.root.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const menu = event.target.closest('.bottom-tools-menu[open]');
+      if (!menu) return;
+      menu.open = false;
+      menu.querySelector('summary').focus();
+    });
+    document.addEventListener('pointerdown', (event) => {
+      const menu = this.root.querySelector('.bottom-tools-menu[open]');
+      if (menu && !menu.contains(event.target)) menu.open = false;
+    });
     window.addEventListener('pointermove', (event) => this.handlePointerMove(event), { passive: false });
     window.addEventListener('pointerup', (event) => this.handlePointerUp(event));
     window.addEventListener('pointercancel', (event) => this.handlePointerCancel(event));
@@ -680,6 +692,11 @@ class FidelatApp {
         return;
       }
 
+      if (action === 'site-logout') {
+        logoutSite();
+        return;
+      }
+
       if (action === 'additional-set') {
         this.additionalLetters.selectGroup(button.dataset.groupId);
         this.render();
@@ -1047,9 +1064,7 @@ class FidelatApp {
 
     const actionButton = adminRoute
       ? adminActive ? `<button class='ghost-btn' type='button' data-action='admin-logout'>Log out admin</button>` : ''
-      : LEARNER_LOGIN_ENABLED && activeProfile
-        ? `<button class='ghost-btn' type='button' data-action='logout'>${this.store.isGuestProfile(activeProfile) ? 'Leave Guest Session' : 'Log Out'}</button>`
-        : '';
+      : '';
 
     return `
       <header class='top-shell card'>
@@ -1077,10 +1092,24 @@ class FidelatApp {
   renderFooterTools() {
     const adminRoute = this.route === 'admin';
     const activeProfile = this.store.getActiveProfile();
+    if (!adminRoute) {
+      return `
+        <footer class='bottom-tools' aria-label='Learner settings'>
+          <details class='bottom-tools-menu' id='bottom-tools-menu'>
+            <summary data-action='settings-menu'>Settings</summary>
+            <div class='bottom-tools-panel'>
+              ${this.renderThemePicker()}
+              ${activeProfile ? `<button class='ghost-btn reset-progress-btn' type='button' data-action='reset-progress' title='Reset learning progress in all sections'>↺ Reset Progress</button>` : ''}
+              ${LEARNER_LOGIN_ENABLED && activeProfile ? `<button class='ghost-btn' type='button' data-action='logout'>${this.store.isGuestProfile(activeProfile) ? 'Leave Guest Session' : 'Log Out'}</button>` : ''}
+              ${this.siteLoginEnabled ? `<button class='ghost-btn' type='button' data-action='site-logout'>Log out</button>` : ''}
+            </div>
+          </details>
+        </footer>
+      `;
+    }
     return `
       <footer class='learner-tools page-tools'>
         <div class='appearance'>${this.renderThemePicker()}</div>
-        ${!adminRoute && activeProfile ? `<button class='ghost-btn reset-progress-btn' type='button' data-action='reset-progress' title='Reset learning progress in all sections'>↺ Reset Progress</button>` : ''}
       </footer>
     `;
   }
@@ -1624,9 +1653,10 @@ class FidelatApp {
           ${this.renderMenu()}
           ${this.renderBanner()}
           ${this.renderMainContent()}
-          ${this.renderFooterTools()}
+          ${this.route === 'admin' ? this.renderFooterTools() : ''}
         </div>
       </div>
+      ${this.route !== 'admin' ? this.renderFooterTools() : ''}
       ${this.renderAuthModal()}
     `;
     this.root.querySelectorAll('.workspace-top > div:first-child').forEach(header => {
@@ -1657,7 +1687,9 @@ class FidelatApp {
 }
 
 const authConfigUrl = new URL('auth-config.json', document.baseURI.replace(/admin\/?(index\.html)?(\?.*|#.*)?$/, ''));
-if (await requireSiteLogin(authConfigUrl)) {
+const siteLoginEnabled = await requireSiteLogin(authConfigUrl);
+const app = new FidelatApp(document.getElementById('app'), siteLoginEnabled);
+if (siteLoginEnabled && app.route === 'admin') {
   const logout = document.createElement('button');
   logout.type = 'button';
   logout.className = 'site-logout';
@@ -1665,5 +1697,4 @@ if (await requireSiteLogin(authConfigUrl)) {
   logout.addEventListener('click', logoutSite);
   document.body.append(logout);
 }
-const app = new FidelatApp(document.getElementById('app'));
 app.init();
