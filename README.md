@@ -22,6 +22,11 @@ GitHub Pages.
 | `tools/` | Maintenance scripts (login config generator, audio processing) |
 | `tests/` | Node test suite |
 
+Many alphabet recordings are from [Mesmer Tigrinya's alphabet chart](https://mesmertigrinya.com/alphabet-chart).
+Other letters and sound effects retain the existing recordings. Check the source's
+[terms](https://mesmertigrinya.com/terms) and obtain the necessary permission before distributing
+or publishing its recordings.
+
 See [ARCHITECTURE.md](ARCHITECTURE.md) for module responsibilities and [UPDATES.md](UPDATES.md)
 for feature notes.
 
