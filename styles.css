@@ -1702,8 +1702,13 @@ body[data-view='dragdrop'] .drop-slot:not(.is-filled) .drop-value { font-size: 1
 }
 .page-tools .reset-progress-btn { min-height: 48px; }
 
-body:not([data-view='admin']) .page-shell {
+body:not([data-view='admin']) .page-shell,
+body:not([data-view='home']):not([data-view='admin']) .page-shell {
   padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+}
+
+html {
+  scroll-padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
 }
 
 .bottom-tools {
