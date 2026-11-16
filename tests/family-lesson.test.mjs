@@ -140,6 +140,10 @@ test('next and previous navigate seven stages without completing exercises', () 
     if (index === 2) {
       assert.equal(lesson.orderingActive, true);
       assert.match(markup, /data-action='family-order-bank'/);
+      assert.match(markup, /Drag and drop/);
+      assert.doesNotMatch(markup, /Drag each letter into its place/);
+      assert.ok(markup.indexOf("id='ordering-title'") < markup.indexOf("role='group' aria-label='Letter order'"));
+      assert.ok(markup.indexOf('Place the letters in order.') < markup.indexOf("role='group' aria-label='Shuffled letters'"));
     }
     if (index < LESSON_STAGES.length - 1) assert.equal(lesson.moveStage(1), true);
   }

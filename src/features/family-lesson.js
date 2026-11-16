@@ -3,7 +3,7 @@ import familyReadings from '../data/readingPractice.json' with { type: 'json' };
 
 export const LETTER_FAMILIES = [...PRIMARY_ROWS, ...SECONDARY_ROWS];
 export const FORM_ORDER = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
-export const LESSON_STAGES = ['Listening', 'Listening exercise', 'Order the alphabets', 'Reading One', 'Reading Two', 'Reading Three', 'Advanced Reading'];
+export const LESSON_STAGES = ['Listening', 'Listening exercise', 'Drag and drop', 'Reading One', 'Reading Two', 'Reading Three', 'Advanced Reading'];
 
 const ICON_PATHS = {
   family: '<rect x="3" y="4" width="8" height="16" rx="1"/><rect x="13" y="4" width="8" height="16" rx="1"/>',
@@ -253,10 +253,9 @@ export class FamilyLessonFeature {
 
           ${this.stageIndex === 2 ? `<section class='panel-card card family-ordering' aria-labelledby='ordering-title'>
             <h3 class='activity-title lesson-section-title' id='ordering-title'>
-              ${lessonIcon('order')}Order the alphabets
+              ${lessonIcon('order')}Drag and drop
               ${this.orderingEverCompleted ? `<span class='activity-complete' role='img' aria-label='Alphabet ordering completed'>${lessonIcon('check')}</span>` : ''}
             </h3>
-              <p class='panel-copy'>Drag each letter into its place, or select a letter and then select a place. Put the seven forms in order.</p>
               <p class='helper-copy exercise-feedback ${this.orderingComplete ? 'is-complete' : this.orderResult === 'wrong' ? 'is-incorrect' : ''}' role='status' aria-live='polite'>${
                 this.orderingComplete ? `${lessonIcon('check')}Alphabet ordering complete!`
                 : this.orderResult === 'wrong' ? '<span class="exercise-error-icon" aria-hidden="true">✕</span> That letter belongs somewhere else. Try again.'

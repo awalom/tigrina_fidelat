@@ -2,7 +2,7 @@ import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } fro
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
 import { ProgressStore } from './src/core/progress-store.js?v=test2-3';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
-import { FamilyLessonFeature } from './src/features/family-lesson.js?v=listening-1';
+import { FamilyLessonFeature } from './src/features/family-lesson.js?v=drag-drop-2';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js?v=test2-3';

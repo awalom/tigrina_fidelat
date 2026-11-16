@@ -1418,7 +1418,7 @@ summary:focus-visible { outline: 3px solid #2156a0; outline-offset: 2px; }
   .symbol-btn { min-height: 86px; }
 }
 @media (max-width: 720px) {
-  .panel-card > .drag-bank { order: -1; }
+  .panel-card:not(.family-ordering) > .drag-bank { order: -1; }
   .panel-card:has(> .drag-bank) > .message-box { order: -2; }
   .workspace > .set-directory { order: 3; }
 }
