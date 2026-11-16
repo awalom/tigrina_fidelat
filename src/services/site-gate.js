@@ -26,14 +26,17 @@ export async function deriveCredentialHash(username, password, { salt, iteration
 }
 
 async function loadConfig(url) {
-  try {
-    const response = await fetch(url, { cache: 'no-store' });
-    if (!response.ok) return null;
-    const config = await response.json();
-    return config?.hash && config?.salt && config?.iterations ? config : null;
-  } catch {
-    return null;
+  const response = await fetch(url, { cache: 'no-store' });
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Login configuration request failed (HTTP ${response.status}).`);
+
+  const config = await response.json();
+  if (!config || typeof config.hash !== 'string' || !/^[0-9a-f]{64}$/i.test(config.hash)
+    || typeof config.salt !== 'string' || !/^(?:[0-9a-f]{2})+$/i.test(config.salt)
+    || !Number.isSafeInteger(config.iterations) || config.iterations < 1) {
+    throw new Error('Login configuration is invalid.');
   }
+  return config;
 }
 
 function showLoginForm(config) {
@@ -44,7 +47,9 @@ function showLoginForm(config) {
       <div class='site-gate-letters' aria-hidden='true'><span>ሀ</span><span>በ</span><span>ሰ</span><span>ቀ</span><span>መ</span></div>
       <form class='site-gate-form' autocomplete='on'>
         <div class='site-gate-eyebrow'>Tigrinya Fidel learning</div>
-        <h1>Eritrean Language and Culture School Bern</h1>
+        <h1>Eritrean Mother Language &amp; cultural School Kanton BERN (EMLCSKB)
+          <span lang='ti'>ቤት-ትምህርቲ  ቋንቋ ኣደን ባህልን ኤርትራ ኣብ  ካንቶን በርን</span>
+        </h1>
         <p>Welcome! Please log in to start learning. 🌟</p>
         <label>Username <input name='username' autocomplete='username' required autofocus></label>
         <label>Password <input name='password' type='password' autocomplete='current-password' required></label>
@@ -56,13 +61,20 @@ function showLoginForm(config) {
     const error = overlay.querySelector('.site-gate-error');
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const data = new FormData(form);
-      const hash = await deriveCredentialHash(data.get('username'), data.get('password'), config);
-      if (hash === config.hash) {
-        localStorage.setItem(SESSION_KEY, config.hash);
-        overlay.remove();
-        resolve();
-      } else {
+      try {
+        const data = new FormData(form);
+        const hash = await deriveCredentialHash(data.get('username'), data.get('password'), config);
+        if (hash === config.hash) {
+          localStorage.setItem(SESSION_KEY, config.hash);
+          overlay.remove();
+          resolve();
+          return;
+        }
+        error.textContent = 'Oops! Check your username and password and try again.';
+        error.hidden = false;
+      } catch (failure) {
+        console.error('Unable to complete site login:', failure);
+        error.textContent = 'Unable to log in. Please check your browser settings and try again.';
         error.hidden = false;
       }
     });

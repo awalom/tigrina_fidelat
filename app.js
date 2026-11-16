@@ -6,8 +6,8 @@ import { FamilyLessonFeature } from './src/features/family-lesson.js?v=listening
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js?v=test2-3';
-import { AudioService } from './src/services/audio-service.js';
-import { requireSiteLogin, logoutSite } from './src/services/site-gate.js?v=listening-1';
+import { AudioService } from './src/services/audio-service.js?v=release-1';
+import { requireSiteLogin, logoutSite } from './src/services/site-gate.js?v=release-1';
 import { StorageService } from './src/services/storage-service.js?v=test2-3';
 import { THEME_OPTIONS, getThemeFrameVars } from './src/services/theme-service.js';
 
@@ -921,6 +921,7 @@ class FidelatApp {
         window.speechSynthesis?.cancel();
         this.clearPointerDrag();
         this.store.resetCurrentProfile();
+        this.familyLesson = new FamilyLessonFeature(this.audio);
         this.store.setActiveView(view);
         this.syncSectionUrl(view, 'replace');
         this.setBanner('success', 'All learning progress has been reset. Ready for a new learner.');
@@ -1684,14 +1685,23 @@ class FidelatApp {
 }
 
 const authConfigUrl = new URL('auth-config.json', document.baseURI.replace(/admin\/?(index\.html)?(\?.*|#.*)?$/, ''));
-const siteLoginEnabled = await requireSiteLogin(authConfigUrl);
-const app = new FidelatApp(document.getElementById('app'), siteLoginEnabled);
-if (siteLoginEnabled && app.route === 'admin') {
-  const logout = document.createElement('button');
-  logout.type = 'button';
-  logout.className = 'site-logout';
-  logout.textContent = 'Log out';
-  logout.addEventListener('click', logoutSite);
-  document.body.append(logout);
+try {
+  const siteLoginEnabled = await requireSiteLogin(authConfigUrl);
+  const app = new FidelatApp(document.getElementById('app'), siteLoginEnabled);
+  if (siteLoginEnabled && app.route === 'admin') {
+    const logout = document.createElement('button');
+    logout.type = 'button';
+    logout.className = 'site-logout';
+    logout.textContent = 'Log out';
+    logout.addEventListener('click', logoutSite);
+    document.body.append(logout);
+  }
+  await app.init();
+} catch (error) {
+  console.error('Application startup failed:', error);
+  const message = document.createElement('p');
+  message.className = 'startup-error';
+  message.setAttribute('role', 'alert');
+  message.textContent = 'The app could not start. Please reload the page or contact the school if the problem continues.';
+  document.getElementById('app').replaceChildren(message);
 }
-app.init();

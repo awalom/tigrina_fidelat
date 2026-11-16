@@ -1,5 +1,5 @@
 const APP_ROOT = new URL('../../', import.meta.url);
-const AUDIO_VERSION = 'kids-voice-20260913-v2';
+const AUDIO_VERSION = 'alphabet-recordings-20261115';
 
 export class AudioService {
   constructor() {

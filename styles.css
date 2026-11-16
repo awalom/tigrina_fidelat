@@ -1454,16 +1454,18 @@ summary:focus-visible { outline: 3px solid #2156a0; outline-offset: 2px; }
 .site-gate-letters span:nth-child(4) { right: 10%; bottom: 12%; color: #b24fc7; animation-delay: -3s; }
 .site-gate-letters span:nth-child(5) { left: 44%; top: 3%; color: #f09a1a; animation-delay: -4s; }
 @keyframes site-gate-float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
-.site-gate-form { position: relative; display: grid; gap: 14px; width: min(94vw, 420px); padding: 28px 24px; text-align: center; background: #fffdf7; border: 5px solid #f09a1a; border-radius: 28px; box-shadow: 0 10px 0 #d9801a, 0 24px 40px rgba(0, 0, 0, 0.2); }
+.site-gate-form { position: relative; display: grid; gap: 14px; width: min(100%, 420px); padding: 28px 24px; text-align: center; background: #fffdf7; border: 5px solid #f09a1a; border-radius: 28px; box-shadow: 0 10px 0 #d9801a, 0 24px 40px rgba(0, 0, 0, 0.2); }
 .site-gate-eyebrow { color: #3b2a00; font-size: .8rem; font-weight: 800; text-transform: uppercase; }
 .site-gate-form h1 { margin: 0; font-size: clamp(1.4rem, 5vw, 1.8rem); line-height: 1.25; color: #2b4a8b; }
+.site-gate-form h1 span { display: block; margin-top: 8px; font-family: 'Noto Sans Ethiopic', sans-serif; font-size: .85em; line-height: 1.45; }
 .site-gate-form p { margin: 0; font-size: 1.1rem; color: #4a4a4a; }
 .site-gate-form label { display: grid; gap: 6px; text-align: left; font-size: 1.15rem; font-weight: 700; color: #2b4a8b; }
 .site-gate-form input { width: 100%; padding: 12px 14px; box-sizing: border-box; font-size: 1.2rem; border: 3px solid #9ec5f0; border-radius: 16px; background: #fff; }
 .site-gate-form input:focus { outline: none; border-color: #2f7dd1; box-shadow: 0 0 0 4px rgba(47, 125, 209, 0.25); }
 .site-gate-form button { padding: 14px; font-size: 1.35rem; font-weight: 800; color: #fff; background: #2f9e57; border: 0; border-radius: 18px; box-shadow: 0 6px 0 #1f7a41; cursor: pointer; }
 .site-gate-form button:active { transform: translateY(4px); box-shadow: 0 2px 0 #1f7a41; }
-.site-gate-error { color: #c0392b; font-weight: 700; }
+.site-gate-form .site-gate-error { color: #c0392b; font-weight: 700; }
+.startup-error { max-width: 32rem; margin: 3rem auto; padding: 1.5rem; border: 2px solid #b42318; border-radius: 16px; background: #fff; color: #7a1b13; }
 @media (prefers-reduced-motion: reduce) { .site-gate-letters span { animation: none; } }
 .site-logout { position: fixed; right: 10px; bottom: 10px; z-index: 50; }
 
