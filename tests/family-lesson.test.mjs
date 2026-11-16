@@ -99,7 +99,12 @@ test('family stages show the chosen family and one reading at a time', () => {
   const lesson = new FamilyLessonFeature({ playSymbol: async () => {} });
   lesson.selectFamily(8);
   const initialMarkup = lesson.render();
-  assert.match(initialMarkup, /<select class='selector family-selector' id='family-selector' data-action='family-select'>/);
+  assert.match(initialMarkup, /<select class='selector family-selector' id='family-selector' data-action='family-select' aria-label='Choose a family'>/);
+  assert.doesNotMatch(initialMarkup, /Alphabet families|<label|Play sound|Seven forms/);
+  assert.match(initialMarkup, /Listening<\/h3>/);
+  assert.match(initialMarkup, /1 \/ 7 · Listening/);
+  assert.equal((initialMarkup.match(/data-action='family-play'/g) || []).length, 7);
+  assert.match(initialMarkup, /aria-label='Play 1st form, በ'/);
   assert.equal((initialMarkup.match(/<option value='/g) || []).length, LETTER_FAMILIES.length);
   assert.match(initialMarkup, /<option value='8' selected>\s*9th family · በ/);
   for (let i = 0; i < 3; i += 1) lesson.moveStage(1);

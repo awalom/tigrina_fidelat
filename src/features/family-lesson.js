@@ -3,7 +3,7 @@ import familyReadings from '../data/readingPractice.json' with { type: 'json' };
 
 export const LETTER_FAMILIES = [...PRIMARY_ROWS, ...SECONDARY_ROWS];
 export const FORM_ORDER = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
-export const LESSON_STAGES = ['Seven forms', 'Listening exercise', 'Order the alphabets', 'Reading One', 'Reading Two', 'Reading Three', 'Advanced Reading'];
+export const LESSON_STAGES = ['Listening', 'Listening exercise', 'Order the alphabets', 'Reading One', 'Reading Two', 'Reading Three', 'Advanced Reading'];
 
 const ICON_PATHS = {
   family: '<rect x="3" y="4" width="8" height="16" rx="1"/><rect x="13" y="4" width="8" height="16" rx="1"/>',
@@ -192,9 +192,7 @@ export class FamilyLessonFeature {
     return `
       <section class='family-lesson-layout' aria-label='Alphabet family lesson'>
         <aside class='family-sidebar card'>
-          <h2 class='family-sidebar-title'>Alphabet families</h2>
-          <label class='family-selector-label' for='family-selector'>Choose a family</label>
-          <select class='selector family-selector' id='family-selector' data-action='family-select'>
+          <select class='selector family-selector' id='family-selector' data-action='family-select' aria-label='Choose a family'>
             ${LETTER_FAMILIES.map((letters, index) => `
               <option value='${index}' ${index === this.familyIndex ? 'selected' : ''}>
                 ${ordinal(index + 1)} family · ${letters[0]}
@@ -206,13 +204,13 @@ export class FamilyLessonFeature {
         <section class='workspace family-lesson' aria-label='${familyLabel} lesson'>
 
           ${this.stageIndex === 0 ? `<section class='panel-card card' aria-labelledby='forms-title'>
-            <h3 class='activity-title lesson-section-title' id='forms-title'>${lessonIcon('family')}Seven forms</h3>
+            <h3 class='activity-title lesson-section-title' id='forms-title'>${lessonIcon('listening')}Listening</h3>
             <ol class='family-forms'>
               ${family.map((symbol, index) => `
                 <li>
                   <button class='family-form-btn' type='button' data-action='family-play' data-symbol='${symbol}'
                     aria-label='Play ${FORM_ORDER[index]} form, ${symbol}'>
-                    <span class='family-form-order'>${FORM_ORDER[index]}</span><strong lang='ti'>${symbol}</strong><span class='family-play-label'>Play sound</span>
+                    <span class='family-form-order'>${FORM_ORDER[index]}</span><strong lang='ti'>${symbol}</strong>
                   </button>
                 </li>
               `).join('')}

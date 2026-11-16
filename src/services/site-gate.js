@@ -43,7 +43,8 @@ function showLoginForm(config) {
     overlay.innerHTML = `
       <div class='site-gate-letters' aria-hidden='true'><span>ሀ</span><span>በ</span><span>ሰ</span><span>ቀ</span><span>መ</span></div>
       <form class='site-gate-form' autocomplete='on'>
-        <h1>Eritrean Mother Language and Culture Bern<small>ፊደላት · Fidelat</small></h1>
+        <div class='site-gate-eyebrow'>Tigrinya Fidel learning</div>
+        <h1>Eritrean Language and Culture School Bern</h1>
         <p>Welcome! Please log in to start learning. 🌟</p>
         <label>Username <input name='username' autocomplete='username' required autofocus></label>
         <label>Password <input name='password' type='password' autocomplete='current-password' required></label>

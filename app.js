@@ -2,12 +2,12 @@ import { SECTION_HASHES, parsePracticeRoute, practiceHash, practiceOptions } fro
 import { VARIANT_NAMES } from './src/data/fidelat-data.js';
 import { ProgressStore } from './src/core/progress-store.js?v=test2-3';
 import { AlphabetExplorerFeature } from './src/features/alphabet-explorer.js';
-import { FamilyLessonFeature } from './src/features/family-lesson.js';
+import { FamilyLessonFeature } from './src/features/family-lesson.js?v=listening-1';
 import { DragDropFeature } from './src/features/drag-drop.js';
 import { AdditionalLettersFeature } from './src/features/additional-letters.js';
 import { ListenMatchFeature } from './src/features/listen-match.js?v=test2-3';
 import { AudioService } from './src/services/audio-service.js';
-import { requireSiteLogin, logoutSite } from './src/services/site-gate.js';
+import { requireSiteLogin, logoutSite } from './src/services/site-gate.js?v=listening-1';
 import { StorageService } from './src/services/storage-service.js?v=test2-3';
 import { THEME_OPTIONS, getThemeFrameVars } from './src/services/theme-service.js';
 
@@ -1068,13 +1068,10 @@ class FidelatApp {
 
     return `
       <header class='top-shell card'>
-        <div class='brand-block'>
-          <div class='eyebrow'>Tigrinya Fidel learning</div>
-          <h1>Eritrean Language and Culture School Bern</h1>
-          <p class='hero-copy'>${adminRoute
-            ? this.store.getText('auth.adminIntro', {}, null)
-            : 'Learn one alphabet family at a time with audio, exercises, and reading practice.'}</p>
-        </div>
+        ${adminRoute ? `<div class='brand-block'>
+          <h1>Admin</h1>
+          <p class='hero-copy'>${this.store.getText('auth.adminIntro', {}, null)}</p>
+        </div>` : ''}
         <div class='menu-side'>
           ${navigation}
           ${adminRoute || LEARNER_LOGIN_ENABLED ? `<div class='profile-bar'>

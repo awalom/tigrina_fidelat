@@ -1156,10 +1156,8 @@ h1 {
 .family-sidebar,
 .family-lesson .panel-card { padding: clamp(14px, 2vw, 22px); }
 .family-sidebar { position: sticky; top: 12px; }
-.family-sidebar-title { margin: 0 0 12px; font-size: 1.15rem; }
-.family-selector-label { display: block; margin-bottom: 6px; color: var(--muted); font-size: .85rem; }
 .family-selector { width: 100%; min-height: 48px; }
-.family-form-order, .family-play-label { color: var(--muted); font-size: .75rem; }
+.family-form-order { color: var(--muted); font-size: .75rem; }
 .family-lesson { min-width: 0; }
 .family-lesson .activity-actions { justify-content: center; }
 .family-exercise .exercise-prompt { justify-content: center; }
@@ -1457,8 +1455,8 @@ summary:focus-visible { outline: 3px solid #2156a0; outline-offset: 2px; }
 .site-gate-letters span:nth-child(5) { left: 44%; top: 3%; color: #f09a1a; animation-delay: -4s; }
 @keyframes site-gate-float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
 .site-gate-form { position: relative; display: grid; gap: 14px; width: min(94vw, 420px); padding: 28px 24px; text-align: center; background: #fffdf7; border: 5px solid #f09a1a; border-radius: 28px; box-shadow: 0 10px 0 #d9801a, 0 24px 40px rgba(0, 0, 0, 0.2); }
+.site-gate-eyebrow { color: #3b2a00; font-size: .8rem; font-weight: 800; text-transform: uppercase; }
 .site-gate-form h1 { margin: 0; font-size: clamp(1.4rem, 5vw, 1.8rem); line-height: 1.25; color: #2b4a8b; }
-.site-gate-form h1 small { display: block; margin-top: 4px; font-size: 1rem; color: #e0543c; }
 .site-gate-form p { margin: 0; font-size: 1.1rem; color: #4a4a4a; }
 .site-gate-form label { display: grid; gap: 6px; text-align: left; font-size: 1.15rem; font-weight: 700; color: #2b4a8b; }
 .site-gate-form input { width: 100%; padding: 12px 14px; box-sizing: border-box; font-size: 1.2rem; border: 3px solid #9ec5f0; border-radius: 16px; background: #fff; }
@@ -1666,6 +1664,23 @@ body[data-view='dragdrop'] .drop-slot:not(.is-filled) .drop-value { font-size: 1
 
   .family-lesson .panel-card {
     padding: 12px;
+  }
+
+  .family-sidebar {
+    padding: 8px;
+  }
+
+  .family-form-btn {
+    min-height: 78px;
+    align-content: center;
+  }
+
+  .family-form-btn strong {
+    font-size: 1.75rem;
+  }
+
+  .family-lesson .lesson-section-title {
+    font-size: 1rem;
   }
 
   .lesson-navigation {
