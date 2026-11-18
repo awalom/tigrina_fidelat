@@ -39,6 +39,17 @@ test('every configured family has seven forms in order and each form has root au
   assert.deepEqual(LETTER_FAMILIES.find(family => family[0] === 'በ'), ['በ', 'ቡ', 'ቢ', 'ባ', 'ቤ', 'ብ', 'ቦ']);
 });
 
+test('each family links to its printable A4 PDF worksheet', async () => {
+  const lesson = new FamilyLessonFeature({ playSymbol: async () => {} });
+  for (const [familyIndex, family] of LETTER_FAMILIES.entries()) {
+    lesson.selectFamily(familyIndex);
+    const fileName = `family-${String(familyIndex + 1).padStart(2, '0')}.pdf`;
+    assert.ok(lesson.render().includes(`href='writing-excercises/${fileName}'`), family[0]);
+    const pdf = await readFile(new URL(`../writing-excercises/${fileName}`, import.meta.url));
+    assert.equal(pdf.subarray(0, 5).toString(), '%PDF-', family[0]);
+  }
+});
+
 test('local reading file contains seven varied same-family two- and three-form drills for every family', () => {
   assert.deepEqual(Object.keys(familyReadings), LETTER_FAMILIES.map(family => family[0]));
   for (const family of LETTER_FAMILIES) {

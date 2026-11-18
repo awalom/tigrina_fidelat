@@ -18,6 +18,7 @@ GitHub Pages.
 | `src/services/` | Audio, storage, themes, routing helpers, site login gate |
 | `audio/`, `extra-letters/`, `sounds.json` | Letter recordings and the symbol → file mapping |
 | `assets/fonts/` | Bundled Noto Sans Ethiopic |
+| `writing-excercises/` | Printable A4 PDF handwriting worksheets for all 27 alphabet families (regenerate with `node tools/generate-worksheets.mjs`) |
 | `data/` | Source word-frequency corpus used to prepare reading content (not deployed) |
 | `tools/` | Maintenance scripts (login config generator, audio processing) |
 | `tests/` | Node test suite |

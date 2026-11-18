@@ -199,6 +199,12 @@ export class FamilyLessonFeature {
               </option>
             `).join('')}
           </select>
+          <a class='secondary-btn worksheet-link'
+            href='writing-excercises/family-${String(this.familyIndex + 1).padStart(2, '0')}.pdf'
+            target='_blank' rel='noopener'
+            aria-label='Open the ${familyLabel} ${family[0]} handwriting worksheet to print'>
+            Print handwriting worksheet · ${family[0]}
+          </a>
         </aside>
 
         <section class='workspace family-lesson' aria-label='${familyLabel} lesson'>

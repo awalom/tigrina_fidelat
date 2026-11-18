@@ -1157,6 +1157,7 @@ h1 {
 .family-lesson .panel-card { padding: clamp(14px, 2vw, 22px); }
 .family-sidebar { position: sticky; top: 12px; }
 .family-selector { width: 100%; min-height: 48px; }
+.worksheet-link { display: flex; align-items: center; justify-content: center; margin-top: 12px; text-align: center; text-decoration: none; }
 .family-form-order { color: var(--muted); font-size: .75rem; }
 .family-lesson { min-width: 0; }
 .family-lesson .activity-actions { justify-content: center; }
