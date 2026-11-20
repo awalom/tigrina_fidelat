@@ -58,9 +58,11 @@ node --test tests/*.test.mjs
 
 ## Deploy and login
 
-Pushing to `main` runs `.github/workflows/static.yml`, which publishes only the site files and
-generates `auth-config.json` (a salted PBKDF2 hash, never the plaintext) from the repository
-secrets `SITE_USERNAME` and `SITE_PASSWORD` (Settings → Secrets and variables → Actions).
+Set Settings → Pages → Build and deployment → Source to **GitHub Actions**. Pushing to `main`
+or manually running `.github/workflows/static.yml` publishes only the site files to GitHub Pages.
+If both repository secrets `SITE_USERNAME` and `SITE_PASSWORD` are configured (Settings →
+Secrets and variables → Actions), the workflow generates `auth-config.json` with a salted PBKDF2
+hash, never the plaintext. If either secret is missing, it warns and deploys without a login.
 
 GitHub Pages is static, so this login is a client-side gate that keeps casual visitors out; it is
 not strong security.
